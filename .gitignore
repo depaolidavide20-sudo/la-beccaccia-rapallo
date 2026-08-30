@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# Local dependencies and logs, only needed if you run optional tests
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local build or tool output
+dist/
+.wrangler/
+.vinext/
+.next/
+
+# Local secrets
+.env*
