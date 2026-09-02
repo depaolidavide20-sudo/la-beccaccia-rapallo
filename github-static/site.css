@@ -5817,17 +5817,17 @@ body.menu-open .site-header {
   .site-header,
   .site-header.is-scrolled,
   body.menu-open .site-header {
-    height: 3.95rem;
-    min-height: 3.95rem;
+    height: 4.55rem;
+    min-height: 4.55rem;
   }
 
   .site-header .header-brand-mark.brand-logo {
-    width: 8.3rem;
-    height: 3.35rem;
+    width: 8.55rem;
+    height: 3.48rem;
   }
 
   .site-header .brand-logo-img {
-    transform: scale(1.35) translateZ(0);
+    transform: scale(1.28) translateZ(0);
   }
 
   .catalog-section-note {
