@@ -5,20 +5,21 @@ Sito statico HTML/CSS/JS per il ristorante **La Beccaccia Rapallo**, costruito m
 ## Note contenuto
 
 - La sezione "La nostra storia" non è presente.
-- Tutti gli spazi fotografici usano un placeholder nero temporaneo in `assets/photo-placeholder.svg`.
+- La sezione "Eventi" non è presente.
+- La hero usa il carosello fotografico in `assets/hero/`; il carosello Ristorante usa le foto in `assets/restaurant-carousel/`.
+- Gli altri spazi fotografici usano un placeholder nero temporaneo in `assets/photo-placeholder.svg`.
 - I dati principali del ristorante sono aggiornati su indirizzo, telefono, email, orari e P.IVA.
 
-## File da caricare
+## Cartella GitHub
 
-Per una pubblicazione semplice, carica questi file nella root del repository o dell'hosting:
+La cartella `github-static/` contiene solo i file richiesti per una pubblicazione statica:
 
 - `index.html`
 - `site.css`
 - `site.js`
-- `favicon.svg`
 - `assets/`
 
-Il placeholder nero temporaneo per hero, location e ristorante è nella cartella `assets/`.
+Le immagini della hero sono in `github-static/assets/hero/`, quelle del carosello Ristorante in `github-static/assets/restaurant-carousel/`; il placeholder nero temporaneo per gli altri spazi è in `github-static/assets/photo-placeholder.svg`.
 
 ## Come provarlo
 

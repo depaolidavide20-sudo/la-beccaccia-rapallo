@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Sito per Ristorante La Beccaccia a Rapallo: brace, cucina ligure, pasta fresca, funghi, tartufi ed eventi privati." />
+    <meta name="description" content="Sito per Ristorante La Beccaccia a Rapallo: brace, cucina ligure, pasta fresca, funghi e tartufi." />
     <meta name="google" content="notranslate" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#070d0a" />
@@ -14,6 +14,8 @@
     <title>La Beccaccia Rapallo | Brace e cucina a Rapallo</title>
     <link rel="canonical" href="https://www.ristorantelabeccacciarapallo.it/" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preload" as="image" href="assets/hero/hero-fire-desktop.jpg" type="image/jpeg" media="(orientation: landscape)" />
+    <link rel="preload" as="image" href="assets/hero/hero-fire-mobile.jpg" type="image/jpeg" media="(orientation: portrait)" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="site.css" />
@@ -24,14 +26,16 @@
 <a class="skip-link" href="#main" data-i18n="skip">Vai al contenuto</a>
 
 <header class="site-header" data-header>
-  <a class="brand brand-mark header-brand-mark brand-wordmark" href="#top" aria-label="La Beccaccia, torna all'inizio">
-    <span>La Beccaccia</span>
+  <a class="brand brand-mark header-brand-mark brand-logo" href="#top" aria-label="La Beccaccia, torna all'inizio">
+    <picture>
+      <source media="(max-width: 760px)" srcset="assets/brand/la-beccaccia-logo-mobile.png" width="1213" height="1296" />
+      <img class="brand-logo-img" src="assets/brand/la-beccaccia-logo-desktop.png" width="2172" height="724" alt="La Beccaccia Antico Ristorante" decoding="async" />
+    </picture>
   </a>
 
   <nav class="desktop-nav" aria-label="Navigazione principale">
     <a href="#ristorante" data-i18n="nav.restaurant">Ristorante</a>
     <a href="#location" data-i18n="nav.location">Location</a>
-    <a href="#eventi" data-i18n="nav.luggage">Eventi</a>
     <a href="#recensioni" data-i18n="nav.reviews">Recensioni</a>
     <a href="#contatti" data-i18n="nav.contacts">Contatti</a>
   </nav>
@@ -42,7 +46,7 @@
       <span>/</span>
       <button type="button" data-lang="en" aria-pressed="false">EN</button>
     </div>
-    <a class="book-link" href="#prenota" data-booking-trigger data-context="Prenotazione tavolo">
+    <a class="book-link" href="https://wa.me/393286577160" data-booking-trigger data-context="Prenotazione tavolo">
       <span data-i18n="cta.book">Prenota</span>
       <svg class="whatsapp-cta-icon" viewBox="0 0 24 24" aria-hidden="true">
         <path class="whatsapp-icon-mark" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.051 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.999-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.002-5.45 4.436-9.884 9.889-9.884a9.822 9.822 0 0 1 6.988 2.899 9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.883-9.887 9.883M20.52 3.449A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.946L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.52 3.449"></path>
@@ -61,11 +65,10 @@
     <nav aria-label="Navigazione mobile">
       <a href="#ristorante"><span>01</span><b data-i18n="nav.restaurant">Ristorante</b><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 19 19"></path><path d="M10 19h9v-9"></path></svg></a>
       <a href="#location"><span>02</span><b data-i18n="nav.location">Location</b><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 19 19"></path><path d="M10 19h9v-9"></path></svg></a>
-      <a href="#eventi"><span>03</span><b data-i18n="nav.luggage">Eventi</b><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 19 19"></path><path d="M10 19h9v-9"></path></svg></a>
-      <a href="#recensioni"><span>04</span><b data-i18n="nav.reviews">Recensioni</b><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 19 19"></path><path d="M10 19h9v-9"></path></svg></a>
-      <a href="#contatti"><span>05</span><b data-i18n="nav.contacts">Contatti</b><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 19 19"></path><path d="M10 19h9v-9"></path></svg></a>
+      <a href="#recensioni"><span>03</span><b data-i18n="nav.reviews">Recensioni</b><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 19 19"></path><path d="M10 19h9v-9"></path></svg></a>
+      <a href="#contatti"><span>04</span><b data-i18n="nav.contacts">Contatti</b><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 19 19"></path><path d="M10 19h9v-9"></path></svg></a>
     </nav>
-    <a class="menu-book" href="#prenota" data-booking-trigger data-context="Prenotazione tavolo">
+    <a class="menu-book" href="https://wa.me/393286577160" data-booking-trigger data-context="Prenotazione tavolo">
       <span data-i18n="cta.bookTable">Prenota un tavolo</span>
       <svg class="whatsapp-cta-icon" viewBox="0 0 24 24" aria-hidden="true">
         <path class="whatsapp-icon-mark" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.051 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.999-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.002-5.45 4.436-9.884 9.889-9.884a9.822 9.822 0 0 1 6.988 2.899 9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.883-9.887 9.883M20.52 3.449A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.946L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.52 3.449"></path>
@@ -84,32 +87,56 @@
 
 <main id="main">
   <section class="hero" id="top" aria-label="La Beccaccia Rapallo, ristorante brace e cucina a Rapallo">
-    <picture class="hero-picture">
-      <source media="(max-width: 760px)" srcset="assets/photo-placeholder.svg" />
-      <img
-        class="hero-image image-placeholder"
-        src="assets/photo-placeholder.svg"
-        width="1672"
-        height="941"
-        fetchpriority="high"
-        decoding="async"
-        alt=""
-        aria-hidden="true"
-      />
-    </picture>
+    <div class="hero-carousel" data-hero-carousel aria-hidden="true">
+      <figure class="hero-slide hero-slide-fire is-active" data-hero-slide>
+        <picture>
+          <source media="(orientation: portrait)" srcset="assets/hero/hero-fire-mobile.jpg" width="941" height="1672" />
+          <img class="hero-slide-image" src="assets/hero/hero-fire-desktop.jpg" width="1323" height="1189" fetchpriority="high" decoding="async" alt="" />
+        </picture>
+      </figure>
+      <figure class="hero-slide hero-slide-served" data-hero-slide>
+        <picture>
+          <source media="(orientation: portrait)" srcset="assets/hero/hero-served-steak-mobile.jpg" width="941" height="1672" />
+          <img class="hero-slide-image" src="assets/hero/hero-served-steak-desktop.jpg" width="1536" height="1024" loading="lazy" fetchpriority="low" decoding="async" alt="" />
+        </picture>
+      </figure>
+      <figure class="hero-slide hero-slide-pasta" data-hero-slide>
+        <picture>
+          <source media="(orientation: portrait)" srcset="assets/hero/hero-pasta-mobile.jpg" width="941" height="1672" />
+          <img class="hero-slide-image" src="assets/hero/hero-pasta-desktop.jpg" width="1672" height="941" loading="lazy" fetchpriority="low" decoding="async" alt="" />
+        </picture>
+      </figure>
+      <figure class="hero-slide hero-slide-gourmet" data-hero-slide>
+        <picture>
+          <source media="(orientation: portrait)" srcset="assets/hero/hero-gourmet-mobile.jpg" width="941" height="1672" />
+          <img class="hero-slide-image" src="assets/hero/hero-gourmet-desktop.jpg" width="1672" height="941" loading="lazy" fetchpriority="low" decoding="async" alt="" />
+        </picture>
+      </figure>
+    </div>
     <div class="hero-shade"></div>
 
     <div class="hero-title-wrap">
-      <p class="hero-overline" data-i18n="hero.overline">Brace &amp; Cucina</p>
-      <h1><span class="hero-title-desktop">La Beccaccia</span><span class="hero-title-mobile">LA BECCACCIA</span></h1>
-      <div class="hero-address">
-        <p>Rapallo</p>
-        <p>Riviera ligure</p>
+      <h1><span class="hero-title-desktop">LA BECCACCIA</span><span class="hero-title-mobile">LA BECCACCIA</span></h1>
+      <div class="hero-socials hero-socials-center" aria-label="Social La Beccaccia">
+        <a class="hero-social-link" href="https://www.instagram.com/la_beccaccia_rapallo" target="_blank" rel="noreferrer" aria-label="Segui La Beccaccia su Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.2"></rect>
+            <circle cx="12" cy="12" r="4.1"></circle>
+            <circle class="instagram-dot" cx="17.3" cy="6.9" r="0.9"></circle>
+          </svg>
+          <span>Instagram</span>
+        </a>
+        <a class="hero-social-link" href="https://www.facebook.com/ristorantelabeccacciarapallo?mibextid=wwXIfr&amp;rdid=qrMfuuHQm0plCAgv&amp;share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1DXX33GFeP%2F%3Fmibextid%3DwwXIfr#" target="_blank" rel="noreferrer" aria-label="Segui La Beccaccia su Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path class="facebook-mark" d="M14.1 8.1h2.1V4.5c-.36-.05-1.61-.16-3.06-.16-3.03 0-5.1 1.85-5.1 5.25v2.96H4.7v4.03h3.34v7.08h4.1v-7.08h3.21l.51-4.03h-3.72V9.99c0-1.16.32-1.89 1.96-1.89Z"></path>
+          </svg>
+          <span>Facebook</span>
+        </a>
       </div>
-      <p class="hero-hours" data-i18n-html="hero.hours"><span>APERTO TUTTO L'ANNO</span> CARNE ALLA BRACE - CUCINA LIGURE - FUNGHI - TARTUFI</p>
+      <p class="hero-manifesto" data-i18n-html="hero.manifesto">Ristorante a Rapallo.<br />Cucina ligure, brace e tartufo.</p>
       <div class="hero-actions" aria-label="Azioni principali">
-        <a class="hero-primary" href="#prenota" data-booking-trigger data-context="Prenotazione tavolo">
-          <span data-i18n="cta.bookTable">Prenota un tavolo</span>
+        <a class="hero-primary" href="https://wa.me/393286577160" data-booking-trigger data-context="Prenotazione tavolo">
+          <span data-i18n="cta.heroBook">PRENOTA IL TUO TAVOLO</span>
           <svg class="whatsapp-cta-icon" viewBox="0 0 24 24" aria-hidden="true">
         <path class="whatsapp-icon-mark" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.051 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.999-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.002-5.45 4.436-9.884 9.889-9.884a9.822 9.822 0 0 1 6.988 2.899 9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.883-9.887 9.883M20.52 3.449A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.946L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.52 3.449"></path>
       </svg>
@@ -117,42 +144,12 @@
       </div>
     </div>
 
-    <div class="hero-socials" aria-label="Link utili La Beccaccia">
-      <a
-        class="hero-social-link"
-        href="https://www.instagram.com/labeccacciarapallo/"
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Segui La Beccaccia su Instagram"
-      >
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="3" y="3" width="18" height="18" rx="5"></rect>
-          <circle cx="12" cy="12" r="4.2"></circle>
-          <circle cx="17.5" cy="6.7" r="0.8" class="instagram-dot"></circle>
-        </svg>
-        <span>Instagram</span>
-      </a>
-      <a
-        class="hero-social-link"
-        href="https://www.ristorantelabeccacciarapallo.it/"
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Visita il sito di La Beccaccia"
-      >
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M5 19 19 5"></path><path d="M9 5h10v10"></path>
-        </svg>
-        <span>Sito web</span>
-      </a>
+    <div class="hero-indicators" data-hero-indicators aria-label="Sequenza fotografica hero">
+      <button class="is-active" type="button" data-hero-indicator="0" aria-current="true" aria-label="Fuoco e braciere"></button>
+      <button type="button" data-hero-indicator="1" aria-label="Carne servita"></button>
+      <button type="button" data-hero-indicator="2" aria-label="Piatto di pasta"></button>
+      <button type="button" data-hero-indicator="3" aria-label="Cucina gourmet"></button>
     </div>
-
-    <div class="hero-edge hero-edge-left" data-i18n="hero.edge">Brace, funghi &amp; tradizione ligure</div>
-    <div class="hero-edge hero-edge-right">44.3496° N · 9.2297° E</div>
-
-    <a class="scroll-cue" href="#ristorante" aria-label="Scopri La Beccaccia">
-      <span data-i18n="hero.discover">Scopri La Beccaccia</span>
-      <i aria-hidden="true"></i>
-    </a>
 
   </section>
 
@@ -172,69 +169,33 @@
     <div class="food-carousel reveal reveal-delay">
       <div class="food-track" data-food-track tabindex="0" aria-label="Carosello dei piatti di La Beccaccia">
         <figure class="food-card">
-          <img class="image-placeholder" src="assets/photo-placeholder.svg" width="1086" height="1448" alt="" loading="lazy" decoding="async" />
-          <figcaption><span>01</span><p data-i18n="food.catch">Cristallo, Orto e Liguria</p></figcaption>
+          <img class="restaurant-photo" src="assets/restaurant-carousel/restaurant-01.jpg" width="1254" height="1254" alt="Piatto gourmet con pasta ripiena su piatto verde" loading="lazy" decoding="async" />
         </figure>
         <figure class="food-card food-card-offset">
-          <img class="image-placeholder" src="assets/photo-placeholder.svg" width="1086" height="1448" alt="" loading="lazy" decoding="async" />
-          <figcaption><span>02</span><p data-i18n="food.pizza">La Beccaccia</p></figcaption>
+          <img class="restaurant-photo" src="assets/restaurant-carousel/restaurant-02.jpg" width="1122" height="1402" alt="Tartare gourmet su piatto bianco" loading="lazy" decoding="async" />
         </figure>
         <figure class="food-card">
-          <img class="image-placeholder" src="assets/photo-placeholder.svg" width="1061" height="1455" alt="" loading="lazy" decoding="async" />
-          <figcaption><span>03</span><p data-i18n="food.seafood">Il Maialino</p></figcaption>
+          <img class="restaurant-photo" src="assets/restaurant-carousel/restaurant-03.jpg" width="1122" height="1402" alt="Pasta cremosa con funghi su piatto bianco" loading="lazy" decoding="async" />
         </figure>
         <figure class="food-card food-card-offset">
-          <img class="image-placeholder" src="assets/photo-placeholder.svg" width="1086" height="1448" alt="" loading="lazy" decoding="async" />
-          <figcaption><span>04</span><p data-i18n="food.pasta">Filetto Cappon Magro</p></figcaption>
+          <img class="restaurant-photo" src="assets/restaurant-carousel/restaurant-04.jpg" width="1254" height="1254" alt="Carne rossa con patate, ribes e tartufo" loading="lazy" decoding="async" />
         </figure>
         <figure class="food-card">
-          <img class="image-placeholder" src="assets/photo-placeholder.svg" width="1086" height="1448" alt="" loading="lazy" decoding="async" />
-          <figcaption><span>05</span><p data-i18n="food.ligurian">Millefoglie d'Anatra</p></figcaption>
+          <img class="restaurant-photo" src="assets/restaurant-carousel/restaurant-05.jpg" width="1122" height="1402" alt="Piatto servito con carne glassata e contorno" loading="lazy" decoding="async" />
         </figure>
         <figure class="food-card food-card-offset">
-          <img class="image-placeholder" src="assets/photo-placeholder.svg" width="1448" height="1086" alt="" loading="lazy" decoding="async" />
-          <figcaption><span>06</span><p data-i18n="food.frittoMisto">Il Tagliere Rustico</p></figcaption>
+          <img class="restaurant-photo" src="assets/restaurant-carousel/restaurant-06.jpg" width="1254" height="1254" alt="Carne rossa con patate e rosmarino sulla brace" loading="lazy" decoding="async" />
         </figure>
         <figure class="food-card">
-          <img class="image-placeholder" src="assets/photo-placeholder.svg" width="1122" height="1402" alt="" loading="lazy" decoding="async" />
-          <figcaption><span>07</span><p data-i18n="food.meatCellar">Finto Foie Gras</p></figcaption>
+          <img class="restaurant-photo" src="assets/restaurant-carousel/restaurant-07.jpg" width="1086" height="1448" alt="Dessert con frutti di bosco e crema" loading="lazy" decoding="async" />
         </figure>
         <figure class="food-card food-card-offset">
-          <img class="image-placeholder" src="assets/photo-placeholder.svg" width="1086" height="1448" alt="" loading="lazy" decoding="async" />
-          <figcaption><span>08</span><p data-i18n="food.fiorentina">Giardino in Tavola</p></figcaption>
-        </figure>
-        <figure class="food-card">
-          <img class="image-placeholder" src="assets/photo-placeholder.svg" width="1086" height="1448" alt="" loading="lazy" decoding="async" />
-          <figcaption><span>09</span><p data-i18n="food.ribs">Pansoti au sö</p></figcaption>
-        </figure>
-        <figure class="food-card food-card-offset">
-          <img class="image-placeholder" src="assets/photo-placeholder.svg" width="1125" height="1398" alt="" loading="lazy" decoding="async" />
-          <figcaption><span>10</span><p data-i18n="food.seafoodSalad">La Carlona</p></figcaption>
-        </figure>
-        <figure class="food-card">
-          <img class="image-placeholder" src="assets/photo-placeholder.svg" width="1130" height="1392" alt="" loading="lazy" decoding="async" />
-          <figcaption><span>11</span><p data-i18n="food.seafoodTasting">Maschetta Fondente</p></figcaption>
-        </figure>
-        <figure class="food-card food-card-offset">
-          <img class="image-placeholder" src="assets/photo-placeholder.svg" width="1683" height="934" alt="" loading="lazy" decoding="async" />
-          <figcaption><span>12</span><p data-i18n="food.ravioliPesto">Cruda in Riviera</p></figcaption>
-        </figure>
-        <figure class="food-card">
-          <img class="image-placeholder" src="assets/photo-placeholder.svg" width="1448" height="1086" alt="" loading="lazy" decoding="async" />
-          <figcaption><span>13</span><p data-i18n="food.tunaTagliata">Fassona Piemontese</p></figcaption>
-        </figure>
-        <figure class="food-card food-card-offset">
-          <img class="image-placeholder" src="assets/photo-placeholder.svg" width="1287" height="1222" alt="" loading="lazy" decoding="async" />
-          <figcaption><span>14</span><p data-i18n="food.semifreddo">Picanha</p></figcaption>
-        </figure>
-        <figure class="food-card">
-          <img class="image-placeholder" src="assets/photo-placeholder.svg" width="941" height="1672" alt="" loading="lazy" decoding="async" />
-          <figcaption><span>15</span><p data-i18n="food.houseDessert">Il Beccaccino</p></figcaption>
+          <img class="restaurant-photo" src="assets/restaurant-carousel/restaurant-08.jpg" width="1254" height="1254" alt="Dessert al cioccolato con gelato e ciliegia" loading="lazy" decoding="async" />
         </figure>
       </div>
 
       <div class="carousel-footer">
-        <p><span data-food-current>01</span> / 15</p>
+        <p><span data-food-current>01</span> / 08</p>
         <div class="carousel-arrows">
           <button type="button" data-food-prev aria-label="Piatto precedente"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4"></path><path d="m10 6-6 6 6 6"></path></svg></button>
           <button type="button" data-food-next aria-label="Piatto successivo"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16"></path><path d="m14 6 6 6-6 6"></path></svg></button>
@@ -258,36 +219,48 @@
       <h2 data-i18n="nav.location">Location</h2>
       <div class="heading-copy">
         <p data-i18n="location.copy1">Via Santa Maria del Campo 176, sulle prime alture di Rapallo.</p>
-        <p data-i18n="location.copy2">Sala, grande braciere a vista, veranda e giardino per pranzi, cene ed eventi.</p>
+        <p data-i18n="location.copy2">Sala, grande braciere a vista, veranda e giardino per pranzi e cene.</p>
       </div>
     </div>
 
     <div class="location-carousel reveal reveal-delay">
       <div class="location-track" data-location-track tabindex="0" aria-label="Carosello degli ambienti di La Beccaccia">
         <figure class="location-card">
-          <img class="image-placeholder" src="assets/photo-placeholder.svg" width="1086" height="1448" alt="" loading="lazy" decoding="async" />
+          <img src="assets/location-carousel/location-01.jpg" width="1448" height="1086" alt="Sala panoramica di La Beccaccia con tavoli apparecchiati" loading="lazy" decoding="async" />
           <figcaption><span>01</span><p data-i18n="location.front">La sala</p></figcaption>
         </figure>
         <figure class="location-card">
-          <img class="image-placeholder" src="assets/photo-placeholder.svg" width="1448" height="1086" alt="" loading="lazy" decoding="async" />
-          <figcaption><span>02</span><p data-i18n="location.room">Il braciere</p></figcaption>
+          <img src="assets/location-carousel/location-02.jpg" width="1445" height="1088" alt="Veranda panoramica con vista sulle alture di Rapallo" loading="lazy" decoding="async" />
+          <figcaption><span>02</span><p data-i18n="location.room">La veranda</p></figcaption>
         </figure>
         <figure class="location-card">
-          <img class="image-placeholder" src="assets/photo-placeholder.svg" width="1088" height="1445" alt="" loading="lazy" decoding="async" />
-          <figcaption><span>03</span><p data-i18n="location.table">La veranda</p></figcaption>
+          <img src="assets/location-carousel/location-03.jpg" width="1448" height="1086" alt="Tavoli accanto alle grandi vetrate con vista sulle colline" loading="lazy" decoding="async" />
+          <figcaption><span>03</span><p data-i18n="location.table">Vista panoramica</p></figcaption>
         </figure>
         <figure class="location-card">
-          <img class="image-placeholder" src="assets/photo-placeholder.svg" width="1086" height="1448" alt="" loading="lazy" decoding="async" />
-          <figcaption><span>04</span><p data-i18n="location.terrace1">Il giardino</p></figcaption>
+          <img src="assets/location-carousel/location-04.jpg" width="1449" height="1086" alt="Sala interna di La Beccaccia illuminata dal sole" loading="lazy" decoding="async" />
+          <figcaption><span>04</span><p data-i18n="location.terrace1">Sala interna</p></figcaption>
         </figure>
         <figure class="location-card">
-          <img class="image-placeholder" src="assets/photo-placeholder.svg" width="1086" height="1448" alt="" loading="lazy" decoding="async" />
-          <figcaption><span>05</span><p data-i18n="location.terrace3">L'atmosfera</p></figcaption>
+          <img src="assets/location-carousel/location-05.jpg" width="1451" height="1084" alt="Tavolo apparecchiato nella veranda circondata dal verde" loading="lazy" decoding="async" />
+          <figcaption><span>05</span><p data-i18n="location.terrace3">Il giardino</p></figcaption>
+        </figure>
+        <figure class="location-card">
+          <img src="assets/location-carousel/location-06.jpg" width="1448" height="1086" alt="Angolo panoramico della veranda di La Beccaccia" loading="lazy" decoding="async" />
+          <figcaption><span>06</span><p data-i18n="location.details">La vista</p></figcaption>
+        </figure>
+        <figure class="location-card">
+          <img src="assets/location-carousel/location-07.jpg" width="1448" height="1086" alt="Dehors di La Beccaccia con menu rossi, fiori e tavoli all'aperto" loading="lazy" decoding="async" />
+          <figcaption><span>07</span><p data-i18n="location.dehors">Il dehors</p></figcaption>
+        </figure>
+        <figure class="location-card">
+          <img src="assets/location-carousel/location-08.jpg" width="1448" height="1086" alt="Tavoli esterni di La Beccaccia sotto gli ombrelloni e circondati dal verde" loading="lazy" decoding="async" />
+          <figcaption><span>08</span><p data-i18n="location.gardenTables">Tavoli nel verde</p></figcaption>
         </figure>
       </div>
 
       <div class="carousel-footer carousel-footer-dark">
-        <p><span data-location-current>01</span> / 05</p>
+        <p><span data-location-current>01</span> / 08</p>
         <div class="carousel-arrows">
           <button type="button" data-location-prev aria-label="Ambiente precedente"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4"></path><path d="m10 6-6 6 6 6"></path></svg></button>
           <button type="button" data-location-next aria-label="Ambiente successivo"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16"></path><path d="m14 6 6 6-6 6"></path></svg></button>
@@ -296,51 +269,10 @@
     </div>
   </section>
 
-  <section class="luggage-section section-dark" id="eventi">
-    <div class="luggage-panel reveal">
-      <p class="section-kicker" data-i18n="luggage.kicker">03 EVENTI</p>
-      <h2 data-i18n="luggage.title">Eventi privati</h2>
-      <p data-i18n="luggage.copy">Veranda e giardino accolgono cerimonie, matrimoni e feste private con proposte su richiesta.</p>
-      <div class="luggage-actions">
-        <a class="contact-book" href="#eventi-form" data-luggage-trigger>
-          <span data-i18n="luggage.book">Richiedi informazioni</span>
-          <svg class="whatsapp-cta-icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path class="whatsapp-icon-mark" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.051 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.999-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.002-5.45 4.436-9.884 9.889-9.884a9.822 9.822 0 0 1 6.988 2.899 9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.883-9.887 9.883M20.52 3.449A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.946L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.52 3.449"></path>
-          </svg>
-        </a>
-        <a class="contact-book contact-call" href="tel:+393286577160">
-          <span data-i18n="cta.call">Chiama ora</span>
-          <svg class="phone-line-icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M21.3 16.9v2.35a2.1 2.1 0 0 1-2.28 2.1 20.1 20.1 0 0 1-8.76-3.12 19.7 19.7 0 0 1-6.08-6.08 20.1 20.1 0 0 1-3.12-8.8A2.1 2.1 0 0 1 3.15 1.1h2.35a2.1 2.1 0 0 1 2.08 1.8c.13 1 .36 1.98.7 2.92a2.1 2.1 0 0 1-.48 2.17L6.8 9a16.1 16.1 0 0 0 7.2 7.2l1.01-1a2.1 2.1 0 0 1 2.17-.49c.94.35 1.92.58 2.92.71a2.1 2.1 0 0 1 1.2 1.48Z"></path>
-          </svg>
-        </a>
-      </div>
-    </div>
-    <div class="luggage-service-card reveal reveal-delay">
-      <div class="luggage-service-head">
-        <span data-i18n="luggage.badge">Sale e giardino</span>
-      </div>
-      <div class="luggage-options" aria-label="Tipologie eventi">
-        <article>
-          <span data-i18n="luggage.large">Cerimonie</span>
-          <strong>Su richiesta</strong>
-        </article>
-        <article>
-          <span data-i18n="luggage.medium">Matrimoni</span>
-          <strong>Su richiesta</strong>
-        </article>
-        <article>
-          <span data-i18n="luggage.backpack">Feste private</span>
-          <strong>Su richiesta</strong>
-        </article>
-      </div>
-    </div>
-  </section>
-
   <section class="reviews-section" id="recensioni">
     <div class="reviews-intro reveal">
       <div>
-        <p class="section-kicker" data-i18n="reviews.kicker">04 Recensioni</p>
+        <p class="section-kicker" data-i18n="reviews.kicker">03 Recensioni</p>
         <h2 data-i18n="reviews.title">Cosa dicono di noi</h2>
       </div>
     </div>
@@ -370,12 +302,12 @@
     </div>
 
     <div class="reviews-link reveal">
-      <a class="review-text-link" href="https://www.google.com/search?q=La+Beccaccia+Rapallo+recensioni" target="_blank" rel="noreferrer">
+      <a class="review-text-link" href="https://www.tripadvisor.it/Restaurant_Review-g187826-d1865956-Reviews-La_Beccaccia_Brace_E_Cucina-Rapallo_Italian_Riviera_Liguria.html" target="_blank" rel="noreferrer">
         <span data-i18n="reviews.read">Leggi le recensioni</span><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5"></path><path d="M9 5h10v10"></path></svg>
       </a>
       <a
         class="review-cta"
-        href="https://www.google.com/search?q=La+Beccaccia+Rapallo+recensioni"
+        href="https://www.tripadvisor.it/UserReviewEdit-g187826-d1865956-La_Beccaccia_Brace_E_Cucina-Rapallo_Italian_Riviera_Liguria.html"
         target="_blank"
         rel="noreferrer"
       >
@@ -386,7 +318,7 @@
 
   <section class="contact-section" id="contatti">
     <div class="contact-panel reveal">
-      <p class="section-kicker" data-i18n="contacts.kicker">05 Contatti</p>
+      <p class="section-kicker" data-i18n="contacts.kicker">04 Contatti</p>
       <h2 data-i18n="contacts.title">Contatti</h2>
 
       <div class="contact-list">
@@ -413,7 +345,7 @@
       </div>
 
       <div class="contact-actions">
-        <a class="contact-book" href="#prenota" data-booking-trigger data-context="Prenotazione tavolo">
+        <a class="contact-book" href="https://wa.me/393286577160" data-booking-trigger data-context="Prenotazione tavolo">
           <span data-i18n="cta.bookTable">Prenota un tavolo</span>
           <svg class="whatsapp-cta-icon" viewBox="0 0 24 24" aria-hidden="true">
         <path class="whatsapp-icon-mark" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.051 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.999-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.002-5.45 4.436-9.884 9.889-9.884a9.822 9.822 0 0 1 6.988 2.899 9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.883-9.887 9.883M20.52 3.449A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.946L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.52 3.449"></path>
@@ -462,7 +394,7 @@
     <div class="footer-socials" aria-label="Link utili La Beccaccia">
       <a
         class="footer-social-link"
-        href="https://www.instagram.com/labeccacciarapallo/"
+        href="https://www.instagram.com/la_beccaccia_rapallo"
         target="_blank"
         rel="noreferrer"
         aria-label="Segui La Beccaccia su Instagram"
@@ -587,63 +519,6 @@
   </section>
 </div>
 
-<div class="luggage-modal" data-luggage-modal aria-hidden="true" hidden>
-  <button class="luggage-backdrop" type="button" aria-label="Chiudi il form eventi" data-luggage-close></button>
-  <section class="luggage-dialog" role="dialog" aria-modal="true" aria-labelledby="luggage-title" tabindex="-1">
-    <button class="luggage-close" type="button" aria-label="Chiudi" data-luggage-close>
-      <span></span><span></span>
-    </button>
-    <p class="section-kicker" data-i18n="luggage.formKicker">Scrivici su WhatsApp</p>
-    <h2 id="luggage-title" data-i18n-html="luggage.formTitle">Organizza<br /><em>il tuo evento.</em></h2>
-    <p class="booking-intro" data-i18n="luggage.formIntro">
-      Indica il tipo di evento: prepareremo il messaggio e ti chiederemo il consenso prima di aprire WhatsApp.
-    </p>
-
-    <form data-luggage-form>
-      <label>
-        <span data-i18n="form.name">Nome e cognome *</span>
-        <input type="text" name="name" autocomplete="name" required />
-      </label>
-      <div class="form-row">
-        <label>
-          <span data-i18n="form.date">Data</span>
-          <input type="date" name="date" />
-        </label>
-        <label>
-          <span data-i18n="form.time">Orario</span>
-          <input type="time" name="time" />
-        </label>
-      </div>
-      <div class="form-row luggage-form-row">
-        <label>
-          <span data-i18n="luggage.type">Tipo evento *</span>
-          <select name="item" autocomplete="off" required>
-            <option value="" data-i18n="form.choose">Scegli</option>
-            <option value="Cerimonia" data-i18n="luggage.optionLarge">Cerimonia</option>
-            <option value="Matrimonio" data-i18n="luggage.optionMedium">Matrimonio</option>
-            <option value="Festa privata" data-i18n="luggage.optionBackpack">Festa privata</option>
-          </select>
-        </label>
-        <label>
-          <span data-i18n="luggage.quantity">Invitati indicativi</span>
-          <input type="number" name="quantity" min="1" value="20" inputmode="numeric" />
-        </label>
-      </div>
-      <label>
-        <span data-i18n="form.message">Messaggio</span>
-        <textarea name="message" rows="3" data-i18n-placeholder="luggage.placeholder" placeholder="Data, numero ospiti o informazioni utili"></textarea>
-      </label>
-      <button class="whatsapp-submit" type="submit">
-        <span data-i18n="form.submit">Continua su WhatsApp</span>
-        <svg class="whatsapp-cta-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path class="whatsapp-icon-mark" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.051 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.999-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.002-5.45 4.436-9.884 9.889-9.884a9.822 9.822 0 0 1 6.988 2.899 9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.883-9.887 9.883M20.52 3.449A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.946L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.52 3.449"></path>
-        </svg>
-      </button>
-      <p class="form-note" data-i18n="form.note">Nessun dato viene salvato sul sito: prima di aprire WhatsApp ti chiediamo il consenso ai servizi esterni.</p>
-    </form>
-  </section>
-</div>
-
 <div class="legal-modal" data-legal-modal aria-hidden="true" hidden>
   <button class="legal-backdrop" type="button" aria-label="Chiudi le informazioni legali" data-legal-close></button>
   <section class="legal-dialog" role="dialog" aria-modal="true" aria-labelledby="legal-title" tabindex="-1">
@@ -693,7 +568,7 @@
           <li><strong>Google Fonts:</strong> usato per la tipografia del sito; il caricamento può comportare richieste tecniche ai server Google.</li>
           <li><strong>Google Maps:</strong> mappa e link verso Google Maps vengono caricati o aperti solo dopo consenso. Google potrebbe trattare dati secondo le proprie informative.</li>
           <li><strong>WhatsApp:</strong> il messaggio preparato dal form viene aperto solo dopo consenso ai servizi esterni.</li>
-          <li><strong>Instagram e sito ufficiale:</strong> si aprono solo quando selezioni i relativi link.</li>
+          <li><strong>Instagram, Facebook e sito ufficiale:</strong> si aprono solo quando selezioni i relativi link.</li>
         </ul>
         <p>Il consenso può essere rilasciato dal banner iniziale oppure nel momento in cui provi ad aprire WhatsApp o Google Maps. La scelta può essere modificata in qualsiasi momento dal link "Gestisci cookie" nel footer.</p>
         <p>Puoi anche cancellare dati e preferenze dal browser.</p>
@@ -722,8 +597,8 @@
   </div>
 </div>
 
-<a class="mobile-sticky-book" href="#prenota" data-booking-trigger data-context="Prenotazione tavolo">
-  <span data-i18n="cta.bookTable">Prenota un tavolo</span>
+<a class="mobile-sticky-book" href="https://wa.me/393286577160" data-booking-trigger data-context="Prenotazione tavolo">
+  <span data-i18n="cta.bookNow">Prenota ora</span>
   <svg class="whatsapp-cta-icon" viewBox="0 0 24 24" aria-hidden="true">
         <path class="whatsapp-icon-mark" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.051 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.999-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.002-5.45 4.436-9.884 9.889-9.884a9.822 9.822 0 0 1 6.988 2.899 9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.883-9.887 9.883M20.52 3.449A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.946L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.52 3.449"></path>
       </svg>

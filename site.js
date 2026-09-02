@@ -41,71 +41,43 @@ const translations = {
     skip: "Vai al contenuto",
     "nav.restaurant": "Ristorante",
     "nav.location": "Location",
-    "nav.luggage": "Eventi",
     "nav.reviews": "Recensioni",
     "nav.contacts": "Contatti",
     "cta.book": "Prenota",
+    "cta.bookNow": "Prenota ora",
     "cta.bookTable": "Prenota un tavolo",
+    "cta.heroBook": "PRENOTA IL TUO TAVOLO",
     "cta.menu": "Scopri il nostro menù",
     "cta.wine": "Carta dei Vini",
     "cta.call": "Chiama ora",
     "card.food": "Menù",
     "card.wine": "Carta dei Vini",
-    "card.note": "In caso di allergie o intolleranze, prima di ordinare informa il personale di sala. Alcuni prodotti possono essere sottoposti ad abbattimento rapido della temperatura. La carta può variare secondo stagione e disponibilità.",
+    "card.note": "I nostri piatti possono contenere o essere preparati in ambienti dove sono presenti allergeni. Per qualsiasi informazione chiedere al personale.",
     "card.wineNote": "Etichette, annate e disponibilità possono variare. Chiedi al personale il suggerimento del giorno.",
     "hero.overline": "Brace & Cucina",
     "hero.hours": "<span>APERTO TUTTO L'ANNO</span> CARNE ALLA BRACE - CUCINA LIGURE - FUNGHI - TARTUFI",
     "hero.edge": "Brace, funghi & tradizione ligure",
     "hero.discover": "Scopri La Beccaccia",
+    "hero.manifesto": "Ristorante a Rapallo.<br>Cucina ligure, brace e tartufo.",
     "restaurant.kicker": "01 Ristorante",
     "restaurant.copy1": "Carne alla brace, pasta fresca fatta in casa e cucina ligure contemporanea sulle prime alture di Rapallo.",
     "restaurant.copy2": "Una tavola calda, curata e concreta, costruita intorno a materia prima, brace e stagionalità.",
     "restaurant.mobileCopy": "Brace, pasta fresca e cucina ligure a Rapallo.",
-    "food.catch": "Cristallo, Orto e Liguria",
-    "food.pizza": "La Beccaccia",
-    "food.seafood": "Il Maialino",
-    "food.pasta": "Filetto Cappon Magro",
-    "food.ligurian": "Millefoglie d'Anatra",
-    "food.frittoMisto": "Il Tagliere Rustico",
-    "food.meatCellar": "Finto Foie Gras",
-    "food.fiorentina": "Giardino in Tavola",
-    "food.ribs": "Pansoti au sö",
-    "food.seafoodSalad": "La Carlona",
-    "food.seafoodTasting": "Maschetta Fondente",
-    "food.ravioliPesto": "Cruda in Riviera",
-    "food.tunaTagliata": "Fassona Piemontese",
-    "food.semifreddo": "Picanha",
-    "food.houseDessert": "Il Beccaccino",
     "location.kicker": "02 Location",
     "location.copy1": "Via Santa Maria del Campo 176, sulle prime alture di Rapallo.",
-    "location.copy2": "Sala, grande braciere a vista, veranda e giardino per pranzi, cene ed eventi.",
+    "location.copy2": "Sala, grande braciere a vista, veranda e giardino per pranzi e cene.",
     "location.front": "La sala",
     "location.exterior": "L'esterno",
     "location.outdoor": "La tavola",
-    "location.room": "Il braciere",
-    "location.table": "La veranda",
-    "location.details": "I dettagli",
-    "location.terrace1": "Il giardino",
+    "location.room": "La veranda",
+    "location.table": "Vista panoramica",
+    "location.details": "La vista",
+    "location.terrace1": "Sala interna",
     "location.terrace2": "Il dehors",
-    "location.terrace3": "L'atmosfera",
-    "luggage.kicker": "03 EVENTI",
-    "luggage.title": "Eventi privati",
-    "luggage.copy": "Veranda e giardino accolgono cerimonie, matrimoni e feste private con proposte su richiesta.",
-    "luggage.badge": "Sale e giardino",
-    "luggage.large": "Cerimonie",
-    "luggage.medium": "Matrimoni",
-    "luggage.backpack": "Feste private",
-    "luggage.book": "Richiedi informazioni",
-    "luggage.formKicker": "Scrivici su WhatsApp",
-    "luggage.formTitle": "Organizza<br><em>il tuo evento.</em>",
-    "luggage.formIntro": "Indica il tipo di evento: prepareremo il messaggio e ti chiederemo il consenso prima di aprire WhatsApp.",
-    "luggage.type": "Tipo evento *",
-    "luggage.quantity": "Invitati indicativi",
-    "luggage.optionLarge": "Cerimonia",
-    "luggage.optionMedium": "Matrimonio",
-    "luggage.optionBackpack": "Festa privata",
-    "luggage.placeholder": "Data, numero ospiti o informazioni utili",
-    "reviews.kicker": "04 Recensioni",
+    "location.terrace3": "Il giardino",
+    "location.dehors": "Il dehors",
+    "location.gardenTables": "Tavoli nel verde",
+    "reviews.kicker": "03 Recensioni",
     "reviews.title": "Cosa dicono di noi",
     "reviews.awards": "Canali recensioni",
     "reviews.cardLabel1": "Brace",
@@ -113,13 +85,13 @@ const translations = {
     "reviews.cardLabel3": "Rapallo",
     "reviews.quote1": "Carne alla brace, pasta fresca e piatti liguri per una cena calda e generosa.",
     "reviews.author1": "La Beccaccia · Brace e cucina",
-    "reviews.quote2": "Servizio diretto, atmosfera conviviale e tavoli pronti ad accogliere pranzi, cene ed eventi.",
+    "reviews.quote2": "Servizio diretto, atmosfera conviviale e tavoli pronti ad accogliere pranzi e cene.",
     "reviews.author2": "Via Santa Maria del Campo 176",
     "reviews.quote3": "Una tappa sulle alture di Rapallo tra braciere, veranda, giardino e profumi liguri.",
     "reviews.author3": "Rapallo · GE",
     "reviews.read": "Leggi le recensioni",
     "reviews.leave": "Lascia una recensione",
-    "contacts.kicker": "05 Contatti",
+    "contacts.kicker": "04 Contatti",
     "contacts.title": "Contatti",
     "contacts.where": "Dove siamo",
     "contacts.hoursLabel": "Orari",
@@ -159,71 +131,43 @@ const translations = {
     skip: "Skip to content",
     "nav.restaurant": "Restaurant",
     "nav.location": "Location",
-    "nav.luggage": "Events",
     "nav.reviews": "Reviews",
     "nav.contacts": "Contacts",
     "cta.book": "Book now",
+    "cta.bookNow": "Book now",
     "cta.bookTable": "Book a table",
+    "cta.heroBook": "BOOK YOUR TABLE",
     "cta.menu": "Discover our menu",
     "cta.wine": "Wine list",
     "cta.call": "Call now",
     "card.food": "Menu",
     "card.wine": "Wine list",
-    "card.note": "In case of allergies or intolerances, please inform our staff before ordering. Some products may be blast chilled. The menu may vary according to season and availability.",
+    "card.note": "Our dishes may contain allergens or be prepared in environments where allergens are present. Please ask our staff for any information.",
     "card.wineNote": "Labels, vintages and availability may vary. Ask our staff for today's recommendation.",
     "hero.overline": "Grill & Cuisine",
     "hero.hours": "<span>OPEN ALL YEAR</span> CHARCOAL GRILL - LIGURIAN CUISINE - MUSHROOMS - TRUFFLES",
     "hero.edge": "Grill, mushrooms & Ligurian tradition",
     "hero.discover": "Discover La Beccaccia",
+    "hero.manifesto": "Restaurant in Rapallo.<br>Ligurian cuisine, grill and truffle.",
     "restaurant.kicker": "01 Restaurant",
     "restaurant.copy1": "Charcoal-grilled meat, handmade fresh pasta and contemporary Ligurian cuisine on the first hills of Rapallo.",
     "restaurant.copy2": "A warm, curated and concrete table built around ingredients, fire and seasonality.",
     "restaurant.mobileCopy": "Grill, fresh pasta and Ligurian cuisine in Rapallo.",
-    "food.catch": "Cristallo, Orto e Liguria",
-    "food.pizza": "La Beccaccia",
-    "food.seafood": "Il Maialino",
-    "food.pasta": "Filetto Cappon Magro",
-    "food.ligurian": "Duck millefeuille",
-    "food.frittoMisto": "Rustic board",
-    "food.meatCellar": "Finto Foie Gras",
-    "food.fiorentina": "Giardino in Tavola",
-    "food.ribs": "Pansoti au sö",
-    "food.seafoodSalad": "La Carlona",
-    "food.seafoodTasting": "Maschetta Fondente",
-    "food.ravioliPesto": "Cruda in Riviera",
-    "food.tunaTagliata": "Fassona beef",
-    "food.semifreddo": "Picanha",
-    "food.houseDessert": "Il Beccaccino",
     "location.kicker": "02 Location",
     "location.copy1": "Via Santa Maria del Campo 176, on the first hills of Rapallo.",
-    "location.copy2": "Dining room, open grill, veranda and garden for lunch, dinner and events.",
+    "location.copy2": "Dining room, open grill, veranda and garden for lunch and dinner.",
     "location.front": "The dining room",
     "location.exterior": "Outside",
     "location.outdoor": "The table",
-    "location.room": "The grill",
-    "location.table": "The veranda",
-    "location.details": "The details",
-    "location.terrace1": "The garden",
+    "location.room": "The veranda",
+    "location.table": "Panoramic view",
+    "location.details": "The view",
+    "location.terrace1": "Inside dining room",
     "location.terrace2": "Outdoor dining",
-    "location.terrace3": "The atmosphere",
-    "luggage.kicker": "03 EVENTS",
-    "luggage.title": "Private events",
-    "luggage.copy": "The veranda and garden host ceremonies, weddings and private parties with tailored proposals.",
-    "luggage.badge": "Rooms and garden",
-    "luggage.large": "Ceremonies",
-    "luggage.medium": "Weddings",
-    "luggage.backpack": "Private parties",
-    "luggage.book": "Request information",
-    "luggage.formKicker": "Message us on WhatsApp",
-    "luggage.formTitle": "Plan<br><em>your event.</em>",
-    "luggage.formIntro": "Choose the event type: we will prepare your message and ask for consent before opening WhatsApp.",
-    "luggage.type": "Event type *",
-    "luggage.quantity": "Approx. guests",
-    "luggage.optionLarge": "Ceremony",
-    "luggage.optionMedium": "Wedding",
-    "luggage.optionBackpack": "Private party",
-    "luggage.placeholder": "Date, guest count or useful information",
-    "reviews.kicker": "04 Reviews",
+    "location.terrace3": "The garden",
+    "location.dehors": "The outdoor area",
+    "location.gardenTables": "Garden tables",
+    "reviews.kicker": "03 Reviews",
     "reviews.title": "What guests say",
     "reviews.awards": "Review channels",
     "reviews.cardLabel1": "Grill",
@@ -231,13 +175,13 @@ const translations = {
     "reviews.cardLabel3": "Rapallo",
     "reviews.quote1": "Charcoal-grilled meat, fresh pasta and Ligurian dishes for a warm, generous dinner.",
     "reviews.author1": "La Beccaccia · Grill & cuisine",
-    "reviews.quote2": "Direct service, a convivial atmosphere and tables ready for lunch, dinner and events.",
+    "reviews.quote2": "Direct service, a convivial atmosphere and tables ready for lunch and dinner.",
     "reviews.author2": "Via Santa Maria del Campo 176",
     "reviews.quote3": "A stop on the hills of Rapallo among grill aromas, veranda, garden and Ligurian flavours.",
     "reviews.author3": "Rapallo · GE",
     "reviews.read": "Read reviews",
     "reviews.leave": "Leave a review",
-    "contacts.kicker": "05 Contacts",
+    "contacts.kicker": "04 Contacts",
     "contacts.title": "Contacts",
     "contacts.where": "Find us",
     "contacts.hoursLabel": "Opening hours",
@@ -281,43 +225,229 @@ const menuCatalogs = {
       it: {
         kicker: "La Beccaccia · Menu 2026",
         title: "Il nostro<br><em>menù.</em>",
-        description: "Antipasti, pasta fresca, brace, contorni e dessert. La carta può variare secondo stagione e disponibilità.",
+        description: "Menu digitale completo con aperitivi, bocconi, antipasti, pasta fresca, secondi, brace, contorni e proposte stagionali.",
       },
       en: {
         kicker: "La Beccaccia · 2026 menu",
         title: "Our<br><em>menu.</em>",
-        description: "Starters, fresh pasta, grill, side dishes and desserts. The menu may vary according to season and availability.",
+        description: "A complete digital menu with aperitifs, bites, starters, fresh pasta, mains, grill, sides and seasonal proposals.",
       },
     },
     sections: [
       {
-        it: "Antipasti", en: "Starters",
+        it: "Benvenuti",
+        en: "Welcome",
         items: [
-          { it: "Millefoglie d'Anatra", en: "Duck millefeuille", price: "€ 22,00" },
-          { it: "Il Tagliere Rustico", en: "Rustic board", price: "€ 19,00" },
-          { it: "Finto Foie Gras", en: "Finto Foie Gras", price: "€ 18,00" },
-          { it: "Giardino in Tavola", en: "Garden on the table", price: "€ 18,00" },
+          {
+            it: "Brace e Cucina dal 1970",
+            en: "Grill and cuisine since 1970",
+            description: {
+              it: "In un angolo tranquillo di Rapallo, tra il profumo della legna arsa e il calore del braciere a vista, nel 1970 nasce La Beccaccia. Da noi la tradizione incontra la creatività e la nostra brace non è solo cottura, è un rito. Molte ricette parlano ligure con un'anima curiosa; le altre nascono da un'attenta ricerca nelle cucine contemporanee di tutto il mondo. Alessandro e Lisa, insieme allo Chef, firmano il menù con passione, tradizione, innovazione e una ricerca assidua della qualità delle materie prime.",
+              en: "In a quiet corner of Rapallo, among the scent of burning wood and the warmth of the open grill, La Beccaccia was born in 1970. Tradition meets creativity here, and our grill is not just cooking: it is a ritual. Many recipes speak Ligurian with a curious soul; others come from careful research into contemporary kitchens around the world. Alessandro and Lisa, together with the Chef, shape the menu around passion, tradition, innovation and a constant pursuit of quality ingredients.",
+            },
+            tags: ["traditional"],
+          },
         ],
       },
       {
-        it: "Primi piatti", en: "Pasta",
+        it: "Aperitivi",
+        en: "Aperitifs",
+        note: {
+          it: "Gli aperitivi vengono tutti serviti con degli stuzzichini di benvenuto.",
+          en: "All aperitifs are served with welcome bites.",
+        },
         items: [
-          { it: "La Beccaccia", en: "La Beccaccia", sub: "Minimo per 2 persone", price: "€ 20,00 p.p." },
-          { it: "Pansoti au sö", en: "Pansoti au sö", price: "€ 22,00" },
-          { it: "La Carlona", en: "La Carlona", price: "€ 20,00" },
+          { it: "Gin Lemon", en: "Gin Lemon", description: { it: "Gin a scelta", en: "Gin of your choice" }, price: "€ 15,00" },
+          { it: "Aperol/Campari Spritz", en: "Aperol/Campari Spritz", price: "€ 15,00" },
+          { it: "Sangria", en: "Sangria", description: { it: "1 lt", en: "1 litre" }, price: "€ 20,00" },
+          { it: "Sangria", en: "Sangria", description: { it: "1/2 lt", en: "1/2 litre" }, price: "€ 12,00" },
         ],
       },
       {
-        it: "Selezione di carne", en: "Meat selection",
+        it: "Brindisi & Bocconi",
+        en: "Toasts & bites",
         items: [
-          { it: "Il Maialino", en: "Slow-cooked suckling pig", price: "€ 23,00" },
-          { it: "Filetto come un Cappon Magro", en: "Fillet, Cappon Magro style", price: "€ 39,00" },
-          { it: "Maschetta Fondente", en: "Confit beef cheek", price: "€ 25,00" },
-          { it: "Cruda in Riviera", en: "Knife-cut Fassona tartare", price: "€ 22,00" },
-          { it: "Costata o Fiorentina di Fassona Piemontese", en: "Fassona rib steak or Fiorentina", price: "€ 6,40 / etto" },
+          {
+            it: "Cristallo, Orto e Liguria",
+            en: "Cristallo, garden and Liguria",
+            year: "2026",
+            description: {
+              it: "Pan de Cristal, filetto di San Marzano marinato, acciughe salate del Mar Ligure e stracciatella di bufala.",
+              en: "Pan de Cristal, marinated San Marzano fillet, salted Ligurian Sea anchovies and buffalo stracciatella.",
+            },
+            price: "€ 20,00",
+            tags: ["traditional"],
+          },
+          {
+            it: "Il Maialino",
+            en: "Suckling pig",
+            year: "2021",
+            description: {
+              it: "Spalla di maialino cotta a bassa temperatura per 24 ore, laccata con la sua salsa, patate arrosto e giardiniera di verdure.",
+              en: "Suckling pig shoulder cooked at low temperature for 24 hours, lacquered with its sauce, roast potatoes and vegetable giardiniera.",
+            },
+            price: "€ 23,00",
+            tags: ["glutenFree"],
+          },
+          {
+            it: "La Beccaccia",
+            en: "La Beccaccia",
+            year: "2022",
+            description: {
+              it: "Fettuccine di pasta fresca all'uovo al burro d'alpeggio, mantecate al momento nella forma di Parmigiano Reggiano \"Vacche Rosse\" e servite con pentolino di Toccu alla Genovese a parte. Minimo per 2 persone.",
+              en: "Fresh egg fettuccine with alpine butter, finished at the table inside a wheel of Parmigiano Reggiano \"Vacche Rosse\" and served with Toccu alla Genovese on the side. Minimum for 2 people.",
+            },
+            price: "€ 20,00 p.p.",
+            tags: ["traditional"],
+          },
+          {
+            it: "Filetto come un Cappon Magro",
+            en: "Fillet like a Cappon Magro",
+            year: "2026",
+            description: {
+              it: "Filetto alla brace con verdure marinate e salsa verde del Cappon Magro genovese, in una rivisitazione della tradizione ligure.",
+              en: "Grilled fillet with marinated vegetables and Genovese Cappon Magro green sauce, reinterpreting Ligurian tradition.",
+            },
+            price: "€ 39,00",
+            tags: ["traditional"],
+          },
+        ],
+      },
+      {
+        it: "In Stagione",
+        en: "In season",
+        note: {
+          it: "Indicativamente da luglio a gennaio.",
+          en: "Approximately from July to January.",
+        },
+        items: [
+          {
+            it: "Funghi Porcini e Tartufi Bianchi e Neri",
+            en: "Porcini mushrooms and white and black truffles",
+            description: {
+              it: "Proposte stagionali secondo disponibilità.",
+              en: "Seasonal proposals depending on availability.",
+            },
+            price: "Secondo disponibilità",
+            tags: ["seasonal"],
+          },
+          {
+            it: "Aragosta, Scampi e Gamberoni di S. Margherita",
+            en: "Lobster, scampi and king prawns from S. Margherita",
+            description: {
+              it: "Solo su prenotazione.",
+              en: "By reservation only.",
+            },
+            price: "Su prenotazione",
+            tags: ["reservation"],
+          },
+        ],
+      },
+      {
+        it: "Per iniziare", en: "Starters",
+        items: [
+          {
+            it: "Millefoglie d'Anatra",
+            en: "Duck millefeuille",
+            description: {
+              it: "Petto d'anatra marinato e alla brace, crema di mela, amarena, finocchio all'arancia e croccante di carta musica.",
+              en: "Marinated grilled duck breast, apple cream, sour cherry, orange fennel and crisp carta musica bread.",
+            },
+            price: "€ 22,00",
+          },
+          {
+            it: "Il Tagliere Rustico",
+            en: "Rustic board",
+            description: {
+              it: "Coppa artigianale stagionata, la nostra insalata russa classica e le tipiche focaccette genovesi ripiene di stracchino.",
+              en: "Aged artisanal coppa, our classic Russian salad and typical Genovese focaccette filled with stracchino.",
+            },
+            price: "€ 19,00",
+            tags: ["traditional"],
+          },
+          {
+            it: "Finto Foie Gras",
+            en: "Faux foie gras",
+            description: {
+              it: "Pain perdu alla francese con fegatini di vitello, lardo di Patanegra, confettura di fichi e caviale di aceto balsamico di Modena.",
+              en: "French-style pain perdu with veal liver, Patanegra lardo, fig preserve and Modena balsamic vinegar caviar.",
+            },
+            price: "€ 18,00",
+          },
+          {
+            it: "Giardino in Tavola",
+            en: "Garden on the table",
+            description: {
+              it: "Flan di zucchina trombetta su leggera fonduta di formaggio, zabajone salato e zucchina marinata.",
+              en: "Trombetta courgette flan on a light cheese fondue, savoury zabaglione and marinated courgette.",
+            },
+            price: "€ 18,00",
+            tags: ["glutenFree", "vegetarian"],
+          },
+        ],
+      },
+      {
+        it: "La Pasta", en: "Fresh pasta",
+        items: [
+          {
+            it: "Pansoti au sö (Pansoti al Sole)",
+            en: "Pansoti au sö (sun pansoti)",
+            description: {
+              it: "I veri pansoti genovesi fatti a mano, ripieni di borragine secondo tradizione ligure, serviti con vellutata di datterino giallo alla brace e riduzione di basilico genovese.",
+              en: "Handmade Genovese pansoti filled with borage according to Ligurian tradition, served with grilled yellow datterino tomato velouté and Genovese basil reduction.",
+            },
+            price: "€ 22,00",
+            tags: ["traditional", "vegetarian"],
+          },
+          {
+            it: "La Carlona",
+            en: "La Carlona",
+            description: {
+              it: "Taglierini di pasta fresca all'uovo con ragù di coniglio in bianco alla ligure.",
+              en: "Fresh egg taglierini with white Ligurian rabbit ragù.",
+            },
+            price: "€ 20,00",
+            tags: ["traditional"],
+          },
+        ],
+      },
+      {
+        it: "Secondi", en: "Second courses",
+        items: [
+          {
+            it: "Maschetta Fondente",
+            en: "Melting beef cheek",
+            description: {
+              it: "Guancia di manzo confit cotta a 63°, il suo fondo e accompagnata da puré di patate alla Robuchon.",
+              en: "Confit beef cheek cooked at 63°C, served with its jus and Robuchon-style potato purée.",
+            },
+            price: "€ 25,00",
+            tags: ["glutenFree"],
+          },
+          {
+            it: "Cruda in Riviera",
+            en: "Raw Fassona in Riviera style",
+            description: {
+              it: "Tartare di Fassona Piemontese a coltello, emulsione al basilico e olio D.O.P. Genovese, acciuga salata del Mar Ligure, crumble di focaccia, pomodorino confit e frutto del cappero.",
+              en: "Knife-cut Piedmontese Fassona tartare, basil and Genovese D.O.P. olive oil emulsion, salted Ligurian Sea anchovy, focaccia crumble, confit tomato and caper berry.",
+            },
+            price: "€ 22,00",
+            tags: ["traditional"],
+          },
+        ],
+      },
+      {
+        it: "Alla Brace",
+        en: "From the grill",
+        note: {
+          it: "La nostra prima scelta, da sempre.",
+          en: "Our first choice, as always.",
+        },
+        items: [
+          { it: "Costata o Fiorentina di Fassona Piemontese", en: "Piedmontese Fassona rib steak or Fiorentina", price: "€ 6,40 / etto" },
           { it: "Tomahawk di Scottona Bavarese", en: "Bavarian heifer tomahawk", price: "€ 6,50 / etto" },
-          { it: "Costata Iberica", en: "Iberian rib steak", price: "€ 7,50 / etto" },
-          { it: "Picanha di vacca bionda spagnola", en: "Spanish blonde cow picanha", price: "€ 33,00" },
+          { it: "Costata \"Iberica\"", en: "Iberian rib steak", price: "€ 7,50 / etto" },
+          { it: "Picanha di vacca bionda Spagnola", en: "Spanish blonde cow picanha", description: { it: "Circa 250 g", en: "About 250 g" }, price: "€ 30,00" },
         ],
       },
       {
@@ -329,13 +459,9 @@ const menuCatalogs = {
         ],
       },
       {
-        it: "Dessert", en: "Desserts",
+        it: "Servizio", en: "Service",
         items: [
-          { it: "Il Beccaccino", en: "Il Beccaccino", price: "€ 10,00" },
-          { it: "Bianco Mangiare", en: "Bianco Mangiare", price: "€ 8,00" },
-          { it: "Verticale al cioccolato", en: "Chocolate vertical", price: "€ 9,00" },
-          { it: "Torta della Nonna", en: "Torta della Nonna", price: "€ 9,00" },
-          { it: "Frutta ... Gelato", en: "Fruit ... Gelato", price: "€ 8,00" },
+          { it: "Pane, Coperto e Servizio", en: "Bread, cover and service", price: "€ 4,00" },
         ],
       },
     ],
@@ -449,7 +575,6 @@ const stickyBookSections = [
   { element: document.querySelector("#top"), theme: "dark" },
   { element: document.querySelector("#ristorante"), theme: "dark" },
   { element: document.querySelector("#location"), theme: "light" },
-  { element: document.querySelector("#eventi"), theme: "dark" },
   { element: document.querySelector("#recensioni"), theme: "light" },
   { element: document.querySelector("#contatti"), theme: "light" },
   { element: document.querySelector(".site-footer"), theme: "dark" },
@@ -549,29 +674,28 @@ const catalogNote = cardModal?.querySelector(".catalog-note");
 let activeCardType = "food";
 let cardCloseTimer;
 
+const catalogTagLabels = {
+  it: {
+    glutenFree: "Gluten Free",
+    reservation: "Solo su prenotazione",
+    seasonal: "Stagionale",
+    traditional: "Tradizionale",
+    vegetarian: "Vegetariano",
+  },
+  en: {
+    glutenFree: "Gluten Free",
+    reservation: "By reservation",
+    seasonal: "Seasonal",
+    traditional: "Traditional",
+    vegetarian: "Vegetarian",
+  },
+};
+
 const findSection = (sections, label) => sections.find((section) => section.it === label);
 
 const getOrderedCatalogSections = (type, sections) => {
   if (type === "food") {
-    const starters = findSection(sections, "Antipasti");
-    const firstCourses = findSection(sections, "Primi piatti");
-    const fishSeconds = findSection(sections, "Secondi di pesce");
-    const meatSeconds = findSection(sections, "Selezione di carne");
-    const sideDishes = findSection(sections, "Contorni");
-    const desserts = findSection(sections, "Dessert");
-    const secondCourses = {
-      it: "Secondi",
-      en: "Second courses",
-      items: [...(fishSeconds?.items || []), ...(meatSeconds?.items || [])],
-    };
-
-    return [
-      starters,
-      firstCourses ? { ...firstCourses, it: "Primi", en: "First courses" } : null,
-      secondCourses.items.length ? secondCourses : null,
-      sideDishes,
-      desserts,
-    ].filter(Boolean);
+    return sections;
   }
 
   if (type === "wine") {
@@ -579,6 +703,23 @@ const getOrderedCatalogSections = (type, sections) => {
   }
 
   return sections;
+};
+
+const getLocalizedDescription = (item) => {
+  if (item.description?.[currentLanguage]) return item.description[currentLanguage];
+  if (typeof item.sub === "string") return item.sub;
+  if (item.sub?.[currentLanguage]) return item.sub[currentLanguage];
+  return item[currentLanguage === "it" ? "en" : "it"] || "";
+};
+
+const renderCatalogMeta = (item) => {
+  const tags = (item.tags || []).map((tag) => catalogTagLabels[currentLanguage][tag] || tag);
+  const meta = [
+    item.year ? `<span class="catalog-item-year">${item.year}</span>` : "",
+    ...tags.map((tag) => `<span class="catalog-item-tag">${tag}</span>`),
+  ].filter(Boolean);
+
+  return meta.length ? `<div class="catalog-item-meta">${meta.join("")}</div>` : "";
 };
 
 const renderCatalog = () => {
@@ -592,17 +733,24 @@ const renderCatalog = () => {
   if (catalogNote) catalogNote.textContent = translations[currentLanguage][activeCardType === "food" ? "card.note" : "card.wineNote"];
   cardContent.innerHTML = sections.map((section) => `
     <section class="catalog-section">
-      <h3>${section[currentLanguage]}<small>${section[currentLanguage === "it" ? "en" : "it"]}</small></h3>
+      <div class="catalog-section-heading">
+        <h3>${section[currentLanguage]}<small>${section[currentLanguage === "it" ? "en" : "it"]}</small></h3>
+        ${section.note?.[currentLanguage] ? `<p class="catalog-section-note">${section.note[currentLanguage]}</p>` : ""}
+      </div>
       <div class="catalog-items">
-        ${section.items.map((item) => `
+        ${section.items.map((item) => {
+          const description = getLocalizedDescription(item);
+          return `
           <article class="catalog-item">
             <div>
               <h4>${item[currentLanguage] || item.it}</h4>
-              ${(item.sub || item[currentLanguage === "it" ? "en" : "it"]) ? `<p>${item.sub || item[currentLanguage === "it" ? "en" : "it"]}</p>` : ""}
+              ${description ? `<p>${description}</p>` : ""}
+              ${renderCatalogMeta(item)}
             </div>
             ${item.price ? `<span>${item.price}</span>` : ""}
           </article>
-        `).join("")}
+        `;
+        }).join("")}
       </div>
     </section>
   `).join("");
@@ -729,6 +877,8 @@ const closeBookingModal = () => {
 
 document.querySelectorAll("[data-booking-trigger]").forEach((trigger) => {
   trigger.addEventListener("click", (event) => {
+    const href = trigger.getAttribute("href") || "";
+    if (href.startsWith("https://wa.me/")) return;
     event.preventDefault();
     openBookingModal(trigger);
   });
@@ -738,49 +888,6 @@ bookingModal?.querySelectorAll("[data-booking-close]").forEach((button) => {
   button.addEventListener("click", closeBookingModal);
 });
 
-const luggageModal = document.querySelector("[data-luggage-modal]");
-const luggageDialog = luggageModal?.querySelector(".luggage-dialog");
-const luggageForm = luggageModal?.querySelector("[data-luggage-form]");
-const luggageDateInput = luggageForm?.querySelector("input[name='date']");
-let luggageCloseTimer;
-
-if (luggageDateInput) luggageDateInput.min = new Date().toISOString().split("T")[0];
-
-const openLuggageModal = (trigger) => {
-  if (!luggageModal || !luggageDialog) return;
-  window.clearTimeout(luggageCloseTimer);
-  lastFocusedElement = trigger;
-  setMenu(false, false);
-  luggageModal.hidden = false;
-  luggageModal.setAttribute("aria-hidden", "false");
-  body.classList.add("modal-open");
-  setBackgroundInert(true);
-  requestAnimationFrame(() => luggageModal.classList.add("is-open"));
-  window.setTimeout(() => luggageForm?.querySelector("input[name='name']")?.focus(), 420);
-};
-
-const closeLuggageModal = () => {
-  if (!luggageModal || luggageModal.hidden) return;
-  luggageModal.classList.remove("is-open");
-  luggageModal.setAttribute("aria-hidden", "true");
-  body.classList.remove("modal-open");
-  setBackgroundInert(false);
-  luggageCloseTimer = window.setTimeout(() => {
-    luggageModal.hidden = true;
-    lastFocusedElement?.focus();
-  }, 500);
-};
-
-document.querySelectorAll("[data-luggage-trigger]").forEach((trigger) => {
-  trigger.addEventListener("click", (event) => {
-    event.preventDefault();
-    openLuggageModal(trigger);
-  });
-});
-
-luggageModal?.querySelectorAll("[data-luggage-close]").forEach((button) => {
-  button.addEventListener("click", closeLuggageModal);
-});
 
 const legalModal = document.querySelector("[data-legal-modal]");
 const legalDialog = legalModal?.querySelector(".legal-dialog");
@@ -955,7 +1062,6 @@ if (initialConsent?.externalServices) {
 
 document.addEventListener("keydown", (event) => {
   if (bookingModal?.classList.contains("is-open")) trapFocus(event, bookingDialog);
-  else if (luggageModal?.classList.contains("is-open")) trapFocus(event, luggageDialog);
   else if (cardModal?.classList.contains("is-open")) trapFocus(event, cardDialog);
   else if (legalModal?.classList.contains("is-open")) trapFocus(event, legalDialog);
   else if (body.classList.contains("menu-open")) trapFocus(event, mobileMenuPanel);
@@ -963,7 +1069,6 @@ document.addEventListener("keydown", (event) => {
   if (event.key !== "Escape") return;
   if (cardModal?.classList.contains("is-open")) closeCardModal();
   else if (bookingModal?.classList.contains("is-open")) closeBookingModal();
-  else if (luggageModal?.classList.contains("is-open")) closeLuggageModal();
   else if (legalModal?.classList.contains("is-open")) closeLegalModal();
   else setMenu(false);
 });
@@ -1006,76 +1111,57 @@ bookingForm?.addEventListener("submit", (event) => {
   requestExternalUrl(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`);
 });
 
-luggageForm?.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const data = new FormData(luggageForm);
-  const isEnglish = currentLanguage === "en";
-  const name = String(data.get("name") || "").trim();
-  const date = String(data.get("date") || "").trim();
-  const time = String(data.get("time") || "").trim();
-  const item = String(data.get("item") || "").trim();
-  const quantity = String(data.get("quantity") || "1").trim() || "1";
-  const note = String(data.get("message") || "").trim();
-  const formattedDate = date
-    ? new Intl.DateTimeFormat(isEnglish ? "en-GB" : "it-IT", { day: "2-digit", month: "2-digit", year: "numeric" }).format(new Date(`${date}T12:00:00`))
-    : "";
-
-  const details = isEnglish
-    ? [
-        item ? `Event: ${item}.` : "",
-        quantity ? `Guests: ${quantity}.` : "",
-        formattedDate ? `Date: ${formattedDate}.` : "",
-        time ? `Time: ${time}.` : "",
-      ].filter(Boolean).join(" ")
-    : [
-        item ? `Evento: ${item}.` : "",
-        quantity ? `Invitati: ${quantity}.` : "",
-        formattedDate ? `Giorno: ${formattedDate}.` : "",
-        time ? `Orario: ${time}.` : "",
-      ].filter(Boolean).join(" ");
-
-  const message = isEnglish
-    ? [
-        `Hello La Beccaccia, my name is ${name} and I would like information for a private event.`,
-        details ? `\n${details}` : "",
-        note ? `\n${note}` : "",
-      ].join("")
-    : [
-        `Ciao La Beccaccia, sono ${name} e vorrei informazioni per un evento privato.`,
-        details ? `\n${details}` : "",
-        note ? `\n${note}` : "",
-      ].join("");
-
-  requestExternalUrl(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`);
-});
-
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const hero = document.querySelector(".hero");
-const heroImage = document.querySelector(".hero-image");
+const heroCarousel = document.querySelector("[data-hero-carousel]");
+const heroSlides = [...document.querySelectorAll("[data-hero-slide]")];
+const heroIndicators = [...document.querySelectorAll("[data-hero-indicator]")];
 const heroTitle = document.querySelector(".hero-title-wrap");
-const heroSocials = document.querySelector(".hero-socials");
-const scrollCue = document.querySelector(".scroll-cue");
 let heroMotionFrame = null;
+let activeHeroSlide = 0;
+let heroCarouselTimer = null;
+
+const setHeroSlide = (index) => {
+  if (!heroSlides.length) return;
+  activeHeroSlide = (index + heroSlides.length) % heroSlides.length;
+  heroSlides.forEach((slide, slideIndex) => {
+    slide.classList.toggle("is-active", slideIndex === activeHeroSlide);
+  });
+  heroIndicators.forEach((indicator, indicatorIndex) => {
+    const active = indicatorIndex === activeHeroSlide;
+    indicator.classList.toggle("is-active", active);
+    if (active) indicator.setAttribute("aria-current", "true");
+    else indicator.removeAttribute("aria-current");
+  });
+};
+
+const startHeroCarousel = () => {
+  if (reduceMotion || heroSlides.length < 2) return;
+  window.clearInterval(heroCarouselTimer);
+  heroCarouselTimer = window.setInterval(() => setHeroSlide(activeHeroSlide + 1), 3000);
+};
+
+heroIndicators.forEach((indicator) => {
+  indicator.addEventListener("click", () => {
+    setHeroSlide(Number(indicator.dataset.heroIndicator || 0));
+    startHeroCarousel();
+  });
+});
+
+setHeroSlide(0);
+startHeroCarousel();
 
 const updateHeroMotion = () => {
   heroMotionFrame = null;
-  if (!hero || !heroImage || !heroTitle || reduceMotion) return;
+  if (!hero || !heroTitle || reduceMotion) return;
   const progress = Math.min(1, Math.max(0, window.scrollY / hero.offsetHeight));
 
   if (progress < 0.002) {
-    heroImage.style.removeProperty("transform");
-    heroTitle.style.removeProperty("transform");
     heroTitle.style.removeProperty("opacity");
-    heroSocials?.style.removeProperty("opacity");
-    scrollCue?.style.removeProperty("opacity");
     return;
   }
 
-  heroImage.style.transform = `translate3d(0, ${progress * 7}%, 0) scale(${1 + progress * 0.12})`;
-  heroTitle.style.transform = `translate3d(0, ${progress * -11}vh, 0) scale(${1 - progress * 0.045})`;
   heroTitle.style.opacity = String(Math.max(0, 1 - progress * 1.22));
-  if (heroSocials) heroSocials.style.opacity = String(Math.max(0, 1 - progress * 1.7));
-  if (scrollCue) scrollCue.style.opacity = String(Math.max(0, 1 - progress * 2.1));
 };
 
 if (!reduceMotion) {
