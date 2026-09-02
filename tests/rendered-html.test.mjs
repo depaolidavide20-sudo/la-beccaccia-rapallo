@@ -4,6 +4,31 @@ import test from "node:test";
 
 const root = new URL("../", import.meta.url);
 
+const readJpegSize = async (url) => {
+  const bytes = await readFile(url);
+  let offset = 2;
+
+  while (offset < bytes.length) {
+    if (bytes[offset] !== 0xff) {
+      offset += 1;
+      continue;
+    }
+
+    const marker = bytes[offset + 1];
+    const length = bytes.readUInt16BE(offset + 2);
+    if (marker >= 0xc0 && marker <= 0xc3) {
+      return {
+        height: bytes.readUInt16BE(offset + 5),
+        width: bytes.readUInt16BE(offset + 7),
+      };
+    }
+
+    offset += 2 + length;
+  }
+
+  throw new Error(`Could not read JPEG dimensions for ${url.pathname}`);
+};
+
 test("static HTML contains the La Beccaccia website without story section", async () => {
   const html = await readFile(new URL("index.html", root), "utf8");
 
@@ -40,6 +65,7 @@ test("static HTML contains the La Beccaccia website without story section", asyn
   assert.doesNotMatch(html, /data-hero-indicator="4"/);
   assert.match(html, /data-i18n="cta\.heroBook">PRENOTA IL TUO TAVOLO/);
   assert.match(html, /class="mobile-sticky-book"[\s\S]*data-i18n="cta\.bookNow">Prenota ora/);
+  assert.doesNotMatch(html, /data-card-trigger="wine"|data-card-tab="wine"|data-i18n="cta\.wine"|data-i18n="card\.wine">Carta dei Vini/);
   assert.match(html, /rel="preload" as="image" href="assets\/hero\/hero-fire-desktop\.jpg"/);
   assert.match(html, /rel="preload" as="image" href="assets\/hero\/hero-fire-mobile\.jpg"/);
   assert.doesNotMatch(html, /assets\/(food|story|la-taverna|brand-la-taverna)[^"']*/i);
@@ -78,7 +104,8 @@ test("styles and script keep the cloned visual system with red accents", async (
   assert.match(css, /\.site-header \.book-link:hover,[\s\S]*color:\s*var\(--brand-red-bright\)/);
   assert.match(css, /\.reviews-section \.review-cta:hover,[\s\S]*background:\s*transparent[\s\S]*color:\s*var\(--brand-red\)/);
   assert.match(css, /Final hero clarity, desktop frames, booking form and compact mobile reviews[\s\S]*\.hero::before,[\s\S]*\.hero::after/);
-  assert.match(css, /Final hero clarity, desktop frames, booking form and compact mobile reviews[\s\S]*var\(--brand-red-bright\)[\s\S]*\.review-card \{[\s\S]*flex:\s*0 0 min\(78vw, 20rem\)[\s\S]*padding:\s*1rem/);
+  assert.match(css, /Final hero clarity, desktop frames, booking form and compact mobile reviews[\s\S]*\.site-header::after \{[\s\S]*opacity:\s*0 !important[\s\S]*background:\s*transparent !important/);
+  assert.match(css, /Final hero clarity, desktop frames, booking form and compact mobile reviews[\s\S]*var\(--brand-red-bright\)[\s\S]*\.review-card \{[\s\S]*flex:\s*0 0 min\(82vw, 21\.5rem\)[\s\S]*padding:\s*1\.25rem/);
   assert.match(css, /background:\s*#000 !important/);
   assert.match(css, /\.hero h1 \{[\s\S]*top:\s*50%;[\s\S]*left:\s*50%;[\s\S]*transform:\s*translate\(-50%, -50%\)/);
   assert.match(css, /transition:\s*opacity 0\.8s ease/);
@@ -158,6 +185,11 @@ test("github-static folder contains the minimal static bundle", async () => {
     "location-07.jpg",
     "location-08.jpg",
   ]);
+
+  for (const asset of locationAssets) {
+    const { width } = await readJpegSize(new URL(`github-static/assets/location-carousel/${asset}`, root));
+    assert.ok(width >= 1445, `${asset} should remain full resolution`);
+  }
 
   const html = await readFile(new URL("github-static/index.html", root), "utf8");
   assert.match(html, /href="site.css"/);
