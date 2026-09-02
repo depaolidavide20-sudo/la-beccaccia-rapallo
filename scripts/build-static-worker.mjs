@@ -13,8 +13,6 @@ const files = [
   "assets/brand/la-beccaccia-logo-mobile.png",
   "assets/hero/hero-fire-desktop.jpg",
   "assets/hero/hero-fire-mobile.jpg",
-  "assets/hero/hero-raw-grill-desktop.jpg",
-  "assets/hero/hero-raw-grill-mobile.jpg",
   "assets/hero/hero-served-steak-desktop.jpg",
   "assets/hero/hero-served-steak-mobile.jpg",
   "assets/hero/hero-pasta-desktop.jpg",

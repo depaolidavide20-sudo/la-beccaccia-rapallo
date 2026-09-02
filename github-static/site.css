@@ -5834,3 +5834,109 @@ body.menu-open .site-header {
     max-width: none;
   }
 }
+
+/* Final hero clarity, desktop frames, booking form and compact mobile reviews */
+.hero-slide-image {
+  image-rendering: auto;
+  filter: brightness(1) contrast(1.08) saturate(1.045);
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.booking-dialog textarea {
+  display: none;
+}
+
+@media (min-width: 761px) {
+  .hero::before,
+  .hero::after {
+    position: absolute;
+    pointer-events: none;
+    content: "";
+  }
+
+  .hero::before {
+    z-index: 2;
+    inset: clamp(7.75rem, 8.4vw, 9.15rem) clamp(1.3rem, 2.5vw, 3rem) clamp(2.6rem, 4vw, 3.8rem);
+    background:
+      linear-gradient(var(--brand-red-bright), var(--brand-red-bright)) left top / clamp(5.2rem, 8vw, 8.5rem) 1px no-repeat,
+      linear-gradient(var(--brand-red-bright), var(--brand-red-bright)) left top / 1px clamp(5.2rem, 8vw, 8.5rem) no-repeat,
+      linear-gradient(var(--brand-red-bright), var(--brand-red-bright)) right top / clamp(5.2rem, 8vw, 8.5rem) 1px no-repeat,
+      linear-gradient(var(--brand-red-bright), var(--brand-red-bright)) right top / 1px clamp(5.2rem, 8vw, 8.5rem) no-repeat,
+      linear-gradient(var(--brand-red-bright), var(--brand-red-bright)) left bottom / clamp(5.2rem, 8vw, 8.5rem) 1px no-repeat,
+      linear-gradient(var(--brand-red-bright), var(--brand-red-bright)) left bottom / 1px clamp(5.2rem, 8vw, 8.5rem) no-repeat,
+      linear-gradient(var(--brand-red-bright), var(--brand-red-bright)) right bottom / clamp(5.2rem, 8vw, 8.5rem) 1px no-repeat,
+      linear-gradient(var(--brand-red-bright), var(--brand-red-bright)) right bottom / 1px clamp(5.2rem, 8vw, 8.5rem) no-repeat;
+    opacity: 0.74;
+  }
+
+  .hero::after {
+    z-index: 1;
+    inset: clamp(10.2rem, 11vw, 12rem) clamp(5.4rem, 7.2vw, 8rem) clamp(5.2rem, 7vw, 7.4rem);
+    border-top: 1px solid rgba(255, 253, 248, 0.24);
+    border-bottom: 1px solid rgba(255, 253, 248, 0.24);
+    opacity: 0.85;
+  }
+
+  .hero-edge {
+    display: block;
+    color: rgba(255, 253, 248, 0.78);
+  }
+
+  .scroll-cue {
+    display: flex;
+    color: rgba(255, 253, 248, 0.82);
+  }
+}
+
+@media (max-width: 760px) {
+  .hero::before,
+  .hero::after,
+  .hero-edge,
+  .scroll-cue {
+    display: none !important;
+  }
+
+  .reviews-section {
+    padding-top: clamp(2.8rem, 8vw, 3.6rem);
+    padding-bottom: clamp(2.8rem, 9vw, 3.8rem);
+  }
+
+  .reviews-intro {
+    gap: 0.75rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .reviews-intro h2 {
+    font-size: clamp(2.7rem, 11vw, 3.45rem);
+    line-height: 0.94;
+  }
+
+  .review-grid {
+    margin-right: 0;
+    gap: 0.72rem;
+  }
+
+  .review-card {
+    flex: 0 0 min(78vw, 20rem);
+    padding: 1rem;
+  }
+
+  .review-card blockquote {
+    min-height: 0;
+    margin: 0.7rem 0 0.95rem;
+    font-size: clamp(1.02rem, 4.35vw, 1.2rem);
+    line-height: 1.32;
+  }
+
+  .review-card > p {
+    padding-top: 0.62rem;
+    font-size: 0.5rem;
+    line-height: 1.25;
+  }
+
+  .reviews-link {
+    padding-top: 1rem;
+    gap: 0.65rem;
+  }
+}

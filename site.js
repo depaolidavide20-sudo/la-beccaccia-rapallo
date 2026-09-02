@@ -108,24 +108,24 @@ const translations = {
     "legal.notes": "Note legali",
     "legal.manageCookies": "Gestisci cookie",
     "cookie.title": "Privacy e servizi esterni",
-    "cookie.copy": "Usiamo solo strumenti tecnici. Per aprire WhatsApp dai form o caricare Google Maps ti chiediamo prima il consenso ai servizi esterni.",
+    "cookie.copy": "Usiamo solo strumenti tecnici. Google Maps viene caricato solo dopo il consenso ai servizi esterni.",
     "cookie.necessary": "Solo necessari",
     "cookie.accept": "Accetta servizi esterni",
     "cookie.preferences": "Dettagli",
     "map.notice": "La mappa di Google viene caricata solo dopo il consenso ai servizi esterni.",
     "map.load": "Carica la mappa",
     "form.kicker": "Scrivici su WhatsApp",
-    "form.title": "Raccontaci<br><em>cosa desideri.</em>",
-    "form.intro": "Compila i campi: prepareremo il messaggio e ti chiederemo il consenso prima di aprire WhatsApp.",
-    "form.name": "Nome e cognome *",
-    "form.date": "Data",
-    "form.time": "Orario",
-    "form.guests": "Persone",
+    "form.title": "Prenota<br><em>il tuo tavolo.</em>",
+    "form.intro": "Inserisci i dati essenziali: prepariamo il messaggio e apriamo WhatsApp.",
+    "form.name": "Nome Cognome *",
+    "form.date": "Data *",
+    "form.time": "Orario *",
+    "form.guests": "Persone *",
     "form.choose": "Scegli",
     "form.message": "Messaggio",
     "form.placeholder": "Richieste o informazioni utili",
     "form.submit": "Continua su WhatsApp",
-    "form.note": "Nessun dato viene salvato sul sito: prima di aprire WhatsApp ti chiediamo il consenso ai servizi esterni.",
+    "form.note": "Nessun dato viene salvato sul sito: WhatsApp si apre con il messaggio già compilato.",
   },
   en: {
     skip: "Skip to content",
@@ -198,24 +198,24 @@ const translations = {
     "legal.notes": "Legal notes",
     "legal.manageCookies": "Manage cookies",
     "cookie.title": "Privacy and external services",
-    "cookie.copy": "We only use technical tools. To open WhatsApp from forms or load Google Maps, we ask for your consent to external services first.",
+    "cookie.copy": "We only use technical tools. Google Maps loads only after consent to external services.",
     "cookie.necessary": "Necessary only",
     "cookie.accept": "Accept external services",
     "cookie.preferences": "Details",
     "map.notice": "Google Maps is loaded only after consent to external services.",
     "map.load": "Load map",
     "form.kicker": "Message us on WhatsApp",
-    "form.title": "Tell us<br><em>what you need.</em>",
-    "form.intro": "Complete the fields: we will prepare your message and ask for consent before opening WhatsApp.",
+    "form.title": "Book<br><em>your table.</em>",
+    "form.intro": "Enter the essential details: we prepare your message and open WhatsApp.",
     "form.name": "Full name *",
-    "form.date": "Date",
-    "form.time": "Time",
-    "form.guests": "Guests",
+    "form.date": "Date *",
+    "form.time": "Time *",
+    "form.guests": "Guests *",
     "form.choose": "Select",
     "form.message": "Message",
     "form.placeholder": "Requests or useful information",
     "form.submit": "Continue on WhatsApp",
-    "form.note": "No data is stored on this website: we ask for consent to external services before opening WhatsApp.",
+    "form.note": "No data is stored on this website: WhatsApp opens with the message already filled in.",
   },
 };
 
@@ -877,8 +877,6 @@ const closeBookingModal = () => {
 
 document.querySelectorAll("[data-booking-trigger]").forEach((trigger) => {
   trigger.addEventListener("click", (event) => {
-    const href = trigger.getAttribute("href") || "";
-    if (href.startsWith("https://wa.me/")) return;
     event.preventDefault();
     openBookingModal(trigger);
   });
@@ -1081,7 +1079,6 @@ bookingForm?.addEventListener("submit", (event) => {
   const date = String(data.get("date") || "").trim();
   const time = String(data.get("time") || "").trim();
   const guests = String(data.get("guests") || "").trim();
-  const note = String(data.get("message") || "").trim();
   const formattedDate = date
     ? new Intl.DateTimeFormat(isEnglish ? "en-GB" : "it-IT", { day: "2-digit", month: "2-digit", year: "numeric" }).format(new Date(`${date}T12:00:00`))
     : "";
@@ -1099,16 +1096,10 @@ bookingForm?.addEventListener("submit", (event) => {
       ].filter(Boolean).join(" ");
 
   const message = isEnglish
-    ? [
-        `Hello La Beccaccia, my name is ${name} and I would like to book a table${details ? ` ${details}` : ""}.`,
-        note ? `\n${note}` : "",
-      ].join("")
-    : [
-        `Ciao La Beccaccia, sono ${name} e vorrei prenotare un tavolo${details ? ` ${details}` : ""}.`,
-        note ? `\n${note}` : "",
-      ].join("");
+    ? `Hello La Beccaccia, my name is ${name} and I would like to book a table${details ? ` ${details}` : ""}.`
+    : `Ciao La Beccaccia, sono ${name} e vorrei prenotare un tavolo${details ? ` ${details}` : ""}.`;
 
-  requestExternalUrl(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`);
+  openExternalUrl(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`);
 });
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

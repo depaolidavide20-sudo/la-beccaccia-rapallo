@@ -27,7 +27,12 @@ test("static HTML contains the La Beccaccia website without story section", asyn
   assert.match(html, /data-hero-carousel/);
   assert.match(html, /class="brand brand-mark header-brand-mark brand-logo"[\s\S]*la-beccaccia-logo-mobile\.png[\s\S]*la-beccaccia-logo-desktop\.png/);
   assert.match(html, /hero-socials hero-socials-center[\s\S]*instagram\.com\/la_beccaccia_rapallo[\s\S]*facebook\.com\/ristorantelabeccacciarapallo/);
+  assert.match(html, /hero-edge hero-edge-left[\s\S]*Brace · Rapallo · 1970/);
+  assert.match(html, /hero-edge hero-edge-right[\s\S]*Cucina ligure · Fuoco vivo/);
+  assert.match(html, /class="scroll-cue"[\s\S]*Scorri/);
   assert.equal([...html.matchAll(/href="https:\/\/wa\.me\/393286577160"[^>]*data-booking-trigger/g)].length, 5);
+  assert.match(html, /data-contact-form[\s\S]*Nome Cognome \*[\s\S]*name="date" required[\s\S]*name="time" required[\s\S]*select name="guests" autocomplete="off" required/);
+  assert.doesNotMatch(html, /name="message"|data-i18n="form\.message"/);
   assert.match(html, /hero-fire-desktop\.jpg[\s\S]*hero-served-steak-desktop\.jpg[\s\S]*hero-pasta-desktop\.jpg[\s\S]*hero-gourmet-desktop\.jpg/);
   assert.match(html, /hero-fire-mobile\.jpg[\s\S]*hero-served-steak-mobile\.jpg[\s\S]*hero-pasta-mobile\.jpg[\s\S]*hero-gourmet-mobile\.jpg/);
   assert.doesNotMatch(html, /hero-raw-grill-(desktop|mobile)\.jpg/);
@@ -72,6 +77,8 @@ test("styles and script keep the cloned visual system with red accents", async (
   assert.match(css, /\.hero \.hero-socials-center \.hero-social-link \{[\s\S]*width:\s*2\.18rem[\s\S]*height:\s*2\.18rem/);
   assert.match(css, /\.site-header \.book-link:hover,[\s\S]*color:\s*var\(--brand-red-bright\)/);
   assert.match(css, /\.reviews-section \.review-cta:hover,[\s\S]*background:\s*transparent[\s\S]*color:\s*var\(--brand-red\)/);
+  assert.match(css, /Final hero clarity, desktop frames, booking form and compact mobile reviews[\s\S]*\.hero::before,[\s\S]*\.hero::after/);
+  assert.match(css, /Final hero clarity, desktop frames, booking form and compact mobile reviews[\s\S]*var\(--brand-red-bright\)[\s\S]*\.review-card \{[\s\S]*flex:\s*0 0 min\(78vw, 20rem\)[\s\S]*padding:\s*1rem/);
   assert.match(css, /background:\s*#000 !important/);
   assert.match(css, /\.hero h1 \{[\s\S]*top:\s*50%;[\s\S]*left:\s*50%;[\s\S]*transform:\s*translate\(-50%, -50%\)/);
   assert.match(css, /transition:\s*opacity 0\.8s ease/);
@@ -82,7 +89,11 @@ test("styles and script keep the cloned visual system with red accents", async (
   assert.doesNotMatch(css, /heroKenBurns|heroSettle|\.hero-slide-image\s*\{[^}]*scale|\.hero-slide\.is-active \.hero-slide-image\s*\{[\s\S]*animation:/);
   assert.match(placeholder, /fill="#000"/);
   assert.match(script, /const whatsappNumber = "393286577160"/);
-  assert.match(script, /href\.startsWith\("https:\/\/wa\.me\/"\)/);
+  assert.doesNotMatch(script, /href\.startsWith\("https:\/\/wa\.me\/"\)/);
+  assert.match(script, /document\.querySelectorAll\("\[data-booking-trigger\]"\)[\s\S]*event\.preventDefault\(\);[\s\S]*openBookingModal\(trigger\);/);
+  assert.doesNotMatch(script, /data\.get\("message"\)/);
+  assert.match(script, /openExternalUrl\(`https:\/\/wa\.me\/\$\{whatsappNumber\}\?text=\$\{encodeURIComponent\(message\)\}`\)/);
+  assert.doesNotMatch(script, /requestExternalUrl\(`https:\/\/wa\.me/);
   assert.match(script, /laBeccacciaExternalServicesConsent/);
   assert.match(script, /La Beccaccia · Menu 2026/);
   assert.match(script, /Brindisi & Bocconi/);
