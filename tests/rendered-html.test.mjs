@@ -77,7 +77,7 @@ test("static HTML contains the La Beccaccia website without story section", asyn
   assert.doesNotMatch(foodTrack, /photo-placeholder\.svg|<figcaption|data-i18n="food\./);
   assert.match(html, /data-food-current>01<\/span> \/ 08/);
   const locationTrack = html.match(/<div class="location-track"[\s\S]*?<\/div>\n\n      <div class="carousel-footer carousel-footer-dark">/)?.[0] ?? "";
-  assert.match(locationTrack, /location-01\.jpg[\s\S]*location-02\.jpg[\s\S]*location-03\.jpg[\s\S]*location-04\.jpg[\s\S]*location-05\.jpg[\s\S]*location-06\.jpg[\s\S]*location-07\.jpg[\s\S]*location-08\.jpg/);
+  assert.match(locationTrack, /location-hq-01\.jpg[\s\S]*location-hq-02\.jpg[\s\S]*location-hq-03\.jpg[\s\S]*location-hq-04\.jpg[\s\S]*location-hq-05\.jpg[\s\S]*location-hq-06\.jpg[\s\S]*location-hq-07\.jpg[\s\S]*location-hq-08\.jpg/);
   assert.doesNotMatch(locationTrack, /photo-placeholder\.svg|class="image-placeholder"/);
   assert.match(html, /data-location-current>01<\/span> \/ 08/);
   assert.match(html, /tripadvisor\.it\/Restaurant_Review-g187826-d1865956-Reviews-La_Beccaccia_Brace_E_Cucina-Rapallo_Italian_Riviera_Liguria\.html/);
@@ -185,14 +185,14 @@ test("github-static folder contains the minimal static bundle", async () => {
 
   const locationAssets = await readdir(new URL("github-static/assets/location-carousel/", root));
   assert.deepEqual(locationAssets.sort(), [
-    "location-01.jpg",
-    "location-02.jpg",
-    "location-03.jpg",
-    "location-04.jpg",
-    "location-05.jpg",
-    "location-06.jpg",
-    "location-07.jpg",
-    "location-08.jpg",
+    "location-hq-01.jpg",
+    "location-hq-02.jpg",
+    "location-hq-03.jpg",
+    "location-hq-04.jpg",
+    "location-hq-05.jpg",
+    "location-hq-06.jpg",
+    "location-hq-07.jpg",
+    "location-hq-08.jpg",
   ]);
 
   for (const asset of locationAssets) {
@@ -205,8 +205,9 @@ test("github-static folder contains the minimal static bundle", async () => {
   assert.match(html, /src="site.js"/);
   assert.match(html, /assets\/hero\/hero-fire-desktop\.jpg/);
   assert.match(html, /assets\/brand\/la-beccaccia-logo-desktop\.png/);
-  assert.match(html, /assets\/location-carousel\/location-01\.jpg/);
-  assert.match(html, /assets\/location-carousel\/location-08\.jpg/);
+  assert.match(html, /assets\/location-carousel\/location-hq-01\.jpg/);
+  assert.match(html, /assets\/location-carousel\/location-hq-08\.jpg/);
+  assert.doesNotMatch(html, /assets\/location-carousel\/location-0[1-8]\.jpg/);
   assert.match(html, /assets\/restaurant-carousel\/restaurant-01\.jpg/);
   assert.doesNotMatch(html, /favicon\.svg|id="eventi"|data-i18n="luggage\./);
 });
