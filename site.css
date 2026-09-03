@@ -5841,6 +5841,11 @@ body.menu-open .site-header {
   background: transparent !important;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 .hero-slide-image {
   image-rendering: auto;
   filter: brightness(1) contrast(1.08) saturate(1.045);
@@ -5864,23 +5869,19 @@ body.menu-open .site-header {
     z-index: 2;
     inset: clamp(7.75rem, 8.4vw, 9.15rem) clamp(1.3rem, 2.5vw, 3rem) clamp(2.6rem, 4vw, 3.8rem);
     background:
-      linear-gradient(var(--brand-red-bright), var(--brand-red-bright)) left top / clamp(5.2rem, 8vw, 8.5rem) 1px no-repeat,
-      linear-gradient(var(--brand-red-bright), var(--brand-red-bright)) left top / 1px clamp(5.2rem, 8vw, 8.5rem) no-repeat,
-      linear-gradient(var(--brand-red-bright), var(--brand-red-bright)) right top / clamp(5.2rem, 8vw, 8.5rem) 1px no-repeat,
-      linear-gradient(var(--brand-red-bright), var(--brand-red-bright)) right top / 1px clamp(5.2rem, 8vw, 8.5rem) no-repeat,
-      linear-gradient(var(--brand-red-bright), var(--brand-red-bright)) left bottom / clamp(5.2rem, 8vw, 8.5rem) 1px no-repeat,
-      linear-gradient(var(--brand-red-bright), var(--brand-red-bright)) left bottom / 1px clamp(5.2rem, 8vw, 8.5rem) no-repeat,
-      linear-gradient(var(--brand-red-bright), var(--brand-red-bright)) right bottom / clamp(5.2rem, 8vw, 8.5rem) 1px no-repeat,
-      linear-gradient(var(--brand-red-bright), var(--brand-red-bright)) right bottom / 1px clamp(5.2rem, 8vw, 8.5rem) no-repeat;
-    opacity: 0.74;
+      linear-gradient(rgba(255, 253, 248, 0.9), rgba(255, 253, 248, 0.9)) left top / clamp(5.2rem, 8vw, 8.5rem) 1px no-repeat,
+      linear-gradient(rgba(255, 253, 248, 0.9), rgba(255, 253, 248, 0.9)) left top / 1px clamp(5.2rem, 8vw, 8.5rem) no-repeat,
+      linear-gradient(rgba(255, 253, 248, 0.9), rgba(255, 253, 248, 0.9)) right top / clamp(5.2rem, 8vw, 8.5rem) 1px no-repeat,
+      linear-gradient(rgba(255, 253, 248, 0.9), rgba(255, 253, 248, 0.9)) right top / 1px clamp(5.2rem, 8vw, 8.5rem) no-repeat,
+      linear-gradient(rgba(255, 253, 248, 0.9), rgba(255, 253, 248, 0.9)) left bottom / clamp(5.2rem, 8vw, 8.5rem) 1px no-repeat,
+      linear-gradient(rgba(255, 253, 248, 0.9), rgba(255, 253, 248, 0.9)) left bottom / 1px clamp(5.2rem, 8vw, 8.5rem) no-repeat,
+      linear-gradient(rgba(255, 253, 248, 0.9), rgba(255, 253, 248, 0.9)) right bottom / clamp(5.2rem, 8vw, 8.5rem) 1px no-repeat,
+      linear-gradient(rgba(255, 253, 248, 0.9), rgba(255, 253, 248, 0.9)) right bottom / 1px clamp(5.2rem, 8vw, 8.5rem) no-repeat;
+    opacity: 0.82;
   }
 
   .hero::after {
-    z-index: 1;
-    inset: clamp(10.2rem, 11vw, 12rem) clamp(5.4rem, 7.2vw, 8rem) clamp(5.2rem, 7vw, 7.4rem);
-    border-top: 1px solid rgba(255, 253, 248, 0.24);
-    border-bottom: 1px solid rgba(255, 253, 248, 0.24);
-    opacity: 0.85;
+    display: none;
   }
 
   .hero-edge {
@@ -5943,5 +5944,72 @@ body.menu-open .site-header {
   .reviews-link {
     padding-top: 1rem;
     gap: 0.65rem;
+  }
+}
+
+.footer-brand-logo {
+  display: inline-flex;
+  width: clamp(12rem, 20vw, 18rem);
+  min-width: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: flex-start;
+  color: var(--white);
+  font-size: 0;
+  letter-spacing: 0;
+  line-height: 1;
+  text-transform: none;
+}
+
+.footer-brand-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: none;
+  mix-blend-mode: screen;
+}
+
+@media (max-width: 760px) {
+  .hero {
+    width: 100%;
+    height: 100vh;
+    min-height: 39rem;
+  }
+
+  @supports (height: 100dvh) {
+    .hero {
+      height: 100dvh;
+    }
+  }
+
+  .hero h1,
+  .hero-manifesto,
+  .hero-actions,
+  .hero-socials-center {
+    max-width: calc(100vw - 2rem);
+  }
+
+  .site-header,
+  .mobile-sticky-book,
+  .booking-modal,
+  .card-modal,
+  .legal-modal {
+    max-width: 100vw;
+  }
+
+  .mobile-sticky-book {
+    right: max(1rem, env(safe-area-inset-right));
+    left: max(1rem, env(safe-area-inset-left));
+    width: auto;
+  }
+
+  .footer-main {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .footer-brand-logo {
+    width: min(74vw, 15rem);
+    justify-content: center;
   }
 }

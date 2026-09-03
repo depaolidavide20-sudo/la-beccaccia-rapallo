@@ -49,6 +49,8 @@ test("static HTML contains the La Beccaccia website without story section", asyn
   assert.match(html, /data-i18n="location\.kicker">02 Location/);
   assert.match(html, /data-i18n="reviews\.kicker">03 Recensioni/);
   assert.match(html, /data-i18n="contacts\.kicker">04 Contatti/);
+  assert.match(html, /footer-logo footer-brand-logo[\s\S]*assets\/brand\/la-beccaccia-logo-desktop\.png/);
+  assert.doesNotMatch(html, /<a class="footer-logo"[^>]*>La Beccaccia<\/a>/);
   assert.match(html, /data-hero-carousel/);
   assert.match(html, /class="brand brand-mark header-brand-mark brand-logo"[\s\S]*la-beccaccia-logo-mobile\.png[\s\S]*la-beccaccia-logo-desktop\.png/);
   assert.match(html, /hero-socials hero-socials-center[\s\S]*instagram\.com\/la_beccaccia_rapallo[\s\S]*facebook\.com\/ristorantelabeccacciarapallo/);
@@ -83,10 +85,11 @@ test("static HTML contains the La Beccaccia website without story section", asyn
 });
 
 test("styles and script keep the cloned visual system with red accents", async () => {
-  const [css, script, placeholder] = await Promise.all([
+  const [css, script, placeholder, buildScript] = await Promise.all([
     readFile(new URL("site.css", root), "utf8"),
     readFile(new URL("site.js", root), "utf8"),
     readFile(new URL("assets/photo-placeholder.svg", root), "utf8"),
+    readFile(new URL("scripts/build-static-worker.mjs", root), "utf8"),
   ]);
 
   assert.match(css, /DM\+Sans/);
@@ -105,7 +108,10 @@ test("styles and script keep the cloned visual system with red accents", async (
   assert.match(css, /\.reviews-section \.review-cta:hover,[\s\S]*background:\s*transparent[\s\S]*color:\s*var\(--brand-red\)/);
   assert.match(css, /Final hero clarity, desktop frames, booking form and compact mobile reviews[\s\S]*\.hero::before,[\s\S]*\.hero::after/);
   assert.match(css, /Final hero clarity, desktop frames, booking form and compact mobile reviews[\s\S]*\.site-header::after \{[\s\S]*opacity:\s*0 !important[\s\S]*background:\s*transparent !important/);
-  assert.match(css, /Final hero clarity, desktop frames, booking form and compact mobile reviews[\s\S]*var\(--brand-red-bright\)[\s\S]*\.review-card \{[\s\S]*flex:\s*0 0 min\(82vw, 21\.5rem\)[\s\S]*padding:\s*1\.25rem/);
+  assert.match(css, /Final hero clarity, desktop frames, booking form and compact mobile reviews[\s\S]*rgba\(255, 253, 248, 0\.9\)[\s\S]*\.hero::after \{[\s\S]*display:\s*none/);
+  assert.match(css, /Final hero clarity, desktop frames, booking form and compact mobile reviews[\s\S]*\.review-card \{[\s\S]*flex:\s*0 0 min\(82vw, 21\.5rem\)[\s\S]*padding:\s*1\.25rem/);
+  assert.match(css, /Final hero clarity, desktop frames, booking form and compact mobile reviews[\s\S]*@supports \(height: 100dvh\)/);
+  assert.match(css, /\.footer-brand-logo \{[\s\S]*width:\s*clamp\(12rem, 20vw, 18rem\)/);
   assert.match(css, /background:\s*#000 !important/);
   assert.match(css, /\.hero h1 \{[\s\S]*top:\s*50%;[\s\S]*left:\s*50%;[\s\S]*transform:\s*translate\(-50%, -50%\)/);
   assert.match(css, /transition:\s*opacity 0\.8s ease/);
@@ -133,6 +139,9 @@ test("styles and script keep the cloned visual system with red accents", async (
   assert.match(script, /if \(reduceMotion \|\| heroSlides\.length < 2\) return/);
   assert.doesNotMatch(script, /heroCarousel\.style\.transform|scale\(\$\{1 \+ progress/);
   assert.doesNotMatch(script, /La nostra storia|nav\.story|["']story\.|nav\.luggage|luggage\.|La Taverna|Monterosso|Via Molinelli|evento privato|private event/);
+  assert.match(buildScript, /assets:\s*\{[\s\S]*directory:\s*"\.\.\/client"/);
+  assert.match(buildScript, /await cp\("assets", "dist\/client\/assets", \{ recursive: true \}\)/);
+  assert.doesNotMatch(buildScript, /workerFiles = \[[\s\S]*assets\/location-carousel\/location-01\.jpg|workerFiles = \[[\s\S]*assets\/hero\/hero-fire-desktop\.jpg/);
 });
 
 test("github-static folder contains the minimal static bundle", async () => {
