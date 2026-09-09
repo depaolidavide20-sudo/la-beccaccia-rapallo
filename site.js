@@ -5,6 +5,7 @@ const mobileMenu = document.querySelector(".mobile-menu");
 const mobileMenuPanel = mobileMenu?.querySelector(".menu-panel");
 const mobileLinks = mobileMenu?.querySelectorAll("a[href^='#']") ?? [];
 const whatsappNumber = "393286577160";
+const plateformBookingUrl = "https://ristorantelabeccaccia.plateform.app/";
 const focusableSelector = "a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex='-1'])";
 const backgroundRegions = [document.querySelector("main"), document.querySelector(".site-footer")].filter(Boolean);
 let lastFocusedElement = null;
@@ -43,13 +44,17 @@ const translations = {
     "nav.location": "Location",
     "nav.reviews": "Recensioni",
     "nav.contacts": "Contatti",
-    "cta.book": "Prenota",
-    "cta.bookNow": "Prenota ora",
-    "cta.bookTable": "Prenota un tavolo",
-    "cta.heroBook": "PRENOTA IL TUO TAVOLO",
+    "cta.book": "PRENOTA ONLINE",
+    "cta.bookNow": "PRENOTA ONLINE",
+    "cta.bookTable": "PRENOTA ONLINE",
+    "cta.heroBook": "PRENOTA ONLINE",
     "cta.menu": "Scopri il nostro menù",
     "cta.wine": "Carta dei Vini",
     "cta.call": "Chiama ora",
+    "cta.whatsappInfo": "WhatsApp info",
+    "sticky.menu": "MENU",
+    "sticky.book": "PRENOTA",
+    "sticky.directions": "INDICAZIONI",
     "card.food": "Menù",
     "card.wine": "Carta dei Vini",
     "card.note": "I nostri piatti possono contenere o essere preparati in ambienti dove sono presenti allergeni. Per qualsiasi informazione chiedere al personale.",
@@ -77,7 +82,12 @@ const translations = {
     "location.terrace3": "Il giardino",
     "location.dehors": "Il dehors",
     "location.gardenTables": "Tavoli nel verde",
-    "reviews.kicker": "03 Recensioni",
+    "events.kicker": "03 Eventi",
+    "events.title": "Eventi<br><em>privati.</em>",
+    "events.copy": "Matrimoni, battesimi, comunioni, cresime e feste private trovano alla Beccaccia una cornice riservata, menu curati e il calore della nostra cucina.",
+    "events.note": "Raccontaci occasione, periodo e numero ospiti: ti ricontatteremo con una proposta su misura.",
+    "events.cta": "RICHIEDI INFORMAZIONI",
+    "reviews.kicker": "04 Recensioni",
     "reviews.title": "Cosa dicono di noi",
     "reviews.awards": "Canali recensioni",
     "reviews.cardLabel1": "Brace",
@@ -91,7 +101,7 @@ const translations = {
     "reviews.author3": "Rapallo · GE",
     "reviews.read": "Leggi le recensioni",
     "reviews.leave": "Lascia una recensione",
-    "contacts.kicker": "04 Contatti",
+    "contacts.kicker": "05 Contatti",
     "contacts.title": "Contatti",
     "contacts.where": "Dove siamo",
     "contacts.hoursLabel": "Orari",
@@ -114,18 +124,25 @@ const translations = {
     "cookie.preferences": "Dettagli",
     "map.notice": "La mappa di Google viene caricata solo dopo il consenso ai servizi esterni.",
     "map.load": "Carica la mappa",
-    "form.kicker": "Scrivici su WhatsApp",
-    "form.title": "Prenota<br><em>il tuo tavolo.</em>",
-    "form.intro": "Inserisci i dati essenziali: prepariamo il messaggio e apriamo WhatsApp.",
+    "form.kicker": "La Beccaccia · Eventi",
+    "form.title": "Raccontaci<br><em>il tuo evento.</em>",
+    "form.intro": "Invia una prima richiesta: prepariamo un messaggio WhatsApp con i dettagli per ricontattarti.",
     "form.name": "Nome Cognome *",
-    "form.date": "Data *",
-    "form.time": "Orario *",
-    "form.guests": "Persone *",
-    "form.choose": "Scegli",
+    "form.contact": "Telefono o email *",
+    "form.eventType": "Tipologia evento *",
+    "form.eventTypeChoose": "Scegli",
+    "form.eventWedding": "Matrimonio",
+    "form.eventBaptism": "Battesimo",
+    "form.eventCommunion": "Comunione",
+    "form.eventConfirmation": "Cresima",
+    "form.eventPrivate": "Festa privata",
+    "form.eventOther": "Altro",
+    "form.eventDate": "Data indicativa",
+    "form.guests": "Numero ospiti *",
     "form.message": "Messaggio",
-    "form.placeholder": "Richieste o informazioni utili",
-    "form.submit": "Continua su WhatsApp",
-    "form.note": "Nessun dato viene salvato sul sito: WhatsApp si apre con il messaggio già compilato.",
+    "form.placeholder": "Dettagli, esigenze o richieste particolari",
+    "form.submit": "Invia richiesta su WhatsApp",
+    "form.note": "Il sito non salva i dati: WhatsApp si apre con la richiesta già compilata.",
   },
   en: {
     skip: "Skip to content",
@@ -133,13 +150,17 @@ const translations = {
     "nav.location": "Location",
     "nav.reviews": "Reviews",
     "nav.contacts": "Contacts",
-    "cta.book": "Book now",
-    "cta.bookNow": "Book now",
-    "cta.bookTable": "Book a table",
-    "cta.heroBook": "BOOK YOUR TABLE",
+    "cta.book": "BOOK ONLINE",
+    "cta.bookNow": "BOOK ONLINE",
+    "cta.bookTable": "BOOK ONLINE",
+    "cta.heroBook": "BOOK ONLINE",
     "cta.menu": "Discover our menu",
     "cta.wine": "Wine list",
     "cta.call": "Call now",
+    "cta.whatsappInfo": "WhatsApp info",
+    "sticky.menu": "MENU",
+    "sticky.book": "BOOK",
+    "sticky.directions": "DIRECTIONS",
     "card.food": "Menu",
     "card.wine": "Wine list",
     "card.note": "Our dishes may contain allergens or be prepared in environments where allergens are present. Please ask our staff for any information.",
@@ -167,7 +188,12 @@ const translations = {
     "location.terrace3": "The garden",
     "location.dehors": "The outdoor area",
     "location.gardenTables": "Garden tables",
-    "reviews.kicker": "03 Reviews",
+    "events.kicker": "03 Events",
+    "events.title": "Private<br><em>events.</em>",
+    "events.copy": "Weddings, baptisms, communions, confirmations and private parties find a reserved setting, curated menus and the warmth of La Beccaccia's cuisine.",
+    "events.note": "Tell us the occasion, period and guest count: we will get back to you with a tailored proposal.",
+    "events.cta": "REQUEST INFORMATION",
+    "reviews.kicker": "04 Reviews",
     "reviews.title": "What guests say",
     "reviews.awards": "Review channels",
     "reviews.cardLabel1": "Grill",
@@ -181,7 +207,7 @@ const translations = {
     "reviews.author3": "Rapallo · GE",
     "reviews.read": "Read reviews",
     "reviews.leave": "Leave a review",
-    "contacts.kicker": "04 Contacts",
+    "contacts.kicker": "05 Contacts",
     "contacts.title": "Contacts",
     "contacts.where": "Find us",
     "contacts.hoursLabel": "Opening hours",
@@ -204,18 +230,25 @@ const translations = {
     "cookie.preferences": "Details",
     "map.notice": "Google Maps is loaded only after consent to external services.",
     "map.load": "Load map",
-    "form.kicker": "Message us on WhatsApp",
-    "form.title": "Book<br><em>your table.</em>",
-    "form.intro": "Enter the essential details: we prepare your message and open WhatsApp.",
+    "form.kicker": "La Beccaccia · Events",
+    "form.title": "Tell us<br><em>about your event.</em>",
+    "form.intro": "Send a first request: we prepare a WhatsApp message with the details so we can contact you.",
     "form.name": "Full name *",
-    "form.date": "Date *",
-    "form.time": "Time *",
-    "form.guests": "Guests *",
-    "form.choose": "Select",
+    "form.contact": "Phone or email *",
+    "form.eventType": "Event type *",
+    "form.eventTypeChoose": "Select",
+    "form.eventWedding": "Wedding",
+    "form.eventBaptism": "Baptism",
+    "form.eventCommunion": "Communion",
+    "form.eventConfirmation": "Confirmation",
+    "form.eventPrivate": "Private party",
+    "form.eventOther": "Other",
+    "form.eventDate": "Indicative date",
+    "form.guests": "Guest count *",
     "form.message": "Message",
-    "form.placeholder": "Requests or useful information",
-    "form.submit": "Continue on WhatsApp",
-    "form.note": "No data is stored on this website: WhatsApp opens with the message already filled in.",
+    "form.placeholder": "Details, needs or special requests",
+    "form.submit": "Send request on WhatsApp",
+    "form.note": "No data is stored on this website: WhatsApp opens with the request already filled in.",
   },
 };
 
@@ -570,55 +603,60 @@ const updateHeader = () => header?.classList.toggle("is-scrolled", window.scroll
 updateHeader();
 window.addEventListener("scroll", updateHeader, { passive: true });
 
-const mobileStickyBook = document.querySelector(".mobile-sticky-book");
-const stickyBookSections = [
+document.querySelectorAll("[data-online-booking]").forEach((link) => {
+  link.setAttribute("href", plateformBookingUrl);
+});
+
+const mobileStickyNav = document.querySelector(".mobile-sticky-nav");
+const stickyNavSections = [
   { element: document.querySelector("#top"), theme: "dark" },
   { element: document.querySelector("#ristorante"), theme: "dark" },
   { element: document.querySelector("#location"), theme: "light" },
+  { element: document.querySelector("#eventi"), theme: "dark" },
   { element: document.querySelector("#recensioni"), theme: "light" },
   { element: document.querySelector("#contatti"), theme: "light" },
   { element: document.querySelector(".site-footer"), theme: "dark" },
 ].filter(({ element }) => element);
 
-const setStickyBookTheme = (theme) => {
-  if (!mobileStickyBook) return;
+const setStickyNavTheme = (theme) => {
+  if (!mobileStickyNav) return;
   const isOnLight = theme === "light";
-  mobileStickyBook.classList.toggle("is-on-light", isOnLight);
-  mobileStickyBook.classList.toggle("is-on-dark", !isOnLight);
+  mobileStickyNav.classList.toggle("is-on-light", isOnLight);
+  mobileStickyNav.classList.toggle("is-on-dark", !isOnLight);
 };
 
-const updateStickyBookTheme = () => {
-  if (!stickyBookSections.length) return;
-  const footerSection = stickyBookSections.find(({ element }) => element.matches(".site-footer"));
+const updateStickyNavTheme = () => {
+  if (!stickyNavSections.length) return;
+  const footerSection = stickyNavSections.find(({ element }) => element.matches(".site-footer"));
   const footerRect = footerSection?.element.getBoundingClientRect();
   if (footerRect && footerRect.top <= window.innerHeight * 0.72 && footerRect.bottom > 0) {
-    setStickyBookTheme("dark");
+    setStickyNavTheme("dark");
     return;
   }
 
   const isAtPageEnd = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 12;
   if (isAtPageEnd) {
-    setStickyBookTheme("dark");
+    setStickyNavTheme("dark");
     return;
   }
 
   const sampleY = Math.max(96, Math.min(window.innerHeight - 96, window.innerHeight * 0.64));
   const sampleElement = document.elementFromPoint(window.innerWidth / 2, sampleY);
-  const activeSection = stickyBookSections.find(({ element }) => element.contains(sampleElement))
-    || stickyBookSections.reduce((current, section) => {
+  const activeSection = stickyNavSections.find(({ element }) => element.contains(sampleElement))
+    || stickyNavSections.reduce((current, section) => {
       const rect = section.element.getBoundingClientRect();
       const distance = Math.abs(rect.top - sampleY);
       return distance < current.distance ? { section, distance } : current;
-    }, { section: stickyBookSections[0], distance: Number.POSITIVE_INFINITY }).section;
+    }, { section: stickyNavSections[0], distance: Number.POSITIVE_INFINITY }).section;
 
-  setStickyBookTheme(activeSection.theme);
+  setStickyNavTheme(activeSection.theme);
 };
 
-if (mobileStickyBook) {
-  setStickyBookTheme("dark");
-  updateStickyBookTheme();
-  window.addEventListener("scroll", updateStickyBookTheme, { passive: true });
-  window.addEventListener("resize", updateStickyBookTheme);
+if (mobileStickyNav) {
+  setStickyNavTheme("dark");
+  updateStickyNavTheme();
+  window.addEventListener("scroll", updateStickyNavTheme, { passive: true });
+  window.addEventListener("resize", updateStickyNavTheme);
 }
 
 const setupCarousel = ({ trackSelector, cardSelector, currentSelector, prevSelector, nextSelector }) => {
@@ -840,50 +878,48 @@ cardModal?.querySelectorAll("[data-card-tab]").forEach((button) => {
   button.addEventListener("click", () => setCardType(button.dataset.cardTab));
 });
 
-const bookingModal = document.querySelector("[data-booking-modal]");
-const bookingDialog = bookingModal?.querySelector(".booking-dialog");
-const bookingForm = bookingModal?.querySelector("[data-contact-form]");
-const contextInput = bookingForm?.querySelector("input[name='context']");
-const dateInput = bookingForm?.querySelector("input[name='date']");
-let closeModalTimer;
+const eventModal = document.querySelector("[data-event-modal]");
+const eventDialog = eventModal?.querySelector(".booking-dialog");
+const eventForm = eventModal?.querySelector("[data-event-form]");
+const eventDateInput = eventForm?.querySelector("input[name='eventDate']");
+let closeEventModalTimer;
 
-if (dateInput) dateInput.min = new Date().toISOString().split("T")[0];
+if (eventDateInput) eventDateInput.min = new Date().toISOString().split("T")[0];
 
-const openBookingModal = (trigger) => {
-  if (!bookingModal || !bookingDialog) return;
-  window.clearTimeout(closeModalTimer);
+const openEventModal = (trigger) => {
+  if (!eventModal || !eventDialog) return;
+  window.clearTimeout(closeEventModalTimer);
   lastFocusedElement = trigger;
-  if (contextInput) contextInput.value = trigger.dataset.context || "Prenotazione tavolo";
   setMenu(false, false);
-  bookingModal.hidden = false;
-  bookingModal.setAttribute("aria-hidden", "false");
+  eventModal.hidden = false;
+  eventModal.setAttribute("aria-hidden", "false");
   body.classList.add("modal-open");
   setBackgroundInert(true);
-  requestAnimationFrame(() => bookingModal.classList.add("is-open"));
-  window.setTimeout(() => bookingForm?.querySelector("input[name='name']")?.focus(), 420);
+  requestAnimationFrame(() => eventModal.classList.add("is-open"));
+  window.setTimeout(() => eventForm?.querySelector("input[name='name']")?.focus(), 420);
 };
 
-const closeBookingModal = () => {
-  if (!bookingModal || bookingModal.hidden) return;
-  bookingModal.classList.remove("is-open");
-  bookingModal.setAttribute("aria-hidden", "true");
+const closeEventModal = () => {
+  if (!eventModal || eventModal.hidden) return;
+  eventModal.classList.remove("is-open");
+  eventModal.setAttribute("aria-hidden", "true");
   body.classList.remove("modal-open");
   setBackgroundInert(false);
-  closeModalTimer = window.setTimeout(() => {
-    bookingModal.hidden = true;
+  closeEventModalTimer = window.setTimeout(() => {
+    eventModal.hidden = true;
     lastFocusedElement?.focus();
   }, 500);
 };
 
-document.querySelectorAll("[data-booking-trigger]").forEach((trigger) => {
+document.querySelectorAll("[data-event-trigger]").forEach((trigger) => {
   trigger.addEventListener("click", (event) => {
     event.preventDefault();
-    openBookingModal(trigger);
+    openEventModal(trigger);
   });
 });
 
-bookingModal?.querySelectorAll("[data-booking-close]").forEach((button) => {
-  button.addEventListener("click", closeBookingModal);
+eventModal?.querySelectorAll("[data-event-close]").forEach((button) => {
+  button.addEventListener("click", closeEventModal);
 });
 
 
@@ -1059,45 +1095,55 @@ if (initialConsent?.externalServices) {
 }
 
 document.addEventListener("keydown", (event) => {
-  if (bookingModal?.classList.contains("is-open")) trapFocus(event, bookingDialog);
+  if (eventModal?.classList.contains("is-open")) trapFocus(event, eventDialog);
   else if (cardModal?.classList.contains("is-open")) trapFocus(event, cardDialog);
   else if (legalModal?.classList.contains("is-open")) trapFocus(event, legalDialog);
   else if (body.classList.contains("menu-open")) trapFocus(event, mobileMenuPanel);
 
   if (event.key !== "Escape") return;
   if (cardModal?.classList.contains("is-open")) closeCardModal();
-  else if (bookingModal?.classList.contains("is-open")) closeBookingModal();
+  else if (eventModal?.classList.contains("is-open")) closeEventModal();
   else if (legalModal?.classList.contains("is-open")) closeLegalModal();
   else setMenu(false);
 });
 
-bookingForm?.addEventListener("submit", (event) => {
+eventForm?.addEventListener("submit", (event) => {
   event.preventDefault();
-  const data = new FormData(bookingForm);
+  const data = new FormData(eventForm);
   const isEnglish = currentLanguage === "en";
   const name = String(data.get("name") || "").trim();
-  const date = String(data.get("date") || "").trim();
-  const time = String(data.get("time") || "").trim();
+  const contact = String(data.get("contact") || "").trim();
+  const eventTypeValue = String(data.get("eventType") || "").trim();
+  const eventTypeSelect = eventForm.querySelector("select[name='eventType']");
+  const eventType = eventTypeSelect?.selectedOptions?.[0]?.textContent?.trim() || eventTypeValue;
+  const eventDate = String(data.get("eventDate") || "").trim();
   const guests = String(data.get("guests") || "").trim();
-  const formattedDate = date
-    ? new Intl.DateTimeFormat(isEnglish ? "en-GB" : "it-IT", { day: "2-digit", month: "2-digit", year: "numeric" }).format(new Date(`${date}T12:00:00`))
+  const messageText = String(data.get("message") || "").trim();
+  const formattedDate = eventDate
+    ? new Intl.DateTimeFormat(isEnglish ? "en-GB" : "it-IT", { day: "2-digit", month: "2-digit", year: "numeric" }).format(new Date(`${eventDate}T12:00:00`))
     : "";
 
-  const details = isEnglish
-    ? [
-        guests ? `for ${guests} ${guests === "1" ? "person" : "people"}` : "",
-        formattedDate ? `on ${formattedDate}` : "",
-        time ? `at ${time}` : "",
-      ].filter(Boolean).join(" ")
-    : [
-        guests ? `per ${guests} ${guests === "1" ? "persona" : "persone"}` : "",
-        formattedDate ? `per il giorno ${formattedDate}` : "",
-        time ? `alle ${time}` : "",
-      ].filter(Boolean).join(" ");
-
   const message = isEnglish
-    ? `Hello La Beccaccia, my name is ${name} and I would like to book a table${details ? ` ${details}` : ""}.`
-    : `Ciao La Beccaccia, sono ${name} e vorrei prenotare un tavolo${details ? ` ${details}` : ""}.`;
+    ? [
+        "Hello La Beccaccia, I would like information for a private event.",
+        "",
+        `Name: ${name}`,
+        `Phone or email: ${contact}`,
+        `Event type: ${eventType}`,
+        `Indicative date: ${formattedDate || "To be defined"}`,
+        `Guests: ${guests}`,
+        `Message: ${messageText || "No additional message"}`,
+      ].join("\n")
+    : [
+        "Ciao La Beccaccia, vorrei ricevere informazioni per un evento privato.",
+        "",
+        `Nome: ${name}`,
+        `Telefono o email: ${contact}`,
+        `Tipologia evento: ${eventType}`,
+        `Data indicativa: ${formattedDate || "Da definire"}`,
+        `Numero ospiti: ${guests}`,
+        `Messaggio: ${messageText || "Nessun messaggio aggiuntivo"}`,
+      ].join("\n");
 
   openExternalUrl(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`);
 });
