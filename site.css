@@ -6209,3 +6209,142 @@ body {
     bottom: calc(4.7rem + env(safe-area-inset-bottom));
   }
 }
+
+/* Targeted WhatsApp and review icon updates */
+.scroll-cue {
+  display: none !important;
+}
+
+.booking-modal {
+  z-index: 260;
+}
+
+.hero-whatsapp-action {
+  position: absolute;
+  z-index: 4;
+  top: calc(50% + clamp(18.25rem, 18.2vw, 20.35rem));
+  left: var(--page-x);
+  display: inline-flex;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.hero-whatsapp-link {
+  display: inline-flex;
+  width: 2.64rem;
+  min-width: 2.64rem;
+  height: 2.64rem;
+  min-height: 2.64rem;
+  padding: 0;
+  border: 1px solid rgba(255, 253, 248, 0.58);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.28);
+  color: var(--white);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0.7rem 1.8rem rgba(0, 0, 0, 0.15);
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.hero-whatsapp-link span {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.hero-whatsapp-link .whatsapp-cta-icon {
+  width: 1.22rem;
+  height: 1.22rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  color: currentColor;
+  fill: currentColor;
+  stroke: none;
+}
+
+.hero-whatsapp-link:hover,
+.hero-whatsapp-link:focus-visible {
+  border-color: var(--brand-red-bright);
+  background: rgba(0, 0, 0, 0.44);
+  color: var(--brand-red-bright);
+  transform: translateY(-1px);
+}
+
+.events-cta .whatsapp-cta-icon {
+  width: 1.18rem;
+  height: 1.18rem;
+  color: currentColor;
+  fill: currentColor;
+  stroke: none;
+}
+
+.tripadvisor-icon {
+  flex: 0 0 auto;
+  width: 1.7rem;
+  height: 1.7rem;
+  color: currentColor;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.tripadvisor-icon .owl-frame,
+.tripadvisor-icon .owl-eye,
+.tripadvisor-icon .owl-beak,
+.tripadvisor-icon .owl-gesture {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.35;
+}
+
+.tripadvisor-icon .owl-pupil {
+  fill: currentColor;
+  stroke: none;
+}
+
+.reviews-link a:hover .tripadvisor-icon,
+.reviews-link a:focus-visible .tripadvisor-icon {
+  transform: translateY(-1px);
+}
+
+@media (max-width: 760px) {
+  .hero h1 {
+    max-width: calc(100vw - 2rem);
+    font-size: clamp(2.8rem, 12.3vw, 3.45rem);
+    letter-spacing: 0;
+    white-space: nowrap;
+  }
+
+  .hero-whatsapp-action {
+    top: calc(50% + 9.35rem);
+    left: var(--page-x);
+  }
+
+  .hero-whatsapp-link {
+    width: 2.52rem;
+    min-width: 2.52rem;
+    height: 2.52rem;
+    min-height: 2.52rem;
+  }
+
+  .hero-whatsapp-link .whatsapp-cta-icon {
+    width: 1.16rem;
+    height: 1.16rem;
+  }
+
+  .reviews-link a {
+    gap: 1rem;
+  }
+
+  .tripadvisor-icon {
+    width: 1.45rem;
+    height: 1.45rem;
+  }
+}

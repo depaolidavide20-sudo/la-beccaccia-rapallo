@@ -52,6 +52,7 @@ const translations = {
     "cta.wine": "Carta dei Vini",
     "cta.call": "Chiama ora",
     "cta.whatsappInfo": "WhatsApp info",
+    "cta.whatsappBooking": "WhatsApp tavolo",
     "sticky.menu": "MENU",
     "sticky.book": "PRENOTA",
     "sticky.directions": "INDICAZIONI",
@@ -124,6 +125,22 @@ const translations = {
     "cookie.preferences": "Dettagli",
     "map.notice": "La mappa di Google viene caricata solo dopo il consenso ai servizi esterni.",
     "map.load": "Carica la mappa",
+    "bookingForm.kicker": "La Beccaccia · WhatsApp",
+    "bookingForm.title": "Richiedi<br><em>un tavolo.</em>",
+    "bookingForm.intro": "Compila i dati essenziali: prepariamo il messaggio e apriamo WhatsApp.",
+    "bookingForm.name": "Nome Cognome *",
+    "bookingForm.date": "Data *",
+    "bookingForm.time": "Ora *",
+    "bookingForm.guests": "Persone *",
+    "bookingForm.guestsChoose": "Scegli",
+    "bookingForm.guests1": "1 persona",
+    "bookingForm.guests2": "2 persone",
+    "bookingForm.guests3": "3 persone",
+    "bookingForm.guests4": "4 persone",
+    "bookingForm.guests5": "5 persone",
+    "bookingForm.guests6": "6+ persone",
+    "bookingForm.submit": "Continua su WhatsApp",
+    "bookingForm.note": "Il sito non salva i dati: WhatsApp si apre con la richiesta già compilata.",
     "form.kicker": "La Beccaccia · Eventi",
     "form.title": "Raccontaci<br><em>il tuo evento.</em>",
     "form.intro": "Invia una prima richiesta: prepariamo un messaggio WhatsApp con i dettagli per ricontattarti.",
@@ -158,6 +175,7 @@ const translations = {
     "cta.wine": "Wine list",
     "cta.call": "Call now",
     "cta.whatsappInfo": "WhatsApp info",
+    "cta.whatsappBooking": "WhatsApp table",
     "sticky.menu": "MENU",
     "sticky.book": "BOOK",
     "sticky.directions": "DIRECTIONS",
@@ -230,6 +248,22 @@ const translations = {
     "cookie.preferences": "Details",
     "map.notice": "Google Maps is loaded only after consent to external services.",
     "map.load": "Load map",
+    "bookingForm.kicker": "La Beccaccia · WhatsApp",
+    "bookingForm.title": "Request<br><em>a table.</em>",
+    "bookingForm.intro": "Fill in the essential details: we prepare the message and open WhatsApp.",
+    "bookingForm.name": "Full name *",
+    "bookingForm.date": "Date *",
+    "bookingForm.time": "Time *",
+    "bookingForm.guests": "Guests *",
+    "bookingForm.guestsChoose": "Select",
+    "bookingForm.guests1": "1 person",
+    "bookingForm.guests2": "2 people",
+    "bookingForm.guests3": "3 people",
+    "bookingForm.guests4": "4 people",
+    "bookingForm.guests5": "5 people",
+    "bookingForm.guests6": "6+ people",
+    "bookingForm.submit": "Continue on WhatsApp",
+    "bookingForm.note": "No data is stored on this website: WhatsApp opens with the request already filled in.",
     "form.kicker": "La Beccaccia · Events",
     "form.title": "Tell us<br><em>about your event.</em>",
     "form.intro": "Send a first request: we prepare a WhatsApp message with the details so we can contact you.",
@@ -878,6 +912,50 @@ cardModal?.querySelectorAll("[data-card-tab]").forEach((button) => {
   button.addEventListener("click", () => setCardType(button.dataset.cardTab));
 });
 
+const bookingModal = document.querySelector("[data-booking-modal]");
+const bookingDialog = bookingModal?.querySelector(".booking-dialog");
+const bookingForm = bookingModal?.querySelector("[data-booking-form]");
+const bookingDateInput = bookingForm?.querySelector("input[name='date']");
+let closeBookingModalTimer;
+
+if (bookingDateInput) bookingDateInput.min = new Date().toISOString().split("T")[0];
+
+const openBookingModal = (trigger) => {
+  if (!bookingModal || !bookingDialog) return;
+  window.clearTimeout(closeBookingModalTimer);
+  lastFocusedElement = trigger || document.activeElement;
+  setMenu(false, false);
+  bookingModal.hidden = false;
+  bookingModal.setAttribute("aria-hidden", "false");
+  body.classList.add("modal-open");
+  setBackgroundInert(true);
+  requestAnimationFrame(() => bookingModal.classList.add("is-open"));
+  window.setTimeout(() => bookingForm?.querySelector("input[name='name']")?.focus(), 420);
+};
+
+const closeBookingModal = () => {
+  if (!bookingModal || bookingModal.hidden) return;
+  bookingModal.classList.remove("is-open");
+  bookingModal.setAttribute("aria-hidden", "true");
+  body.classList.remove("modal-open");
+  setBackgroundInert(false);
+  closeBookingModalTimer = window.setTimeout(() => {
+    bookingModal.hidden = true;
+    lastFocusedElement?.focus();
+  }, 500);
+};
+
+document.querySelectorAll("[data-booking-trigger]").forEach((trigger) => {
+  trigger.addEventListener("click", (event) => {
+    event.preventDefault();
+    openBookingModal(trigger);
+  });
+});
+
+bookingModal?.querySelectorAll("[data-booking-close]").forEach((button) => {
+  button.addEventListener("click", closeBookingModal);
+});
+
 const eventModal = document.querySelector("[data-event-modal]");
 const eventDialog = eventModal?.querySelector(".booking-dialog");
 const eventForm = eventModal?.querySelector("[data-event-form]");
@@ -1095,16 +1173,51 @@ if (initialConsent?.externalServices) {
 }
 
 document.addEventListener("keydown", (event) => {
-  if (eventModal?.classList.contains("is-open")) trapFocus(event, eventDialog);
+  if (bookingModal?.classList.contains("is-open")) trapFocus(event, bookingDialog);
+  else if (eventModal?.classList.contains("is-open")) trapFocus(event, eventDialog);
   else if (cardModal?.classList.contains("is-open")) trapFocus(event, cardDialog);
   else if (legalModal?.classList.contains("is-open")) trapFocus(event, legalDialog);
   else if (body.classList.contains("menu-open")) trapFocus(event, mobileMenuPanel);
 
   if (event.key !== "Escape") return;
   if (cardModal?.classList.contains("is-open")) closeCardModal();
+  else if (bookingModal?.classList.contains("is-open")) closeBookingModal();
   else if (eventModal?.classList.contains("is-open")) closeEventModal();
   else if (legalModal?.classList.contains("is-open")) closeLegalModal();
   else setMenu(false);
+});
+
+bookingForm?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const data = new FormData(bookingForm);
+  const isEnglish = currentLanguage === "en";
+  const name = String(data.get("name") || "").trim();
+  const date = String(data.get("date") || "").trim();
+  const time = String(data.get("time") || "").trim();
+  const guests = String(data.get("guests") || "").trim();
+  const formattedDate = date
+    ? new Intl.DateTimeFormat(isEnglish ? "en-GB" : "it-IT", { day: "2-digit", month: "2-digit", year: "numeric" }).format(new Date(`${date}T12:00:00`))
+    : "";
+
+  const message = isEnglish
+    ? [
+        "Hello La Beccaccia, I would like to request a table.",
+        "",
+        `Name: ${name}`,
+        `Date: ${formattedDate}`,
+        `Time: ${time}`,
+        `Guests: ${guests}`,
+      ].join("\n")
+    : [
+        "Ciao La Beccaccia, vorrei richiedere un tavolo.",
+        "",
+        `Nome: ${name}`,
+        `Data: ${formattedDate}`,
+        `Ora: ${time}`,
+        `Persone: ${guests}`,
+      ].join("\n");
+
+  openExternalUrl(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`);
 });
 
 eventForm?.addEventListener("submit", (event) => {
