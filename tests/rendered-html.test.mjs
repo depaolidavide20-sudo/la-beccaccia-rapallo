@@ -65,11 +65,12 @@ test("static HTML contains the La Beccaccia website with online booking and even
   assert.equal([...html.matchAll(/href="https:\/\/wa\.me\/393286577160/g)].length, 2);
   assert.match(html, /class="events-section section-dark" id="eventi"[\s\S]*Matrimoni, battesimi, comunioni, cresime e feste private[\s\S]*data-event-trigger[\s\S]*whatsapp-cta-icon/);
   assert.match(html, /data-event-form[\s\S]*name="name"[\s\S]*name="contact"[\s\S]*select name="eventType"[\s\S]*name="eventDate"[\s\S]*name="guests"[\s\S]*name="message"/);
-  assert.match(html, /hero-fire-desktop\.jpg[\s\S]*hero-served-steak-desktop\.jpg[\s\S]*hero-pasta-desktop\.jpg[\s\S]*hero-gourmet-desktop\.jpg/);
-  assert.match(html, /hero-fire-mobile\.jpg[\s\S]*hero-served-steak-mobile\.jpg[\s\S]*hero-pasta-mobile\.jpg[\s\S]*hero-gourmet-mobile\.jpg/);
+  assert.match(html, /hero-fire-desktop\.jpg[\s\S]*hero-grill-meat-desktop\.jpg[\s\S]*hero-served-steak-desktop\.jpg[\s\S]*hero-pasta-desktop\.jpg[\s\S]*hero-gourmet-desktop\.jpg/);
+  assert.match(html, /hero-fire-mobile\.jpg[\s\S]*hero-grill-meat-mobile\.jpg[\s\S]*hero-served-steak-mobile\.jpg[\s\S]*hero-pasta-mobile\.jpg[\s\S]*hero-gourmet-mobile\.jpg/);
   assert.doesNotMatch(html, /hero-raw-grill-(desktop|mobile)\.jpg/);
   assert.match(html, /data-i18n-html="hero\.manifesto">Ristorante a Rapallo\.<br \/>Cucina ligure, brace e tartufo\./);
-  assert.doesNotMatch(html, /data-hero-indicator="4"/);
+  assert.match(html, /data-hero-indicator="4" aria-label="Cucina gourmet"/);
+  assert.doesNotMatch(html, /data-hero-indicator="5"/);
   assert.match(html, /data-i18n="cta\.heroBook">PRENOTA ONLINE/);
   assert.match(html, /class="mobile-sticky-nav"[\s\S]*data-i18n="sticky\.menu">MENU[\s\S]*data-i18n="sticky\.book">PRENOTA[\s\S]*data-i18n="sticky\.directions">INDICAZIONI/);
   assert.doesNotMatch(html, /data-card-trigger="wine"|data-card-tab="wine"|data-i18n="cta\.wine"|data-i18n="card\.wine">Carta dei Vini/);
@@ -119,16 +120,18 @@ test("styles and script keep the cloned visual system with red accents", async (
   assert.match(css, /\.tripadvisor-icon \{[\s\S]*width:\s*1\.7rem[\s\S]*height:\s*1\.7rem/);
   assert.match(css, /\.mobile-sticky-nav \{[\s\S]*display:\s*none[\s\S]*@media \(max-width: 760px\)[\s\S]*\.mobile-sticky-nav \{[\s\S]*grid-template-columns:\s*repeat\(3, minmax\(0, 1fr\)\)/);
   assert.match(css, /\.cookie-banner \{[\s\S]*bottom:\s*calc\(4\.7rem \+ env\(safe-area-inset-bottom\)\)/);
-  assert.match(css, /Final hero clarity, desktop frames, booking form and compact mobile reviews[\s\S]*\.hero::before,[\s\S]*\.hero::after/);
   assert.match(css, /Final hero clarity, desktop frames, booking form and compact mobile reviews[\s\S]*\.site-header::after \{[\s\S]*opacity:\s*0 !important[\s\S]*background:\s*transparent !important/);
-  assert.match(css, /Final hero clarity, desktop frames, booking form and compact mobile reviews[\s\S]*rgba\(255, 253, 248, 0\.9\)[\s\S]*\.hero::after \{[\s\S]*display:\s*none/);
+  assert.match(css, /\.hero-slide-grill \{[\s\S]*--hero-focus-x:\s*52%[\s\S]*--hero-focus-y:\s*54%/);
+  assert.match(css, /@media \(min-width: 761px\) \{[\s\S]*\.hero::before,[\s\S]*\.hero::after \{[\s\S]*display:\s*none !important[\s\S]*content:\s*none !important/);
+  assert.match(css, /@media \(min-width: 761px\) \{[\s\S]*\.hero h1 \{[\s\S]*font-size:\s*clamp\(4\.3rem, 9\.2vw, 9\.15rem\)[\s\S]*white-space:\s*nowrap/);
+  assert.match(css, /@media \(min-width: 761px\) \{[\s\S]*\.hero-slide-fire \{[\s\S]*--hero-focus-x:\s*66%[\s\S]*--hero-focus-y:\s*28%/);
   assert.match(css, /Final hero clarity, desktop frames, booking form and compact mobile reviews[\s\S]*\.review-card \{[\s\S]*flex:\s*0 0 min\(82vw, 21\.5rem\)[\s\S]*padding:\s*1\.25rem/);
   assert.match(css, /Final hero clarity, desktop frames, booking form and compact mobile reviews[\s\S]*@supports \(height: 100dvh\)/);
   assert.match(css, /\.footer-brand-logo \{[\s\S]*width:\s*clamp\(12rem, 20vw, 18rem\)/);
   assert.match(css, /background:\s*#000 !important/);
   assert.match(css, /\.hero h1 \{[\s\S]*top:\s*50%;[\s\S]*left:\s*50%;[\s\S]*transform:\s*translate\(-50%, -50%\)/);
   assert.match(css, /transition:\s*opacity 0\.8s ease/);
-  assert.match(css, /grid-template-columns:\s*repeat\(4, 1\.7rem\)/);
+  assert.match(css, /grid-template-columns:\s*repeat\(5, 1\.7rem\)/);
   assert.match(css, /\.hero-manifesto \{[\s\S]*white-space:\s*nowrap/);
   assert.match(css, /@media \(max-width: 760px\)[\s\S]*\.hero-actions \{[\s\S]*display:\s*none/);
   assert.match(css, /prefers-reduced-motion:\s*reduce/);
@@ -183,6 +186,8 @@ test("github-static folder contains the minimal static bundle", async () => {
     "hero-fire-mobile.jpg",
     "hero-gourmet-desktop.jpg",
     "hero-gourmet-mobile.jpg",
+    "hero-grill-meat-desktop.jpg",
+    "hero-grill-meat-mobile.jpg",
     "hero-pasta-desktop.jpg",
     "hero-pasta-mobile.jpg",
     "hero-raw-grill-desktop.jpg",
