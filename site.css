@@ -6220,7 +6220,7 @@ body {
   z-index: 260;
 }
 
-.hero-whatsapp-action {
+.hero-google-action {
   position: absolute;
   z-index: 4;
   top: calc(50% + clamp(18.25rem, 18.2vw, 20.35rem));
@@ -6271,7 +6271,7 @@ body {
   }
 }
 
-.hero-whatsapp-link {
+.hero-google-link {
   display: inline-flex;
   width: 2.95rem;
   min-width: 2.95rem;
@@ -6290,7 +6290,7 @@ body {
   transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
 }
 
-.hero-whatsapp-link span {
+.hero-google-link span {
   position: absolute;
   overflow: hidden;
   width: 1px;
@@ -6299,35 +6299,28 @@ body {
   white-space: nowrap;
 }
 
-.hero-whatsapp-link .whatsapp-cta-icon {
+.hero-google-link .google-g-icon {
   width: 1.43rem;
   height: 1.43rem;
   padding: 0;
   border: 0;
   border-radius: 0;
   background: transparent;
-  color: var(--white);
-  fill: var(--white);
-  stroke: none !important;
-  transition: color 0.25s ease, fill 0.25s ease;
+  stroke: none;
+  transition: transform 0.25s ease;
 }
 
-.hero-whatsapp-link:hover,
-.hero-whatsapp-link:focus-visible {
+.hero-google-link:hover,
+.hero-google-link:focus-visible {
   border-color: rgba(255, 253, 248, 0.82);
   background: rgba(0, 0, 0, 0.5);
   color: var(--white);
   transform: translateY(-1px);
 }
 
-.hero-whatsapp-link:hover .whatsapp-cta-icon,
-.hero-whatsapp-link:focus-visible .whatsapp-cta-icon,
-.hero-whatsapp-link:hover .whatsapp-icon-mark,
-.hero-whatsapp-link:focus-visible .whatsapp-icon-mark {
-  background: transparent;
-  color: var(--white);
-  fill: var(--white);
-  stroke: none !important;
+.hero-google-link:hover .google-g-icon,
+.hero-google-link:focus-visible .google-g-icon {
+  transform: scale(1.06);
 }
 
 .events-cta .whatsapp-cta-icon {
@@ -6407,19 +6400,19 @@ body {
     letter-spacing: 0.075em;
   }
 
-  .hero-whatsapp-action {
+  .hero-google-action {
     top: calc(50% + 9.35rem);
     left: var(--page-x);
   }
 
-  .hero-whatsapp-link {
+  .hero-google-link {
     width: 2.82rem;
     min-width: 2.82rem;
     height: 2.82rem;
     min-height: 2.82rem;
   }
 
-  .hero-whatsapp-link .whatsapp-cta-icon {
+  .hero-google-link .google-g-icon {
     width: 1.35rem;
     height: 1.35rem;
   }

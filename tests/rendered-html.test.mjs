@@ -55,7 +55,8 @@ test("static HTML contains the La Beccaccia website with online booking and even
   assert.match(html, /data-hero-carousel/);
   assert.match(html, /class="brand brand-mark header-brand-mark brand-logo"[\s\S]*la-beccaccia-logo-mobile\.png[\s\S]*la-beccaccia-logo-desktop\.png/);
   assert.match(html, /hero-socials hero-socials-center[\s\S]*instagram\.com\/la_beccaccia_rapallo[\s\S]*facebook\.com\/ristorantelabeccacciarapallo/);
-  assert.match(html, /hero-whatsapp-action[\s\S]*data-booking-trigger[\s\S]*whatsapp-cta-icon/);
+  assert.match(html, /hero-google-action[\s\S]*google\.com\/search\?q=la\+beccaccia\+rapallo\+recensioni&amp;[\s\S]*#lrd=0x12d35f8621723a05:0xe7d607b8e03b54f7,3,,,,[\s\S]*google-g-icon/);
+  assert.doesNotMatch(html, /hero-whatsapp-action|hero-whatsapp-link/);
   assert.match(html, /hero-edge hero-edge-left[\s\S]*Brace · Rapallo · 1970/);
   assert.match(html, /hero-edge hero-edge-right[\s\S]*Cucina ligure · Fuoco vivo/);
   assert.doesNotMatch(html, /class="scroll-cue"|Scorri/);
@@ -69,7 +70,7 @@ test("static HTML contains the La Beccaccia website with online booking and even
   assert.match(html, /hero-fire-mobile\.jpg[\s\S]*hero-grill-meat-mobile\.jpg[\s\S]*hero-pasta-mobile\.jpg[\s\S]*hero-gourmet-mobile\.jpg/);
   assert.doesNotMatch(html, /hero-served-steak-(desktop|mobile)\.jpg/);
   assert.doesNotMatch(html, /hero-raw-grill-(desktop|mobile)\.jpg/);
-  assert.match(html, /data-i18n-html="hero\.manifesto">Ristorante a Rapallo\.<br \/>Cucina ligure, brace e tartufo\./);
+  assert.match(html, /data-i18n-html="hero\.manifesto">Ristorante a Rapallo\.<br \/>Cucina ligure, brace, tartufo e funghi\./);
   assert.match(html, /data-hero-indicator="3" aria-label="Cucina gourmet"/);
   assert.doesNotMatch(html, /data-hero-indicator="4"/);
   assert.match(html, /data-i18n="cta\.heroBook">PRENOTA ONLINE/);
@@ -108,8 +109,9 @@ test("styles and script keep the cloned visual system with red accents", async (
   assert.match(css, /\.brand-wordmark/);
   assert.match(css, /\.site-header \.header-brand-mark\.brand-logo/);
   assert.match(css, /\.hero \.hero-socials-center/);
-  assert.match(css, /\.hero-whatsapp-action \{[\s\S]*left:\s*var\(--page-x\)/);
-  assert.match(css, /\.hero-whatsapp-link \{[\s\S]*width:\s*2\.95rem[\s\S]*height:\s*2\.95rem/);
+  assert.match(css, /\.hero-google-action \{[\s\S]*left:\s*var\(--page-x\)/);
+  assert.match(css, /\.hero-google-link \{[\s\S]*width:\s*2\.95rem[\s\S]*height:\s*2\.95rem/);
+  assert.match(css, /\.hero-google-link \.google-g-icon \{[\s\S]*width:\s*1\.43rem[\s\S]*height:\s*1\.43rem/);
   assert.match(css, /Absolute final menu, header height, WhatsApp\/social layout pass[\s\S]*\.site-header,[\s\S]*height:\s*clamp\(5\.85rem, 7\.1vw, 7\.05rem\)[\s\S]*background:\s*#000/);
   assert.match(css, /Absolute final menu, header height, WhatsApp\/social layout pass[\s\S]*\.site-header \.brand-logo-img \{[\s\S]*transform:\s*scale\(1\.24\) translateZ\(0\)/);
   assert.match(css, /@media \(min-width: 761px\) \{[\s\S]*\.hero \.hero-socials-center \{[\s\S]*top:\s*calc\(50% \+ clamp\(18\.25rem, 18\.2vw, 20\.35rem\)\)/);
