@@ -83,6 +83,8 @@ test("static HTML contains the La Beccaccia website with online booking and even
   assert.match(html, /data-i18n="restaurant\.copy1">\s*Cucina ligure contemporanea, materia prima e stagionalità/);
   assert.match(html, /data-i18n="restaurant\.copy2">La cantina raccoglie oltre 500 etichette/);
   assert.doesNotMatch(html, /restaurant-mobile-copy/);
+  assert.doesNotMatch(html, /class="footer-phone"/);
+  assert.doesNotMatch(html, /class="footer-socials"/);
   assert.match(html, /class="contact-open-year" data-i18n="contacts\.openYear">Aperti tutto l'anno/);
   assert.match(html, /data-legal-panel="privacy"[\s\S]*21\/10\/2026[\s\S]*La Beccaccia - Brace e Cucina[\s\S]*Diritti dell'interessato/);
   assert.match(html, /data-legal-panel="cookies"[\s\S]*laBeccacciaExternalServicesConsent[\s\S]*Gestione delle preferenze/);

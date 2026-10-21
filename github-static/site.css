@@ -6502,10 +6502,9 @@ body {
 /* Final visibility corrections */
 .book-link {
   position: relative;
-  width: 11.25rem;
-  min-width: 11.25rem;
-  padding-right: 2.55rem;
-  padding-left: 2.55rem;
+  width: 10.5rem;
+  min-width: 10.5rem;
+  padding: 0 1.25rem;
 }
 
 .book-link > span {
@@ -6535,7 +6534,27 @@ body {
 
 .hero-open-year::before,
 .hero-open-year::after {
-  display: none;
+  display: block;
+  width: clamp(1.8rem, 3vw, 3.2rem);
+  height: 1px;
+  background: rgba(255, 255, 255, 0.62);
+  content: "";
+}
+
+.site-footer {
+  padding: clamp(2.6rem, 4.5vw, 4rem) var(--page-x) 1.2rem;
+}
+
+.site-footer .footer-main {
+  padding-bottom: clamp(1.6rem, 2.8vw, 2.4rem);
+}
+
+.site-footer .footer-main > p {
+  font-size: clamp(1.15rem, 1.75vw, 1.7rem);
+}
+
+.site-footer .footer-brand-logo {
+  width: clamp(10rem, 16vw, 13rem);
 }
 
 .hero-manifesto {
@@ -6614,6 +6633,20 @@ body {
     top: calc(50% - 6.75rem);
     font-size: 0.55rem;
     letter-spacing: 0.13em;
+  }
+
+  .hero-open-year::before,
+  .hero-open-year::after {
+    width: 1.35rem;
+  }
+
+  .site-footer {
+    padding-top: 2.2rem;
+  }
+
+  .site-footer .footer-main {
+    padding-bottom: 1.15rem;
+    gap: 0.65rem;
   }
 
   .hero-manifesto {
