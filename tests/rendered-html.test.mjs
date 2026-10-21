@@ -73,9 +73,13 @@ test("static HTML contains the La Beccaccia website with online booking and even
   assert.doesNotMatch(html, /hero-served-steak-(desktop|mobile)\.jpg/);
   assert.doesNotMatch(html, /hero-raw-grill-(desktop|mobile)\.jpg/);
   assert.match(html, /data-i18n="hero\.openYear">Aperti tutto l'anno/);
-  assert.match(html, /data-i18n-html="hero\.manifesto">Cucina ligure contemporanea\.<br \/>Cantina con oltre 500 etichette\.<br \/><span class="hero-specialties">Brace · tartufi · funghi<\/span>/);
+  assert.match(html, /data-i18n-html="hero\.manifesto">Cucina ligure contemporanea · Carne alla brace<br \/><span class="hero-specialties">Tartufi · Funghi · Cantina con oltre 500 etichette<\/span>/);
+  assert.match(html, /data-card-language="it">Menù<\/button>/);
+  assert.match(html, /data-card-language="en">English Menu<\/button>/);
+  assert.match(html, /data-card-title>Il nostro <em>menù\.<\/em><\/h2>/);
   assert.match(html, /data-i18n="restaurant\.copy1">[\s\S]*Cucina ligure contemporanea/);
-  assert.match(html, /data-i18n="restaurant\.copy2">Cantina con oltre 500 etichette/);
+  assert.match(html, /data-i18n="restaurant\.copy1">\s*Cucina ligure contemporanea, carne alla brace, tartufi e funghi/);
+  assert.match(html, /data-i18n="restaurant\.copy2">A completare l'esperienza, una cantina con oltre 500 etichette/);
   assert.match(html, /class="contact-open-year" data-i18n="contacts\.openYear">Aperti tutto l'anno/);
   assert.match(html, /data-legal-panel="privacy"[\s\S]*21\/10\/2026[\s\S]*La Beccaccia - Brace e Cucina[\s\S]*Diritti dell'interessato/);
   assert.match(html, /data-legal-panel="cookies"[\s\S]*laBeccacciaExternalServicesConsent[\s\S]*Gestione delle preferenze/);

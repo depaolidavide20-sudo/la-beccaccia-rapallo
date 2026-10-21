@@ -66,11 +66,11 @@ const translations = {
     "hero.edge": "Brace, funghi & tradizione ligure",
     "hero.discover": "Scopri La Beccaccia",
     "hero.openYear": "Aperti tutto l'anno",
-    "hero.manifesto": "Cucina ligure contemporanea.<br>Cantina con oltre 500 etichette.<br><span class=\"hero-specialties\">Brace · tartufi · funghi</span>",
+    "hero.manifesto": "Cucina ligure contemporanea · Carne alla brace<br><span class=\"hero-specialties\">Tartufi · Funghi · Cantina con oltre 500 etichette</span>",
     "restaurant.kicker": "01 Ristorante",
-    "restaurant.copy1": "Cucina ligure contemporanea, carne alla brace e pasta fresca fatta in casa sulle prime alture di Rapallo.",
-    "restaurant.copy2": "Cantina con oltre 500 etichette e una tavola costruita intorno a materia prima, brace e stagionalità.",
-    "restaurant.mobileCopy": "Cucina ligure contemporanea e cantina con oltre 500 etichette.",
+    "restaurant.copy1": "Cucina ligure contemporanea, carne alla brace, tartufi e funghi: una tavola legata alla materia prima e alla stagionalità.",
+    "restaurant.copy2": "A completare l'esperienza, una cantina con oltre 500 etichette selezionate.",
+    "restaurant.mobileCopy": "Cucina ligure contemporanea, carne alla brace, tartufi e funghi, accompagnati da una cantina con oltre 500 etichette.",
     "location.kicker": "02 Location",
     "location.copy1": "Via Santa Maria del Campo 176, sulle prime alture di Rapallo.",
     "location.copy2": "Sala, grande braciere a vista, veranda e giardino per pranzi e cene.",
@@ -192,11 +192,11 @@ const translations = {
     "hero.edge": "Grill, mushrooms & Ligurian tradition",
     "hero.discover": "Discover La Beccaccia",
     "hero.openYear": "Open all year",
-    "hero.manifesto": "Contemporary Ligurian cuisine.<br>Wine cellar with over 500 labels.<br><span class=\"hero-specialties\">Grill · truffles · mushrooms</span>",
+    "hero.manifesto": "Contemporary Ligurian cuisine · Charcoal-grilled meat<br><span class=\"hero-specialties\">Truffles · Mushrooms · Wine cellar with over 500 labels</span>",
     "restaurant.kicker": "01 Restaurant",
-    "restaurant.copy1": "Contemporary Ligurian cuisine, charcoal-grilled meat and handmade fresh pasta on the first hills of Rapallo.",
-    "restaurant.copy2": "A wine cellar with over 500 labels and a table built around ingredients, fire and seasonality.",
-    "restaurant.mobileCopy": "Contemporary Ligurian cuisine and a wine cellar with over 500 labels.",
+    "restaurant.copy1": "Contemporary Ligurian cuisine, charcoal-grilled meat, truffles and mushrooms: a table shaped by fine ingredients and seasonality.",
+    "restaurant.copy2": "Completing the experience is a wine cellar with over 500 carefully selected labels.",
+    "restaurant.mobileCopy": "Contemporary Ligurian cuisine, charcoal-grilled meat, truffles and mushrooms, paired with a wine cellar of over 500 labels.",
     "location.kicker": "02 Location",
     "location.copy1": "Via Santa Maria del Campo 176, on the first hills of Rapallo.",
     "location.copy2": "Dining room, open grill, veranda and garden for lunch and dinner.",
@@ -297,12 +297,12 @@ const menuCatalogs = {
     intro: {
       it: {
         kicker: "La Beccaccia · Menu 2026",
-        title: "Il nostro<br><em>menù.</em>",
+        title: "Il nostro <em>menù.</em>",
         description: "Menu digitale completo con aperitivi, bocconi, antipasti, pasta fresca, secondi, brace, contorni e proposte stagionali.",
       },
       en: {
         kicker: "La Beccaccia · 2026 menu",
-        title: "Our<br><em>menu.</em>",
+        title: "Our <em>menu.</em>",
         description: "A complete digital menu with aperitifs, bites, starters, fresh pasta, mains, grill, sides and seasonal proposals.",
       },
     },
@@ -584,6 +584,7 @@ const menuCatalogs = {
 };
 
 let currentLanguage = "it";
+let currentMenuLanguage = "it";
 
 const getFocusableElements = (container) => {
   if (!container) return [];
@@ -784,14 +785,14 @@ const getOrderedCatalogSections = (type, sections) => {
 };
 
 const getLocalizedDescription = (item) => {
-  if (item.description?.[currentLanguage]) return item.description[currentLanguage];
+  if (item.description?.[currentMenuLanguage]) return item.description[currentMenuLanguage];
   if (typeof item.sub === "string") return item.sub;
-  if (item.sub?.[currentLanguage]) return item.sub[currentLanguage];
-  return item[currentLanguage === "it" ? "en" : "it"] || "";
+  if (item.sub?.[currentMenuLanguage]) return item.sub[currentMenuLanguage];
+  return item[currentMenuLanguage === "it" ? "en" : "it"] || "";
 };
 
 const renderCatalogMeta = (item) => {
-  const tags = (item.tags || []).map((tag) => catalogTagLabels[currentLanguage][tag] || tag);
+  const tags = (item.tags || []).map((tag) => catalogTagLabels[currentMenuLanguage][tag] || tag);
   const meta = [
     item.year ? `<span class="catalog-item-year">${item.year}</span>` : "",
     ...tags.map((tag) => `<span class="catalog-item-tag">${tag}</span>`),
@@ -803,17 +804,17 @@ const renderCatalogMeta = (item) => {
 const renderCatalog = () => {
   if (!cardContent || !cardKicker || !cardTitle || !cardDescription) return;
   const catalog = menuCatalogs[activeCardType];
-  const intro = catalog.intro[currentLanguage];
+  const intro = catalog.intro[currentMenuLanguage];
   const sections = getOrderedCatalogSections(activeCardType, catalog.sections);
   cardKicker.textContent = intro.kicker;
   cardTitle.innerHTML = intro.title;
   cardDescription.textContent = intro.description;
-  if (catalogNote) catalogNote.textContent = translations[currentLanguage][activeCardType === "food" ? "card.note" : "card.wineNote"];
+  if (catalogNote) catalogNote.textContent = translations[currentMenuLanguage][activeCardType === "food" ? "card.note" : "card.wineNote"];
   cardContent.innerHTML = sections.map((section) => `
     <section class="catalog-section">
       <div class="catalog-section-heading">
-        <h3>${section[currentLanguage]}<small>${section[currentLanguage === "it" ? "en" : "it"]}</small></h3>
-        ${section.note?.[currentLanguage] ? `<p class="catalog-section-note">${section.note[currentLanguage]}</p>` : ""}
+        <h3>${section[currentMenuLanguage]}<small>${section[currentMenuLanguage === "it" ? "en" : "it"]}</small></h3>
+        ${section.note?.[currentMenuLanguage] ? `<p class="catalog-section-note">${section.note[currentMenuLanguage]}</p>` : ""}
       </div>
       <div class="catalog-items">
         ${section.items.map((item) => {
@@ -821,7 +822,7 @@ const renderCatalog = () => {
           return `
           <article class="catalog-item">
             <div>
-              <h4>${item[currentLanguage] || item.it}</h4>
+              <h4>${item[currentMenuLanguage] || item.it}</h4>
               ${description ? `<p>${description}</p>` : ""}
               ${renderCatalogMeta(item)}
             </div>
@@ -883,6 +884,12 @@ const openCardModal = (type, trigger) => {
   window.clearTimeout(cardCloseTimer);
   lastFocusedElement = trigger || document.activeElement;
   setMenu(false, false);
+  currentMenuLanguage = currentLanguage;
+  cardModal.querySelectorAll("[data-card-language]").forEach((button) => {
+    const active = button.dataset.cardLanguage === currentMenuLanguage;
+    button.classList.toggle("is-active", active);
+    button.setAttribute("aria-selected", String(active));
+  });
   setCardType(type);
   cardModal.hidden = false;
   cardModal.setAttribute("aria-hidden", "false");
@@ -893,6 +900,19 @@ const openCardModal = (type, trigger) => {
     window.setTimeout(() => cardModal.querySelector("[data-card-close]")?.focus(), 260);
   });
 };
+
+cardModal?.querySelectorAll("[data-card-language]").forEach((button) => {
+  button.addEventListener("click", () => {
+    currentMenuLanguage = button.dataset.cardLanguage === "en" ? "en" : "it";
+    cardModal.querySelectorAll("[data-card-language]").forEach((option) => {
+      const active = option.dataset.cardLanguage === currentMenuLanguage;
+      option.classList.toggle("is-active", active);
+      option.setAttribute("aria-selected", String(active));
+    });
+    renderCatalog();
+    if (cardBody) cardBody.scrollTop = 0;
+  });
+});
 
 const closeCardModal = () => {
   if (!cardModal || cardModal.hidden) return;
