@@ -6502,13 +6502,19 @@ body {
 /* Final visibility corrections */
 .book-link {
   position: relative;
+  width: 11.25rem;
+  min-width: 11.25rem;
   padding-right: 2.55rem;
   padding-left: 2.55rem;
 }
 
 .book-link > span {
-  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max-content;
   text-align: center;
+  transform: translate(-50%, -50%);
 }
 
 .book-link > .ui-icon {
