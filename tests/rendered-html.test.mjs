@@ -50,6 +50,8 @@ test("static HTML contains the La Beccaccia website with online booking and even
   assert.match(html, /data-i18n="events\.kicker">03 Eventi/);
   assert.match(html, /data-i18n="reviews\.kicker">04 Recensioni/);
   assert.match(html, /data-i18n="contacts\.kicker">05 Contatti/);
+  assert.match(html, /class="desktop-nav"[\s\S]*href="#location"[\s\S]*href="#eventi"[\s\S]*href="#recensioni"/);
+  assert.match(html, /aria-label="Navigazione mobile"[\s\S]*href="#eventi"><span>03<\/span>[\s\S]*href="#recensioni"><span>04<\/span>[\s\S]*href="#contatti"><span>05<\/span>/);
   assert.match(html, /footer-logo footer-brand-logo[\s\S]*assets\/brand\/la-beccaccia-logo-desktop\.png/);
   assert.doesNotMatch(html, /<a class="footer-logo"[^>]*>La Beccaccia<\/a>/);
   assert.match(html, /data-hero-carousel/);
@@ -71,10 +73,13 @@ test("static HTML contains the La Beccaccia website with online booking and even
   assert.doesNotMatch(html, /hero-served-steak-(desktop|mobile)\.jpg/);
   assert.doesNotMatch(html, /hero-raw-grill-(desktop|mobile)\.jpg/);
   assert.match(html, /data-i18n="hero\.openYear">Aperti tutto l'anno/);
-  assert.match(html, /data-i18n-html="hero\.manifesto">Cucina ligure contemporanea\.<br \/>Cantina con oltre 500 etichette\./);
+  assert.match(html, /data-i18n-html="hero\.manifesto">Cucina ligure contemporanea\.<br \/>Cantina con oltre 500 etichette\.<br \/><span class="hero-specialties">Brace · tartufi · funghi<\/span>/);
   assert.match(html, /data-i18n="restaurant\.copy1">[\s\S]*Cucina ligure contemporanea/);
   assert.match(html, /data-i18n="restaurant\.copy2">Cantina con oltre 500 etichette/);
   assert.match(html, /class="contact-open-year" data-i18n="contacts\.openYear">Aperti tutto l'anno/);
+  assert.match(html, /data-legal-panel="privacy"[\s\S]*21\/10\/2026[\s\S]*La Beccaccia - Brace e Cucina[\s\S]*Diritti dell'interessato/);
+  assert.match(html, /data-legal-panel="cookies"[\s\S]*laBeccacciaExternalServicesConsent[\s\S]*Gestione delle preferenze/);
+  assert.match(html, /data-legal-panel="notes"[\s\S]*Insegna commerciale:[\s\S]*Via Santa Maria del Campo, 176 - 16035 Rapallo \(GE\)/);
   assert.match(html, /data-hero-indicator="3" aria-label="Cucina gourmet"/);
   assert.doesNotMatch(html, /data-hero-indicator="4"/);
   assert.match(html, /data-i18n="cta\.heroBook">PRENOTA ONLINE/);
@@ -117,6 +122,7 @@ test("styles and script keep the cloned visual system with red accents", async (
   assert.match(css, /\.hero-google-link \{[\s\S]*width:\s*2\.95rem[\s\S]*height:\s*2\.95rem/);
   assert.match(css, /\.hero-google-link \.google-g-icon \{[\s\S]*width:\s*1\.43rem[\s\S]*height:\s*1\.43rem/);
   assert.match(css, /\.hero-open-year \{[\s\S]*letter-spacing:\s*0\.18em/);
+  assert.match(css, /\.hero-manifesto \.hero-specialties \{[\s\S]*font-size:\s*0\.58rem/);
   assert.match(css, /\.contact-list \.contact-open-year \{[\s\S]*color:\s*var\(--brand-red\)/);
   assert.match(css, /Absolute final menu, header height, WhatsApp\/social layout pass[\s\S]*\.site-header,[\s\S]*height:\s*clamp\(5\.85rem, 7\.1vw, 7\.05rem\)[\s\S]*background:\s*#000/);
   assert.match(css, /Absolute final menu, header height, WhatsApp\/social layout pass[\s\S]*\.site-header \.brand-logo-img \{[\s\S]*transform:\s*scale\(1\.24\) translateZ\(0\)/);

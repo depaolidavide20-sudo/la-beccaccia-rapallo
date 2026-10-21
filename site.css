@@ -6456,6 +6456,17 @@ body {
   content: "";
 }
 
+.hero-manifesto .hero-specialties {
+  display: inline-block;
+  margin-top: 0.65rem;
+  font-family: var(--sans);
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.17em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
 .contact-list .contact-open-year {
   margin-top: 0.65rem;
   color: var(--brand-red);
@@ -6478,5 +6489,11 @@ body {
   .hero-open-year::before,
   .hero-open-year::after {
     width: 1.45rem;
+  }
+
+  .hero-manifesto .hero-specialties {
+    margin-top: 0.55rem;
+    font-size: 0.52rem;
+    letter-spacing: 0.14em;
   }
 }
