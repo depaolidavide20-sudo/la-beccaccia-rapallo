@@ -171,10 +171,10 @@
       <h2 data-i18n="nav.restaurant">Ristorante</h2>
       <div class="heading-copy">
         <p data-i18n="restaurant.copy1">
-          Cucina ligure contemporanea, carne alla brace, tartufi e funghi: una tavola legata alla materia prima e alla stagionalità.
+          Cucina ligure contemporanea, materia prima e stagionalità guidano una carta che incontra il fuoco della brace, i tartufi e i funghi.
         </p>
-        <p data-i18n="restaurant.copy2">A completare l'esperienza, una cantina con oltre 500 etichette selezionate.</p>
-        <p class="restaurant-mobile-copy" data-i18n="restaurant.mobileCopy">Cucina ligure contemporanea, carne alla brace, tartufi e funghi, accompagnati da una cantina con oltre 500 etichette.</p>
+        <p data-i18n="restaurant.copy2">La cantina raccoglie oltre 500 etichette, selezionate per accompagnare ogni percorso.</p>
+        <p class="restaurant-mobile-copy" data-i18n="restaurant.mobileCopy">Cucina ligure contemporanea, brace, tartufi e funghi raccontano una cucina stagionale, accompagnata da una cantina di oltre 500 etichette.</p>
       </div>
     </div>
 
@@ -468,16 +468,20 @@
   <section class="card-dialog" role="dialog" aria-modal="true" aria-labelledby="card-title" tabindex="-1">
     <header class="card-header">
       <a class="brand brand-mark card-brand-mark" href="#top" aria-label="La Beccaccia, torna all'inizio">
-        <img class="brand-logo-img" src="assets/brand/la-beccaccia-logo-desktop.png" width="2172" height="724" alt="La Beccaccia Antico Ristorante" decoding="async" />
+        <picture>
+          <source media="(max-width: 760px)" srcset="assets/brand/menu-logo-mobile.png" width="1254" height="1254" />
+          <img class="brand-logo-img" src="assets/brand/menu-logo-desktop.png" width="2172" height="724" alt="La Beccaccia Antico Ristorante" decoding="async" />
+        </picture>
       </a>
-      <div class="card-tabs" role="tablist" aria-label="Scegli la lingua del menù">
-        <button class="is-active" type="button" role="tab" aria-selected="true" data-card-language="it">Menù</button>
-        <button type="button" role="tab" aria-selected="false" data-card-language="en">English Menu</button>
-      </div>
       <button class="card-close" type="button" aria-label="Chiudi la carta" data-card-close>
         <span></span><span></span>
       </button>
     </header>
+
+    <div class="card-tabs card-language-bar" role="tablist" aria-label="Scegli la lingua del menù">
+      <button class="is-active" type="button" role="tab" aria-selected="true" data-card-language="it">MENÙ ITA</button>
+      <button type="button" role="tab" aria-selected="false" data-card-language="en">MENU EN</button>
+    </div>
 
     <div class="card-body">
       <div class="card-intro">

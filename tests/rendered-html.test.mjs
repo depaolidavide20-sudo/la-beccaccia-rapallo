@@ -74,12 +74,14 @@ test("static HTML contains the La Beccaccia website with online booking and even
   assert.doesNotMatch(html, /hero-raw-grill-(desktop|mobile)\.jpg/);
   assert.match(html, /data-i18n="hero\.openYear">Aperti tutto l'anno/);
   assert.match(html, /data-i18n-html="hero\.manifesto">Cucina ligure contemporanea · Carne alla brace<br \/><span class="hero-specialties">Tartufi · Funghi · Cantina con oltre 500 etichette<\/span>/);
-  assert.match(html, /data-card-language="it">Menù<\/button>/);
-  assert.match(html, /data-card-language="en">English Menu<\/button>/);
+  assert.match(html, /menu-logo-desktop\.png/);
+  assert.match(html, /menu-logo-mobile\.png/);
+  assert.match(html, /data-card-language="it">MENÙ ITA<\/button>/);
+  assert.match(html, /data-card-language="en">MENU EN<\/button>/);
   assert.match(html, /data-card-title>Il nostro <em>menù\.<\/em><\/h2>/);
   assert.match(html, /data-i18n="restaurant\.copy1">[\s\S]*Cucina ligure contemporanea/);
-  assert.match(html, /data-i18n="restaurant\.copy1">\s*Cucina ligure contemporanea, carne alla brace, tartufi e funghi/);
-  assert.match(html, /data-i18n="restaurant\.copy2">A completare l'esperienza, una cantina con oltre 500 etichette/);
+  assert.match(html, /data-i18n="restaurant\.copy1">\s*Cucina ligure contemporanea, materia prima e stagionalità/);
+  assert.match(html, /data-i18n="restaurant\.copy2">La cantina raccoglie oltre 500 etichette/);
   assert.match(html, /class="contact-open-year" data-i18n="contacts\.openYear">Aperti tutto l'anno/);
   assert.match(html, /data-legal-panel="privacy"[\s\S]*21\/10\/2026[\s\S]*La Beccaccia - Brace e Cucina[\s\S]*Diritti dell'interessato/);
   assert.match(html, /data-legal-panel="cookies"[\s\S]*laBeccacciaExternalServicesConsent[\s\S]*Gestione delle preferenze/);
@@ -198,6 +200,8 @@ test("github-static folder contains the minimal static bundle", async () => {
   assert.deepEqual(brandAssets.sort(), [
     "la-beccaccia-logo-desktop.png",
     "la-beccaccia-logo-mobile.png",
+    "menu-logo-desktop.png",
+    "menu-logo-mobile.png",
   ]);
 
   const heroAssets = await readdir(new URL("github-static/assets/hero/", root));
