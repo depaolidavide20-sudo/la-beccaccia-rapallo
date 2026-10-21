@@ -70,7 +70,11 @@ test("static HTML contains the La Beccaccia website with online booking and even
   assert.match(html, /hero-fire-mobile\.jpg[\s\S]*hero-grill-meat-mobile\.jpg[\s\S]*hero-pasta-mobile\.jpg[\s\S]*hero-gourmet-mobile\.jpg/);
   assert.doesNotMatch(html, /hero-served-steak-(desktop|mobile)\.jpg/);
   assert.doesNotMatch(html, /hero-raw-grill-(desktop|mobile)\.jpg/);
-  assert.match(html, /data-i18n-html="hero\.manifesto">Ristorante a Rapallo\.<br \/>Cucina ligure, brace, tartufo e funghi\./);
+  assert.match(html, /data-i18n="hero\.openYear">Aperti tutto l'anno/);
+  assert.match(html, /data-i18n-html="hero\.manifesto">Cucina ligure contemporanea\.<br \/>Cantina con oltre 500 etichette\./);
+  assert.match(html, /data-i18n="restaurant\.copy1">[\s\S]*Cucina ligure contemporanea/);
+  assert.match(html, /data-i18n="restaurant\.copy2">Cantina con oltre 500 etichette/);
+  assert.match(html, /class="contact-open-year" data-i18n="contacts\.openYear">Aperti tutto l'anno/);
   assert.match(html, /data-hero-indicator="3" aria-label="Cucina gourmet"/);
   assert.doesNotMatch(html, /data-hero-indicator="4"/);
   assert.match(html, /data-i18n="cta\.heroBook">PRENOTA ONLINE/);
@@ -112,6 +116,8 @@ test("styles and script keep the cloned visual system with red accents", async (
   assert.match(css, /\.hero-google-action \{[\s\S]*left:\s*var\(--page-x\)/);
   assert.match(css, /\.hero-google-link \{[\s\S]*width:\s*2\.95rem[\s\S]*height:\s*2\.95rem/);
   assert.match(css, /\.hero-google-link \.google-g-icon \{[\s\S]*width:\s*1\.43rem[\s\S]*height:\s*1\.43rem/);
+  assert.match(css, /\.hero-open-year \{[\s\S]*letter-spacing:\s*0\.18em/);
+  assert.match(css, /\.contact-list \.contact-open-year \{[\s\S]*color:\s*var\(--brand-red\)/);
   assert.match(css, /Absolute final menu, header height, WhatsApp\/social layout pass[\s\S]*\.site-header,[\s\S]*height:\s*clamp\(5\.85rem, 7\.1vw, 7\.05rem\)[\s\S]*background:\s*#000/);
   assert.match(css, /Absolute final menu, header height, WhatsApp\/social layout pass[\s\S]*\.site-header \.brand-logo-img \{[\s\S]*transform:\s*scale\(1\.24\) translateZ\(0\)/);
   assert.match(css, /@media \(min-width: 761px\) \{[\s\S]*\.hero \.hero-socials-center \{[\s\S]*top:\s*calc\(50% \+ clamp\(18\.25rem, 18\.2vw, 20\.35rem\)\)/);

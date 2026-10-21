@@ -6426,3 +6426,57 @@ body {
     height: 0.92rem;
   }
 }
+
+/* Seasonal and cellar messaging */
+.hero-open-year {
+  position: absolute;
+  z-index: 3;
+  top: calc(50% - clamp(7.9rem, 10.6vw, 10.4rem));
+  left: 50%;
+  display: flex;
+  margin: 0;
+  align-items: center;
+  gap: 0.8rem;
+  color: rgba(255, 253, 248, 0.9);
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  line-height: 1;
+  text-transform: uppercase;
+  text-shadow: 0 0.15rem 0.8rem rgba(0, 0, 0, 0.5);
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.hero-open-year::before,
+.hero-open-year::after {
+  width: clamp(1.8rem, 3vw, 3.2rem);
+  height: 1px;
+  background: rgba(255, 253, 248, 0.5);
+  content: "";
+}
+
+.contact-list .contact-open-year {
+  margin-top: 0.65rem;
+  color: var(--brand-red);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+@media (max-width: 760px) {
+  .hero-open-year {
+    top: calc(50% - 6.15rem);
+    max-width: calc(100vw - 2rem);
+    gap: 0.58rem;
+    font-size: 0.52rem;
+    letter-spacing: 0.15em;
+  }
+
+  .hero-open-year::before,
+  .hero-open-year::after {
+    width: 1.45rem;
+  }
+}
