@@ -10,6 +10,14 @@ const focusableSelector = "a[href], button:not([disabled]), input:not([disabled]
 const backgroundRegions = [document.querySelector("main"), document.querySelector(".site-footer")].filter(Boolean);
 let lastFocusedElement = null;
 
+const lockMobileHeroHeight = () => {
+  if (!window.matchMedia?.("(max-width: 760px)").matches) return;
+  document.documentElement.style.setProperty("--mobile-hero-height", `${window.innerHeight}px`);
+};
+
+lockMobileHeroHeight();
+window.addEventListener("orientationchange", () => window.setTimeout(lockMobileHeroHeight, 180));
+
 if ("scrollRestoration" in window.history) {
   window.history.scrollRestoration = "manual";
 }

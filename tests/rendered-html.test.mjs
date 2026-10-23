@@ -76,8 +76,9 @@ test("static HTML contains the La Beccaccia website with online booking and even
   assert.match(html, /data-i18n-html="hero\.manifesto">Cucina ligure contemporanea · Carne alla brace<br \/><span class="hero-specialties">Tartufi · Funghi · Cantina con oltre 500 etichette<\/span>/);
   assert.match(html, /menu-logo-desktop\.png/);
   assert.match(html, /menu-logo-mobile\.png/);
-  assert.match(html, /menu-la-beccaccia-2026\.pdf#view=FitH/);
-  assert.match(html, /class="menu-pdf-frame"/);
+  assert.match(html, /class="menu-preview-pages"/);
+  assert.equal([...html.matchAll(/assets\/menu\/pages\/menu-page-\d{2}\.jpg/g)].length, 8);
+  assert.match(html, /href="assets\/menu\/menu-la-beccaccia-2026\.pdf"/);
   assert.doesNotMatch(html, /data-card-description|data-card-kicker/);
   assert.match(html, /data-card-language="it">MENÙ ITA<\/button>/);
   assert.match(html, /data-card-language="en">MENU EN<\/button>/);
