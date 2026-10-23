@@ -85,7 +85,7 @@ const translations = {
     "location.dehors": "Il dehors",
     "location.gardenTables": "Tavoli nel verde",
     "events.kicker": "03 Eventi",
-    "events.title": "Eventi<br><em>privati.</em>",
+    "events.title": "Eventi <em>privati.</em>",
     "events.copy": "Matrimoni, battesimi, comunioni, cresime e feste private trovano alla Beccaccia una cornice riservata, menu curati e il calore della nostra cucina.",
     "events.note": "Raccontaci occasione, periodo e numero ospiti: ti ricontatteremo con una proposta su misura.",
     "events.cta": "RICHIEDI INFORMAZIONI",
@@ -210,7 +210,7 @@ const translations = {
     "location.dehors": "The outdoor area",
     "location.gardenTables": "Garden tables",
     "events.kicker": "03 Events",
-    "events.title": "Private<br><em>events.</em>",
+    "events.title": "Private <em>events.</em>",
     "events.copy": "Weddings, baptisms, communions, confirmations and private parties find a reserved setting, curated menus and the warmth of La Beccaccia's cuisine.",
     "events.note": "Tell us the occasion, period and guest count: we will get back to you with a tailored proposal.",
     "events.cta": "REQUEST INFORMATION",
@@ -744,10 +744,7 @@ const cardModal = document.querySelector("[data-card-modal]");
 const cardDialog = cardModal?.querySelector(".card-dialog");
 const cardBody = cardModal?.querySelector(".card-body");
 const cardContent = cardModal?.querySelector("[data-card-content]");
-const cardKicker = cardModal?.querySelector("[data-card-kicker]");
 const cardTitle = cardModal?.querySelector("[data-card-title]");
-const cardDescription = cardModal?.querySelector("[data-card-description]");
-const catalogNote = cardModal?.querySelector(".catalog-note");
 let activeCardType = "food";
 let cardCloseTimer;
 
@@ -800,37 +797,8 @@ const renderCatalogMeta = (item) => {
 };
 
 const renderCatalog = () => {
-  if (!cardContent || !cardKicker || !cardTitle || !cardDescription) return;
-  const catalog = menuCatalogs[activeCardType];
-  const intro = catalog.intro[currentMenuLanguage];
-  const sections = getOrderedCatalogSections(activeCardType, catalog.sections);
-  cardKicker.textContent = intro.kicker;
-  cardTitle.innerHTML = intro.title;
-  cardDescription.textContent = intro.description;
-  if (catalogNote) catalogNote.textContent = translations[currentMenuLanguage][activeCardType === "food" ? "card.note" : "card.wineNote"];
-  cardContent.innerHTML = sections.map((section) => `
-    <section class="catalog-section">
-      <div class="catalog-section-heading">
-        <h3>${section[currentMenuLanguage]}<small>${section[currentMenuLanguage === "it" ? "en" : "it"]}</small></h3>
-        ${section.note?.[currentMenuLanguage] ? `<p class="catalog-section-note">${section.note[currentMenuLanguage]}</p>` : ""}
-      </div>
-      <div class="catalog-items">
-        ${section.items.map((item) => {
-          const description = getLocalizedDescription(item);
-          return `
-          <article class="catalog-item">
-            <div>
-              <h4>${item[currentMenuLanguage] || item.it}</h4>
-              ${description ? `<p>${description}</p>` : ""}
-              ${renderCatalogMeta(item)}
-            </div>
-            ${item.price ? `<span>${item.price}</span>` : ""}
-          </article>
-        `;
-        }).join("")}
-      </div>
-    </section>
-  `).join("");
+  if (!cardContent || !cardTitle) return;
+  cardTitle.innerHTML = currentMenuLanguage === "en" ? "Our <em>menu.</em>" : "Il nostro <em>menù.</em>";
 };
 
 const applyLanguage = (language) => {
@@ -1327,7 +1295,7 @@ startHeroCarousel();
 
 const updateHeroMotion = () => {
   heroMotionFrame = null;
-  if (!hero || !heroTitle || reduceMotion) return;
+  if (!hero || !heroTitle || reduceMotion || window.matchMedia("(max-width: 760px)").matches) return;
   const progress = Math.min(1, Math.max(0, window.scrollY / hero.offsetHeight));
 
   if (progress < 0.002) {

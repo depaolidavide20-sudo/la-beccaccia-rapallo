@@ -6719,3 +6719,172 @@ body {
     font-size: clamp(2.85rem, 13vw, 4.15rem);
   }
 }
+
+/* Refined mobile presentation and embedded menu */
+.menu-pdf-shell {
+  width: min(100%, 74rem);
+  margin: 2.25rem auto 0;
+  padding: clamp(0.5rem, 1vw, 0.8rem);
+  border: 1px solid rgba(10, 18, 15, 0.2);
+  background: rgba(255, 255, 255, 0.42);
+  box-shadow: 0 1.25rem 3.5rem rgba(10, 18, 15, 0.1);
+}
+
+.menu-pdf-frame {
+  display: block;
+  width: 100%;
+  height: min(72vh, 58rem);
+  border: 0;
+  background: #fff;
+}
+
+.menu-pdf-actions {
+  display: flex;
+  padding: 0.8rem 0.35rem 0.2rem;
+  justify-content: center;
+}
+
+.menu-pdf-actions a {
+  min-height: 2.75rem;
+  padding: 0 1.25rem;
+  border: 1px solid rgba(10, 18, 15, 0.38);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+}
+
+.tripadvisor-icon {
+  width: 2rem;
+  height: 1.25rem;
+}
+
+.tripadvisor-icon .tripadvisor-owl,
+.tripadvisor-icon .tripadvisor-pupil {
+  fill: #111;
+}
+
+.tripadvisor-icon .tripadvisor-ring-left {
+  fill: #00aa6c;
+}
+
+.tripadvisor-icon .tripadvisor-ring-right {
+  fill: #ff5d5d;
+}
+
+.tripadvisor-icon .tripadvisor-eye-white {
+  fill: #fff;
+}
+
+.tripadvisor-icon .tripadvisor-beak {
+  fill: #f2b203;
+}
+
+@media (max-width: 760px) {
+  .hero,
+  .hero-carousel,
+  .hero-slide,
+  .hero-slide picture,
+  .hero-slide-image {
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .hero-slide-image {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+  }
+
+  .hero-title-wrap {
+    opacity: 1 !important;
+  }
+
+  .hero-open-year,
+  .hero-manifesto {
+    color: rgba(255, 255, 255, 0.98);
+    opacity: 1;
+    text-shadow: 0 0.14rem 0.9rem rgba(0, 0, 0, 0.95), 0 1px 2px rgba(0, 0, 0, 0.7);
+  }
+
+  .events-copy {
+    text-align: center;
+  }
+
+  .events-copy .section-kicker {
+    justify-content: center;
+  }
+
+  .events-copy h2 {
+    width: 100%;
+    font-size: clamp(2.35rem, 10.6vw, 3.25rem);
+    letter-spacing: -0.04em;
+    white-space: nowrap;
+  }
+
+  .events-copy h2 em {
+    display: inline;
+  }
+
+  .events-copy > p:last-child {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: left;
+  }
+
+  .review-card {
+    min-height: 27rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .review-card blockquote {
+    min-height: 13rem;
+  }
+
+  .tripadvisor-icon {
+    width: 1.95rem;
+    height: 1.22rem;
+  }
+
+  .card-header {
+    min-height: 12.25rem;
+  }
+
+  .card-brand-mark {
+    width: 11.25rem;
+    height: 11.25rem;
+  }
+
+  .card-body {
+    padding-top: 2rem;
+  }
+
+  .card-intro {
+    text-align: center;
+  }
+
+  .card-intro h2 {
+    margin-bottom: 0;
+    font-size: clamp(2.65rem, 12vw, 3.55rem);
+  }
+
+  .menu-pdf-shell {
+    margin-top: 1.5rem;
+    padding: 0.35rem;
+  }
+
+  .menu-pdf-frame {
+    height: 68svh;
+    min-height: 31rem;
+  }
+
+  .menu-pdf-actions {
+    padding-top: 0.65rem;
+  }
+}
