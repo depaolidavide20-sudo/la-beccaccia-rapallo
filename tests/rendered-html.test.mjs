@@ -102,13 +102,13 @@ test("static HTML contains the La Beccaccia website with online booking and even
   assert.doesNotMatch(html, /assets\/(food|story|la-taverna|brand-la-taverna)[^"']*/i);
   assert.doesNotMatch(html, /class="hero-image image-placeholder"/);
   const foodTrack = html.match(/<div class="food-track"[\s\S]*?<\/div>\n\n      <div class="carousel-footer">/)?.[0] ?? "";
-  assert.match(foodTrack, /restaurant-01\.jpg[\s\S]*restaurant-02\.jpg[\s\S]*restaurant-03\.jpg[\s\S]*restaurant-04\.jpg[\s\S]*restaurant-05\.jpg[\s\S]*restaurant-06\.jpg[\s\S]*restaurant-07\.jpg[\s\S]*restaurant-08\.jpg/);
+  assert.match(foodTrack, /restaurant-new-01\.jpg[\s\S]*restaurant-new-02\.jpg[\s\S]*restaurant-new-05\.jpg[\s\S]*restaurant-new-06\.jpg[\s\S]*restaurant-new-03\.jpg[\s\S]*restaurant-02\.jpg[\s\S]*restaurant-01\.jpg[\s\S]*restaurant-03\.jpg[\s\S]*restaurant-new-04\.jpg[\s\S]*restaurant-04\.jpg[\s\S]*restaurant-05\.jpg[\s\S]*restaurant-06\.jpg[\s\S]*restaurant-07\.jpg[\s\S]*restaurant-08\.jpg[\s\S]*restaurant-new-07\.jpg/);
   assert.doesNotMatch(foodTrack, /photo-placeholder\.svg|<figcaption|data-i18n="food\./);
-  assert.match(html, /data-food-current>01<\/span> \/ 08/);
+  assert.match(html, /data-food-current>01<\/span> \/ 15/);
   const locationTrack = html.match(/<div class="location-track"[\s\S]*?<\/div>\n\n      <div class="carousel-footer carousel-footer-dark">/)?.[0] ?? "";
-  assert.match(locationTrack, /location-hq-01\.jpg[\s\S]*location-hq-02\.jpg[\s\S]*location-hq-03\.jpg[\s\S]*location-hq-04\.jpg[\s\S]*location-hq-05\.jpg[\s\S]*location-hq-06\.jpg[\s\S]*location-hq-07\.jpg[\s\S]*location-hq-08\.jpg/);
+  assert.match(locationTrack, /location-new-01\.jpg[\s\S]*location-new-02\.jpg[\s\S]*location-new-03\.jpg[\s\S]*location-new-04\.jpg[\s\S]*location-new-05\.jpg[\s\S]*location-new-06\.jpg/);
   assert.doesNotMatch(locationTrack, /photo-placeholder\.svg|class="image-placeholder"/);
-  assert.match(html, /data-location-current>01<\/span> \/ 08/);
+  assert.match(html, /data-location-current>01<\/span> \/ 06/);
   assert.match(html, /tripadvisor\.it\/Restaurant_Review-g187826-d1865956-Reviews-La_Beccaccia_Brace_E_Cucina-Rapallo_Italian_Riviera_Liguria\.html/);
   assert.match(html, /tripadvisor\.it\/UserReviewEdit-g187826-d1865956-La_Beccaccia_Brace_E_Cucina-Rapallo_Italian_Riviera_Liguria\.html/);
   assert.equal([...html.matchAll(/class="tripadvisor-icon"/g)].length, 2);
@@ -144,8 +144,7 @@ test("styles and script keep the cloned visual system with red accents", async (
   assert.match(css, /\.reviews-section \.review-cta:hover,[\s\S]*background:\s*transparent[\s\S]*color:\s*var\(--brand-red\)/);
   assert.match(css, /\.events-section \{[\s\S]*#10110f[\s\S]*\.events-cta/);
   assert.match(css, /\.events-cta \.whatsapp-cta-icon \{[\s\S]*width:\s*1\.18rem/);
-  assert.match(css, /\.tripadvisor-icon \{[\s\S]*width:\s*1\.82rem[\s\S]*height:\s*1\.06rem/);
-  assert.match(css, /\.tripadvisor-icon \.tripadvisor-eye \{[\s\S]*fill:\s*#00aa6c/);
+  assert.match(css, /Absolute final carousel branding and compact footer pass[\s\S]*\.tripadvisor-icon \{[\s\S]*width:\s*1\.9rem[\s\S]*mask:\s*url\("assets\/brand\/tripadvisor-owl\.png"\)/);
   assert.match(css, /\.mobile-sticky-nav \{[\s\S]*display:\s*none[\s\S]*@media \(max-width: 760px\)[\s\S]*\.mobile-sticky-nav \{[\s\S]*border:\s*1px solid rgba\(255, 253, 248, 0\.48\)[\s\S]*grid-template-columns:\s*repeat\(3, minmax\(0, 1fr\)\)[\s\S]*border-radius:\s*0\.38rem/);
   assert.match(css, /\.cookie-banner \{[\s\S]*bottom:\s*calc\(4\.45rem \+ env\(safe-area-inset-bottom\)\)/);
   assert.match(css, /Final hero clarity, desktop frames, booking form and compact mobile reviews[\s\S]*\.site-header::after \{[\s\S]*opacity:\s*0 !important[\s\S]*background:\s*transparent !important/);

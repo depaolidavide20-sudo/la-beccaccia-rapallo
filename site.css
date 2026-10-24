@@ -26,6 +26,30 @@
   --section-y: clamp(6rem, 10vw, 10rem);
 }
 
+/* Final refinements: classic Tripadvisor mark and compact footer. */
+.tripadvisor-icon {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 1.9rem;
+  height: 1.45rem;
+  background: var(--brand-red, #a51d22);
+  -webkit-mask: url("assets/brand/tripadvisor-owl.png") center / contain no-repeat;
+  mask: url("assets/brand/tripadvisor-owl.png") center / contain no-repeat;
+}
+
+.site-footer { padding-top: clamp(1.6rem, 3vw, 2.5rem); }
+.site-footer .footer-main {
+  min-height: 0;
+  padding-top: 0;
+  padding-bottom: clamp(1.25rem, 2.5vw, 2rem);
+  justify-content: center;
+}
+.site-footer .footer-bottom {
+  padding-top: clamp(1rem, 2vw, 1.5rem);
+  padding-bottom: 0.8rem;
+}
+.site-footer .footer-legal-links { padding-bottom: 1.1rem; }
+
 /* La Beccaccia wordmark and temporary black photo spaces */
 .brand-wordmark {
   display: inline-flex;
@@ -6923,3 +6947,27 @@ body {
     padding-top: 0.65rem;
   }
 }
+
+/* Absolute final carousel branding and compact footer pass. */
+.tripadvisor-icon {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 1.9rem;
+  height: 1.45rem;
+  background: var(--brand-red);
+  -webkit-mask: url("assets/brand/tripadvisor-owl.png") center / contain no-repeat;
+  mask: url("assets/brand/tripadvisor-owl.png") center / contain no-repeat;
+}
+
+.site-footer { padding-top: clamp(1.6rem, 3vw, 2.5rem); }
+.site-footer .footer-main {
+  min-height: 0;
+  padding-top: 0;
+  padding-bottom: clamp(1.25rem, 2.5vw, 2rem);
+  justify-content: center;
+}
+.site-footer .footer-bottom {
+  padding-top: clamp(1rem, 2vw, 1.5rem);
+  padding-bottom: 0.8rem;
+}
+.site-footer .footer-legal-links { padding-bottom: 1.1rem; }
