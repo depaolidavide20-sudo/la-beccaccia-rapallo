@@ -102,7 +102,7 @@ test("static HTML contains the La Beccaccia website with online booking and even
   assert.doesNotMatch(html, /assets\/(food|story|la-taverna|brand-la-taverna)[^"']*/i);
   assert.doesNotMatch(html, /class="hero-image image-placeholder"/);
   const foodTrack = html.match(/<div class="food-track"[\s\S]*?<\/div>\n\n      <div class="carousel-footer">/)?.[0] ?? "";
-  assert.match(foodTrack, /restaurant-new-01\.jpg[\s\S]*restaurant-new-02\.jpg[\s\S]*restaurant-new-05\.jpg[\s\S]*restaurant-new-06\.jpg[\s\S]*restaurant-new-03\.jpg[\s\S]*restaurant-02\.jpg[\s\S]*restaurant-01\.jpg[\s\S]*restaurant-03\.jpg[\s\S]*restaurant-new-04\.jpg[\s\S]*restaurant-04\.jpg[\s\S]*restaurant-05\.jpg[\s\S]*restaurant-06\.jpg[\s\S]*restaurant-07\.jpg[\s\S]*restaurant-08\.jpg[\s\S]*restaurant-new-07\.jpg/);
+  assert.match(foodTrack, /restaurant-01\.jpg[\s\S]*restaurant-02\.jpg[\s\S]*restaurant-03\.jpg[\s\S]*restaurant-04\.jpg[\s\S]*restaurant-05\.jpg[\s\S]*restaurant-06\.jpg[\s\S]*restaurant-new-01\.jpg[\s\S]*restaurant-new-02\.jpg[\s\S]*restaurant-new-03\.jpg[\s\S]*restaurant-new-04\.jpg[\s\S]*restaurant-new-05\.jpg[\s\S]*restaurant-new-06\.jpg[\s\S]*restaurant-new-07\.jpg[\s\S]*restaurant-07\.jpg[\s\S]*restaurant-08\.jpg/);
   assert.doesNotMatch(foodTrack, /photo-placeholder\.svg|<figcaption|data-i18n="food\./);
   assert.match(html, /data-food-current>01<\/span> \/ 15/);
   const locationTrack = html.match(/<div class="location-track"[\s\S]*?<\/div>\n\n      <div class="carousel-footer carousel-footer-dark">/)?.[0] ?? "";
