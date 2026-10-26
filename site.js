@@ -62,7 +62,7 @@ const translations = {
     "cta.call": "Chiama ora",
     "cta.whatsappInfo": "WhatsApp info",
     "cta.whatsappBooking": "WhatsApp tavolo",
-    "sticky.menu": "MENU",
+    "sticky.menu": "MENU'",
     "sticky.book": "PRENOTA",
     "sticky.directions": "INDICAZIONI",
     "card.food": "Menù",

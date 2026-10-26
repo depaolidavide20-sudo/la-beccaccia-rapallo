@@ -50,6 +50,23 @@
 }
 .site-footer .footer-legal-links { padding-bottom: 1.1rem; }
 
+/* Preserve complete dishes and portrait framing in the image carousels. */
+.food-card img.restaurant-photo-contain {
+  object-fit: contain;
+  background: #f1eee7;
+}
+
+.location-card {
+  flex-basis: min(82vw, 28rem);
+}
+
+.location-card img,
+.location-placeholder {
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
 /* La Beccaccia wordmark and temporary black photo spaces */
 .brand-wordmark {
   display: inline-flex;
