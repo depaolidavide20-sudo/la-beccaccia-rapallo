@@ -50,6 +50,23 @@
 }
 .site-footer .footer-legal-links { padding-bottom: 1.1rem; }
 
+/* Final hero typography contrast. */
+.hero h1 {
+  color: #fff;
+  font-weight: 700;
+  opacity: 1;
+  text-shadow: 0 0.12rem 0.45rem rgba(0, 0, 0, 0.88), 0 0.45rem 1.8rem rgba(0, 0, 0, 0.72);
+}
+
+.hero-open-year,
+.hero-manifesto,
+.hero-manifesto .hero-specialties {
+  color: #fff;
+  font-weight: 600;
+  opacity: 1;
+  text-shadow: 0 0.12rem 0.55rem rgba(0, 0, 0, 0.98), 0 0.35rem 1.25rem rgba(0, 0, 0, 0.82);
+}
+
 /* Preserve complete dishes and portrait framing in the image carousels. */
 .food-card img.restaurant-photo-contain {
   object-fit: contain;
