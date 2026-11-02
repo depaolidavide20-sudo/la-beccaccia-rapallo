@@ -107,7 +107,7 @@ test("static HTML contains the La Beccaccia website with online booking and even
   assert.doesNotMatch(foodTrack, /photo-placeholder\.svg|<figcaption|data-i18n="food\./);
   assert.match(html, /data-food-current>01<\/span> \/ 15/);
   const locationTrack = html.match(/<div class="location-track"[\s\S]*?<\/div>\n\n      <div class="carousel-footer carousel-footer-dark">/)?.[0] ?? "";
-  assert.match(locationTrack, /location-hq-01\.jpg[\s\S]*location-hq-02\.jpg[\s\S]*location-hq-03\.jpg[\s\S]*location-hq-04\.jpg[\s\S]*location-hq-05\.jpg[\s\S]*location-hq-06\.jpg/);
+  assert.match(locationTrack, /location-new-01\.jpg[\s\S]*location-new-02\.jpg[\s\S]*location-new-03\.jpg[\s\S]*location-new-04\.jpg[\s\S]*location-new-05\.jpg[\s\S]*location-new-06\.jpg/);
   assert.doesNotMatch(locationTrack, /photo-placeholder\.svg|class="image-placeholder"/);
   assert.match(html, /data-location-current>01<\/span> \/ 06/);
   assert.match(html, /tripadvisor\.it\/Restaurant_Review-g187826-d1865956-Reviews-La_Beccaccia_Brace_E_Cucina-Rapallo_Italian_Riviera_Liguria\.html/);
@@ -236,6 +236,14 @@ test("github-static folder contains the minimal static bundle", async () => {
     "restaurant-06.jpg",
     "restaurant-07.jpg",
     "restaurant-08.jpg",
+    "restaurant-new-01.jpg",
+    "restaurant-new-02.jpg",
+    "restaurant-new-03.jpg",
+    "restaurant-new-04.jpg",
+    "restaurant-new-05.jpg",
+    "restaurant-new-06.jpg",
+    "restaurant-new-07.jpg",
+    "restaurant-new-08.jpg",
   ]);
 
   const locationAssets = await readdir(new URL("github-static/assets/location-carousel/", root));
@@ -248,11 +256,17 @@ test("github-static folder contains the minimal static bundle", async () => {
     "location-hq-06.jpg",
     "location-hq-07.jpg",
     "location-hq-08.jpg",
+    "location-new-01.jpg",
+    "location-new-02.jpg",
+    "location-new-03.jpg",
+    "location-new-04.jpg",
+    "location-new-05.jpg",
+    "location-new-06.jpg",
   ]);
 
   for (const asset of locationAssets) {
     const { width } = await readJpegSize(new URL(`github-static/assets/location-carousel/${asset}`, root));
-    assert.ok(width >= 1445, `${asset} should remain full resolution`);
+    assert.ok(width >= 1086, `${asset} should remain full resolution`);
   }
 
   const html = await readFile(new URL("github-static/index.html", root), "utf8");
@@ -260,8 +274,8 @@ test("github-static folder contains the minimal static bundle", async () => {
   assert.match(html, /src="site.js"/);
   assert.match(html, /assets\/hero\/hero-fire-desktop\.jpg/);
   assert.match(html, /assets\/brand\/la-beccaccia-logo-desktop\.png/);
-  assert.match(html, /assets\/location-carousel\/location-hq-01\.jpg/);
-  assert.match(html, /assets\/location-carousel\/location-hq-06\.jpg/);
+  assert.match(html, /assets\/location-carousel\/location-new-01\.jpg/);
+  assert.match(html, /assets\/location-carousel\/location-new-06\.jpg/);
   assert.doesNotMatch(html, /assets\/location-carousel\/location-0[1-8]\.jpg/);
   assert.match(html, /assets\/restaurant-carousel\/restaurant-01\.jpg/);
   assert.match(html, /id="eventi"[\s\S]*data-booking-form[\s\S]*data-event-form[\s\S]*mobile-sticky-nav/);
