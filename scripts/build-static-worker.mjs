@@ -53,5 +53,6 @@ await rm("dist", { recursive: true, force: true });
 await mkdir("dist/server", { recursive: true });
 await mkdir("dist/client", { recursive: true });
 await cp("assets", "dist/client/assets", { recursive: true });
+await cp("menu-en", "dist/client/menu-en", { recursive: true });
 await writeFile("dist/server/index.js", worker);
 await writeFile("dist/server/wrangler.json", `${JSON.stringify(wrangler)}\n`);
