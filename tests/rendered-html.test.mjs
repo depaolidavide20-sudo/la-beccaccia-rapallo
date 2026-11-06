@@ -41,7 +41,7 @@ test("static HTML contains the La Beccaccia website with online booking and even
   assert.match(html, /\+39 328 657 7160/);
   assert.match(html, /info@ristorantelabeccacciarapallo\.it/);
   assert.match(html, /P\.IVA 02650230994/);
-  assert.match(html, /id="top"[\s\S]*id="ristorante"[\s\S]*id="location"[\s\S]*id="eventi"[\s\S]*id="serata-esclusiva"[\s\S]*id="recensioni"[\s\S]*id="contatti"/);
+  assert.match(html, /id="top"[\s\S]*id="ristorante"[\s\S]*id="location"[\s\S]*id="eventi"[\s\S]*id="natale-2026"[\s\S]*id="serata-esclusiva"[\s\S]*id="recensioni"[\s\S]*id="contatti"/);
   assert.doesNotMatch(html, /id="storia"|La nostra storia|data-i18n="story\./);
   assert.doesNotMatch(html, /data-i18n="luggage\.|data-luggage-|La Taverna|Monterosso|Via Molinelli/);
   assert.doesNotMatch(html, /La Taverna|Monterosso|Via Molinelli|SPADARO|01571370111/);
@@ -63,16 +63,18 @@ test("static HTML contains the La Beccaccia website with online booking and even
   assert.match(html, /hero-edge hero-edge-left[\s\S]*Brace · Rapallo · 1970/);
   assert.match(html, /hero-edge hero-edge-right[\s\S]*Cucina ligure · Fuoco vivo/);
   assert.doesNotMatch(html, /class="scroll-cue"|Scorri/);
-  assert.equal([...html.matchAll(/href="https:\/\/ristorantelabeccaccia\.plateform\.app\/"[^>]*data-online-booking/g)].length, 5);
+  assert.equal([...html.matchAll(/href="https:\/\/ristorantelabeccaccia\.plateform\.app\/"[^>]*data-online-booking/g)].length, 6);
   assert.match(html, /data-booking-modal[\s\S]*data-booking-form[\s\S]*name="name"[\s\S]*name="date"[\s\S]*name="time"[\s\S]*name="guests"[\s\S]*Continua su WhatsApp/);
   assert.doesNotMatch(html, /PRENOTA IL TUO TAVOLO|Prenota un tavolo|Prenota ora/);
   assert.equal([...html.matchAll(/href="https:\/\/wa\.me\/393286577160/g)].length, 2);
   assert.match(html, /class="events-section section-dark" id="eventi"[\s\S]*Matrimoni, battesimi, comunioni, cresime e feste private[\s\S]*data-event-trigger[\s\S]*whatsapp-cta-icon/);
+  assert.match(html, /class="christmas-section" id="natale-2026"[\s\S]*christmas-menu-2026\.jpg[\s\S]*25 dicembre 2026[\s\S]*90 € a persona/);
   assert.match(html, /class="exclusive-section" id="serata-esclusiva"[\s\S]*Un tavolo\.[\s\S]*Due persone\.[\s\S]*data-event-trigger/);
   assert.equal([...html.matchAll(/class="exclusive-marquee /g)].length, 2);
   assert.equal([...html.matchAll(/class="exclusive-heart /g)].length, 10);
   assert.equal([...html.matchAll(/class="exclusive-marquee-group"/g)].length, 4);
-  assert.match(html, /data-event-form[\s\S]*name="name"[\s\S]*name="contact"[\s\S]*select name="eventType"[\s\S]*name="eventDate"[\s\S]*name="guests"[\s\S]*name="message"/);
+  assert.match(html, /data-event-form[\s\S]*name="name"[\s\S]*name="phone"[\s\S]*name="eventDate"[\s\S]*name="guests"[\s\S]*name="message"/);
+  assert.doesNotMatch(html, /name="eventType"|Telefono o email/);
   assert.match(html, /hero-fire-desktop\.jpg[\s\S]*hero-grill-meat-desktop\.jpg[\s\S]*hero-pasta-desktop\.jpg[\s\S]*hero-gourmet-desktop\.jpg/);
   assert.match(html, /hero-fire-mobile\.jpg[\s\S]*hero-grill-meat-mobile\.jpg[\s\S]*hero-pasta-mobile\.jpg[\s\S]*hero-gourmet-mobile\.jpg/);
   assert.doesNotMatch(html, /hero-served-steak-(desktop|mobile)\.jpg/);
@@ -194,7 +196,9 @@ test("styles and script keep the cloned visual system with red accents", async (
   assert.match(script, /document\.querySelectorAll\("\[data-booking-trigger\]"\)[\s\S]*event\.preventDefault\(\);[\s\S]*openBookingModal\(trigger\);/);
   assert.match(script, /document\.querySelectorAll\("\[data-event-trigger\]"\)[\s\S]*event\.preventDefault\(\);[\s\S]*openEventModal\(trigger\);/);
   assert.match(script, /data\.get\("date"\)[\s\S]*data\.get\("time"\)[\s\S]*data\.get\("guests"\)[\s\S]*Ciao La Beccaccia, vorrei richiedere un tavolo/);
-  assert.match(script, /data\.get\("contact"\)[\s\S]*data\.get\("eventType"\)[\s\S]*data\.get\("eventDate"\)[\s\S]*data\.get\("guests"\)[\s\S]*data\.get\("message"\)/);
+  assert.match(script, /data\.get\("phone"\)[\s\S]*data\.get\("eventDate"\)[\s\S]*data\.get\("guests"\)[\s\S]*data\.get\("message"\)/);
+  assert.match(script, /Ciao La Beccaccia, vorrei prenotare per la serata esclusiva, se ci fosse la disponibilità\./);
+  assert.doesNotMatch(script, /data\.get\("eventType"\)|Telefono o email:/);
   assert.match(script, /openExternalUrl\(`https:\/\/wa\.me\/\$\{whatsappNumber\}\?text=\$\{encodeURIComponent\(message\)\}`\)/);
   assert.doesNotMatch(script, /requestExternalUrl\(`https:\/\/wa\.me/);
   assert.match(script, /laBeccacciaExternalServicesConsent/);
@@ -222,7 +226,7 @@ test("github-static folder contains the static bundle", async () => {
   assert.deepEqual(entries.map((entry) => entry.name).sort(), ["assets", "index.html", "menu-en", "site.css", "site.js"]);
 
   const assets = await readdir(new URL("github-static/assets/", root), { withFileTypes: true });
-  assert.deepEqual(assets.map((entry) => entry.name).sort(), ["brand", "hero", "location-carousel", "menu", "menu-en", "photo-placeholder.svg", "restaurant-carousel"]);
+  assert.deepEqual(assets.map((entry) => entry.name).sort(), ["brand", "hero", "location-carousel", "menu", "menu-en", "photo-placeholder.svg", "restaurant-carousel", "seasonal"]);
 
   const brandAssets = await readdir(new URL("github-static/assets/brand/", root));
   assert.deepEqual(brandAssets.sort(), [
@@ -300,6 +304,9 @@ test("github-static folder contains the static bundle", async () => {
     assert.ok(width >= 1086, `${asset} should remain full resolution`);
   }
 
+  const seasonalAssets = await readdir(new URL("github-static/assets/seasonal/", root));
+  assert.deepEqual(seasonalAssets, ["christmas-menu-2026.jpg"]);
+
   const html = await readFile(new URL("github-static/index.html", root), "utf8");
   assert.match(html, /href="site.css"/);
   assert.match(html, /src="site.js"/);
@@ -307,6 +314,7 @@ test("github-static folder contains the static bundle", async () => {
   assert.match(html, /assets\/brand\/la-beccaccia-logo-desktop\.png/);
   assert.match(html, /assets\/location-carousel\/location-new-01\.jpg/);
   assert.match(html, /assets\/location-carousel\/location-new-06\.jpg/);
+  assert.match(html, /assets\/seasonal\/christmas-menu-2026\.jpg/);
   assert.doesNotMatch(html, /assets\/location-carousel\/location-0[1-8]\.jpg/);
   assert.match(html, /assets\/restaurant-carousel\/restaurant-01\.jpg/);
   assert.match(html, /assets\/restaurant-carousel\/restaurant-medallion-mustard\.png/);

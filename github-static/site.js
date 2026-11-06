@@ -98,6 +98,15 @@ const translations = {
     "events.copy": "Matrimoni, battesimi, comunioni, cresime e feste private trovano alla Beccaccia una cornice riservata, menu curati e il calore della nostra cucina.",
     "events.note": "Raccontaci occasione, periodo e numero ospiti: ti ricontatteremo con una proposta su misura.",
     "events.cta": "RICHIEDI INFORMAZIONI",
+    "christmas.kicker": "Natale 2026",
+    "christmas.title": "Il pranzo di <em>Natale.</em>",
+    "christmas.copy": "Il 25 dicembre festeggiamo insieme con il nostro menù alla carta e un percorso fisso dedicato alla tradizione.",
+    "christmas.dateLabel": "Quando",
+    "christmas.date": "25 dicembre 2026",
+    "christmas.menuLabel": "Menù fisso",
+    "christmas.price": "90 € a persona",
+    "christmas.note": "Bevande escluse, coperto incluso. Prenotazione obbligatoria.",
+    "christmas.cta": "PRENOTA IL PRANZO DI NATALE",
     "exclusive.kicker": "04 Serata Esclusiva",
     "exclusive.eyebrow": "La veranda, soltanto per voi",
     "exclusive.title": "Un tavolo.<br><em>Due persone.</em>",
@@ -164,17 +173,11 @@ const translations = {
     "form.kicker": "La Beccaccia · Eventi",
     "form.title": "Raccontaci<br><em>il tuo evento.</em>",
     "form.intro": "Invia una prima richiesta: prepariamo un messaggio WhatsApp con i dettagli per ricontattarti.",
+    "form.exclusiveKicker": "La Beccaccia · Serata Esclusiva",
+    "form.exclusiveTitle": "Prenota la tua<br><em>serata esclusiva.</em>",
+    "form.exclusiveIntro": "Inserisci i tuoi dati: prepariamo la richiesta di disponibilità e apriamo WhatsApp.",
     "form.name": "Nome Cognome *",
-    "form.contact": "Telefono o email *",
-    "form.eventType": "Tipologia evento *",
-    "form.eventTypeChoose": "Scegli",
-    "form.eventWedding": "Matrimonio",
-    "form.eventBaptism": "Battesimo",
-    "form.eventCommunion": "Comunione",
-    "form.eventConfirmation": "Cresima",
-    "form.eventPrivate": "Festa privata",
-    "form.eventExclusive": "Serata esclusiva",
-    "form.eventOther": "Altro",
+    "form.phone": "Telefono *",
     "form.eventDate": "Data indicativa",
     "form.guests": "Numero ospiti *",
     "form.message": "Messaggio",
@@ -234,6 +237,15 @@ const translations = {
     "events.copy": "Weddings, baptisms, communions, confirmations and private parties find a reserved setting, curated menus and the warmth of La Beccaccia's cuisine.",
     "events.note": "Tell us the occasion, period and guest count: we will get back to you with a tailored proposal.",
     "events.cta": "REQUEST INFORMATION",
+    "christmas.kicker": "Christmas 2026",
+    "christmas.title": "Christmas <em>lunch.</em>",
+    "christmas.copy": "Join us on 25 December for our à la carte selection and a fixed festive menu inspired by Italian tradition.",
+    "christmas.dateLabel": "When",
+    "christmas.date": "25 December 2026",
+    "christmas.menuLabel": "Fixed menu",
+    "christmas.price": "€90 per person",
+    "christmas.note": "Drinks excluded, cover charge included. Booking required.",
+    "christmas.cta": "BOOK CHRISTMAS LUNCH",
     "exclusive.kicker": "04 Exclusive Evening",
     "exclusive.eyebrow": "The veranda, just for you",
     "exclusive.title": "One table.<br><em>Two guests.</em>",
@@ -300,17 +312,11 @@ const translations = {
     "form.kicker": "La Beccaccia · Events",
     "form.title": "Tell us<br><em>about your event.</em>",
     "form.intro": "Send a first request: we prepare a WhatsApp message with the details so we can contact you.",
+    "form.exclusiveKicker": "La Beccaccia · Exclusive Evening",
+    "form.exclusiveTitle": "Book your<br><em>exclusive evening.</em>",
+    "form.exclusiveIntro": "Enter your details: we prepare the availability request and open WhatsApp.",
     "form.name": "Full name *",
-    "form.contact": "Phone or email *",
-    "form.eventType": "Event type *",
-    "form.eventTypeChoose": "Select",
-    "form.eventWedding": "Wedding",
-    "form.eventBaptism": "Baptism",
-    "form.eventCommunion": "Communion",
-    "form.eventConfirmation": "Confirmation",
-    "form.eventPrivate": "Private party",
-    "form.eventExclusive": "Exclusive evening",
-    "form.eventOther": "Other",
+    "form.phone": "Phone *",
     "form.eventDate": "Indicative date",
     "form.guests": "Guest count *",
     "form.message": "Message",
@@ -986,7 +992,11 @@ const eventModal = document.querySelector("[data-event-modal]");
 const eventDialog = eventModal?.querySelector(".booking-dialog");
 const eventForm = eventModal?.querySelector("[data-event-form]");
 const eventDateInput = eventForm?.querySelector("input[name='eventDate']");
+const eventKicker = eventModal?.querySelector("[data-event-kicker]");
+const eventTitle = eventModal?.querySelector("[data-event-title]");
+const eventIntro = eventModal?.querySelector("[data-event-intro]");
 let closeEventModalTimer;
+let currentEventMode = "event";
 
 if (eventDateInput) eventDateInput.min = new Date().toISOString().split("T")[0];
 
@@ -994,6 +1004,11 @@ const openEventModal = (trigger) => {
   if (!eventModal || !eventDialog) return;
   window.clearTimeout(closeEventModalTimer);
   lastFocusedElement = trigger;
+  currentEventMode = trigger?.dataset.eventMode === "exclusive" ? "exclusive" : "event";
+  const modalCopy = translations[currentLanguage];
+  if (eventKicker) eventKicker.textContent = modalCopy[currentEventMode === "exclusive" ? "form.exclusiveKicker" : "form.kicker"];
+  if (eventTitle) eventTitle.innerHTML = modalCopy[currentEventMode === "exclusive" ? "form.exclusiveTitle" : "form.title"];
+  if (eventIntro) eventIntro.textContent = modalCopy[currentEventMode === "exclusive" ? "form.exclusiveIntro" : "form.intro"];
   setMenu(false, false);
   eventModal.hidden = false;
   eventModal.setAttribute("aria-hidden", "false");
@@ -1251,10 +1266,7 @@ eventForm?.addEventListener("submit", (event) => {
   const data = new FormData(eventForm);
   const isEnglish = currentLanguage === "en";
   const name = String(data.get("name") || "").trim();
-  const contact = String(data.get("contact") || "").trim();
-  const eventTypeValue = String(data.get("eventType") || "").trim();
-  const eventTypeSelect = eventForm.querySelector("select[name='eventType']");
-  const eventType = eventTypeSelect?.selectedOptions?.[0]?.textContent?.trim() || eventTypeValue;
+  const phone = String(data.get("phone") || "").trim();
   const eventDate = String(data.get("eventDate") || "").trim();
   const guests = String(data.get("guests") || "").trim();
   const messageText = String(data.get("message") || "").trim();
@@ -1262,23 +1274,29 @@ eventForm?.addEventListener("submit", (event) => {
     ? new Intl.DateTimeFormat(isEnglish ? "en-GB" : "it-IT", { day: "2-digit", month: "2-digit", year: "numeric" }).format(new Date(`${eventDate}T12:00:00`))
     : "";
 
+  const opening = currentEventMode === "exclusive"
+    ? (isEnglish
+        ? "Hello La Beccaccia, I would like to book the exclusive evening, subject to availability."
+        : "Ciao La Beccaccia, vorrei prenotare per la serata esclusiva, se ci fosse la disponibilità.")
+    : (isEnglish
+        ? "Hello La Beccaccia, I would like information for a private event."
+        : "Ciao La Beccaccia, vorrei ricevere informazioni per un evento privato.");
+
   const message = isEnglish
     ? [
-        "Hello La Beccaccia, I would like information for a private event.",
+        opening,
         "",
         `Name: ${name}`,
-        `Phone or email: ${contact}`,
-        `Event type: ${eventType}`,
+        `Phone: ${phone}`,
         `Indicative date: ${formattedDate || "To be defined"}`,
         `Guests: ${guests}`,
         `Message: ${messageText || "No additional message"}`,
       ].join("\n")
     : [
-        "Ciao La Beccaccia, vorrei ricevere informazioni per un evento privato.",
+        opening,
         "",
         `Nome: ${name}`,
-        `Telefono o email: ${contact}`,
-        `Tipologia evento: ${eventType}`,
+        `Telefono: ${phone}`,
         `Data indicativa: ${formattedDate || "Da definire"}`,
         `Numero ospiti: ${guests}`,
         `Messaggio: ${messageText || "Nessun messaggio aggiuntivo"}`,
