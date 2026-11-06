@@ -115,6 +115,7 @@ test("static HTML contains the La Beccaccia website with online booking and even
   assert.match(html, /data-food-current>01<\/span> \/ 16/);
   const locationTrack = html.match(/<div class="location-track"[\s\S]*?<\/div>\n\n      <div class="carousel-footer carousel-footer-dark">/)?.[0] ?? "";
   assert.match(locationTrack, /location-new-01\.jpg[\s\S]*location-new-02\.jpg[\s\S]*location-new-03\.jpg[\s\S]*location-new-04\.jpg[\s\S]*location-new-05\.jpg[\s\S]*location-new-06\.jpg/);
+  assert.match(locationTrack, /location-desktop-new-01\.png[\s\S]*location-desktop-new-02\.png[\s\S]*location-desktop-new-03\.png[\s\S]*location-desktop-new-04\.png[\s\S]*location-desktop-new-05\.png[\s\S]*location-desktop-new-06\.png/);
   assert.doesNotMatch(locationTrack, /photo-placeholder\.svg|class="image-placeholder"/);
   assert.match(html, /data-location-current>01<\/span> \/ 06/);
   assert.match(html, /tripadvisor\.it\/Restaurant_Review-g187826-d1865956-Reviews-La_Beccaccia_Brace_E_Cucina-Rapallo_Italian_Riviera_Liguria\.html/);
@@ -163,6 +164,9 @@ test("styles and script keep the cloned visual system with red accents", async (
   assert.match(css, /@media \(min-width: 761px\)[\s\S]*\.menu-preview-pages img:nth-child\(n \+ 2\) \{ display:\s*none/);
   assert.match(css, /@media \(max-width: 980px\)[\s\S]*\.contact-list \{ grid-template-columns:\s*minmax\(0, 1fr\) !important/);
   assert.match(css, /@media \(max-width: 760px\)[\s\S]*\.hero-open-year \{ top:\s*calc\(50% \+ 5\.8rem\)/);
+  assert.match(css, /Menu, marquee and large-mobile overrides[\s\S]*\.card-intro \{ display:\s*block; max-width:\s*none/);
+  assert.match(css, /\.exclusive-heading \.section-kicker \{ color:\s*var\(--brand-red\)/);
+  assert.match(css, /\.exclusive-cta,[\s\S]*background:\s*transparent/);
   assert.match(css, /\.mobile-sticky-nav \{[\s\S]*display:\s*none[\s\S]*@media \(max-width: 760px\)[\s\S]*\.mobile-sticky-nav \{[\s\S]*border:\s*1px solid rgba\(255, 253, 248, 0\.48\)[\s\S]*grid-template-columns:\s*repeat\(3, minmax\(0, 1fr\)\)[\s\S]*border-radius:\s*0\.38rem/);
   assert.match(css, /\.cookie-banner \{[\s\S]*bottom:\s*calc\(4\.45rem \+ env\(safe-area-inset-bottom\)\)/);
   assert.match(css, /Final hero clarity, desktop frames, booking form and compact mobile reviews[\s\S]*\.site-header::after \{[\s\S]*opacity:\s*0 !important[\s\S]*background:\s*transparent !important/);
@@ -269,6 +273,12 @@ test("github-static folder contains the static bundle", async () => {
 
   const locationAssets = await readdir(new URL("github-static/assets/location-carousel/", root));
   assert.deepEqual(locationAssets.sort(), [
+    "location-desktop-new-01.png",
+    "location-desktop-new-02.png",
+    "location-desktop-new-03.png",
+    "location-desktop-new-04.png",
+    "location-desktop-new-05.png",
+    "location-desktop-new-06.png",
     "location-hq-01.jpg",
     "location-hq-02.jpg",
     "location-hq-03.jpg",
@@ -285,7 +295,7 @@ test("github-static folder contains the static bundle", async () => {
     "location-new-06.jpg",
   ]);
 
-  for (const asset of locationAssets) {
+  for (const asset of locationAssets.filter((asset) => asset.endsWith(".jpg"))) {
     const { width } = await readJpegSize(new URL(`github-static/assets/location-carousel/${asset}`, root));
     assert.ok(width >= 1086, `${asset} should remain full resolution`);
   }

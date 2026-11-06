@@ -7515,6 +7515,20 @@ body {
 }
 
 /* Menu, marquee and large-mobile overrides. */
+.location-card picture {
+  display: block;
+  width: 100%;
+}
+.card-intro { display: block; max-width: none; }
+.exclusive-heading .section-kicker { color: var(--brand-red); }
+.exclusive-cta,
+.exclusive-cta:hover,
+.exclusive-cta:focus-visible {
+  color: var(--brand-red);
+  border-color: var(--brand-red);
+  background: transparent;
+}
+.exclusive-cta .whatsapp-icon-mark { fill: currentColor; }
 .card-intro,
 .card-intro h2 { width: 100%; text-align: center; }
 .card-intro h2 { margin-right: auto; margin-left: auto; }
@@ -7541,8 +7555,8 @@ body {
 .exclusive-heart-10 { left: 47%; width: 0.75rem; height: 0.75rem; animation-delay: -4s; }
 @keyframes exclusiveHeartFloat {
   0% { opacity: 0; transform: translateY(0) rotate(45deg); }
-  12% { opacity: 0.32; }
-  78% { opacity: 0.24; }
+  12% { opacity: 0.48; }
+  78% { opacity: 0.38; }
   100% { opacity: 0; transform: translateY(-48rem) rotate(65deg); }
 }
 @media (min-width: 761px) {
@@ -7563,6 +7577,16 @@ body {
   .review-card { padding-bottom: 0.6rem; }
   .review-card > p { padding-bottom: 0; }
   .exclusive-frame { background: transparent; }
+  .exclusive-heading,
+  .exclusive-content { text-align: center; }
+  .exclusive-heading .section-kicker { justify-content: center; }
+  .exclusive-content {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .exclusive-content > p { margin-right: auto; margin-left: auto; }
+  .exclusive-details { justify-items: center; }
+  .exclusive-cta { margin-right: auto; margin-left: auto; }
   .exclusive-marquee-group b {
     width: 12rem;
     min-width: 12rem;
