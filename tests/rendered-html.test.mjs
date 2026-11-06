@@ -69,6 +69,8 @@ test("static HTML contains the La Beccaccia website with online booking and even
   assert.equal([...html.matchAll(/href="https:\/\/wa\.me\/393286577160/g)].length, 2);
   assert.match(html, /class="events-section section-dark" id="eventi"[\s\S]*Matrimoni, battesimi, comunioni, cresime e feste private[\s\S]*data-event-trigger[\s\S]*whatsapp-cta-icon/);
   assert.match(html, /class="exclusive-section" id="serata-esclusiva"[\s\S]*Un tavolo\.[\s\S]*Due persone\.[\s\S]*data-event-trigger/);
+  assert.equal([...html.matchAll(/class="exclusive-marquee /g)].length, 2);
+  assert.equal([...html.matchAll(/class="exclusive-heart /g)].length, 5);
   assert.match(html, /data-event-form[\s\S]*name="name"[\s\S]*name="contact"[\s\S]*select name="eventType"[\s\S]*name="eventDate"[\s\S]*name="guests"[\s\S]*name="message"/);
   assert.match(html, /hero-fire-desktop\.jpg[\s\S]*hero-grill-meat-desktop\.jpg[\s\S]*hero-pasta-desktop\.jpg[\s\S]*hero-gourmet-desktop\.jpg/);
   assert.match(html, /hero-fire-mobile\.jpg[\s\S]*hero-grill-meat-mobile\.jpg[\s\S]*hero-pasta-mobile\.jpg[\s\S]*hero-gourmet-mobile\.jpg/);
@@ -151,6 +153,11 @@ test("styles and script keep the cloned visual system with red accents", async (
   assert.match(css, /\.events-cta \.whatsapp-cta-icon \{[\s\S]*width:\s*1\.18rem/);
   assert.match(css, /\.tripadvisor-icon \{[\s\S]*background:\s*url\("assets\/brand\/tripadvisor-user-icon\.png"\)/);
   assert.match(css, /\.exclusive-section \{[\s\S]*background:\s*#090a09/);
+  assert.match(css, /Final exclusive-evening treatment[\s\S]*\.exclusive-section \{[\s\S]*background:\s*#f2f0eb/);
+  assert.match(css, /\.center-cta \.outline-button > span \{[\s\S]*text-align:\s*center/);
+  assert.match(css, /@media \(max-width: 760px\) \{[\s\S]*\.hero-manifesto \{\s*display:\s*none !important/);
+  assert.match(css, /@keyframes exclusiveMarquee/);
+  assert.match(css, /@keyframes exclusiveHeartFloat/);
   assert.match(css, /\.mobile-sticky-nav \{[\s\S]*display:\s*none[\s\S]*@media \(max-width: 760px\)[\s\S]*\.mobile-sticky-nav \{[\s\S]*border:\s*1px solid rgba\(255, 253, 248, 0\.48\)[\s\S]*grid-template-columns:\s*repeat\(3, minmax\(0, 1fr\)\)[\s\S]*border-radius:\s*0\.38rem/);
   assert.match(css, /\.cookie-banner \{[\s\S]*bottom:\s*calc\(4\.45rem \+ env\(safe-area-inset-bottom\)\)/);
   assert.match(css, /Final hero clarity, desktop frames, booking form and compact mobile reviews[\s\S]*\.site-header::after \{[\s\S]*opacity:\s*0 !important[\s\S]*background:\s*transparent !important/);
