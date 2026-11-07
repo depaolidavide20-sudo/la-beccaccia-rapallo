@@ -7615,10 +7615,20 @@ body {
 }
 .christmas-media { min-width: 0; }
 .christmas-media .section-kicker {
-  margin: 0 0 1rem;
+  margin: 0 0 1.25rem;
   color: var(--brand-red);
   justify-content: center;
+  text-align: center;
 }
+.christmas-media h2 {
+  margin: 0 0 clamp(2rem, 4vw, 3.25rem);
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5.5vw, 6rem);
+  font-weight: 400;
+  line-height: 0.92;
+  text-align: center;
+}
+.christmas-media h2 em { color: var(--brand-red); font-weight: 400; }
 .christmas-poster {
   display: block;
   width: min(100%, 36rem);
@@ -7641,14 +7651,6 @@ body {
   height: auto;
 }
 .christmas-copy { width: min(100%, 42rem); margin: 0 auto; text-align: center; }
-.christmas-copy h2 {
-  margin: 0 0 1.5rem;
-  font-family: var(--font-display);
-  font-size: clamp(3rem, 5.5vw, 6rem);
-  font-weight: 400;
-  line-height: 0.92;
-}
-.christmas-copy h2 em { color: var(--brand-red); font-weight: 400; }
 .christmas-copy > p:not(.section-kicker) {
   max-width: 31rem;
   font-size: clamp(1rem, 1.3vw, 1.15rem);
@@ -7675,9 +7677,9 @@ body {
 }
 .christmas-facts strong { font-family: var(--font-display); font-size: 1.35rem; font-weight: 400; }
 .christmas-note { margin-bottom: 1.7rem; color: rgba(16, 17, 15, 0.68); font-size: 0.85rem !important; }
-.christmas-cta { justify-content: center; margin: 0 auto; color: #10110f; border-color: var(--brand-red); background: var(--brand-red); }
+.christmas-cta { justify-content: center; margin: 0 auto; color: #10110f; border-color: #10110f; background: #fff; }
 .christmas-cta:hover,
-.christmas-cta:focus-visible { color: #10110f; border-color: #10110f; background: #fff; }
+.christmas-cta:focus-visible { color: #fff; border-color: #10110f; background: #10110f; }
 
 /* Keep every exclusive-evening accent on the site's single brand red. */
 .exclusive-section { --brand-red-bright: var(--brand-red); }
@@ -7701,7 +7703,7 @@ body {
   .christmas-poster { width: min(100%, 29rem); margin: 0 auto; }
   .christmas-media .section-kicker { justify-content: center; }
   .christmas-copy { margin: 0 auto; text-align: center; }
-  .christmas-copy h2 { font-size: clamp(3rem, 16vw, 4.6rem); }
+  .christmas-media h2 { font-size: clamp(3rem, 16vw, 4.6rem); }
   .christmas-copy > p:not(.section-kicker) { margin-right: auto; margin-left: auto; }
   .christmas-facts { text-align: center; }
   .christmas-cta { justify-content: center; margin: 0 auto; }
