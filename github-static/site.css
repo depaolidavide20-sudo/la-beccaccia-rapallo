@@ -1,4 +1,38 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Italiana&display=swap");
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/fonts/dm-sans-300.ttf") format("truetype");
+}
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/dm-sans-400.ttf") format("truetype");
+}
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/dm-sans-500.ttf") format("truetype");
+}
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/dm-sans-600.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Italiana";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/italiana-400.ttf") format("truetype");
+}
 
 :root {
   --ink: #0a120f;
@@ -7746,17 +7780,21 @@ body {
   .christmas-copy > p:not(.section-kicker) { margin-right: auto; margin-left: auto; }
   .christmas-facts { text-align: center; }
   .christmas-cta { justify-content: center; margin: 0 auto; }
-  .christmas-ornament { width: 3.7rem; opacity: 0.42; }
-  .christmas-ornament-2,
+  .christmas-ornament {
+    width: 4.4rem;
+    opacity: 0.7;
+    filter: drop-shadow(0 0.55rem 0.75rem rgba(16, 17, 15, 0.22));
+  }
   .christmas-ornament-4,
   .christmas-ornament-5,
-  .christmas-ornament-7,
-  .christmas-ornament-8,
+  .christmas-ornament-9,
   .christmas-ornament-10 { display: none; }
-  .christmas-ornament-1 { top: 13%; left: -0.8rem; }
-  .christmas-ornament-3 { top: 43%; left: -2.7rem; width: 7rem; }
-  .christmas-ornament-6 { top: 24%; right: -2.8rem; width: 7rem; }
-  .christmas-ornament-9 { top: 72%; right: -2.7rem; width: 7rem; }
+  .christmas-ornament-1 { top: 12%; left: -0.25rem; }
+  .christmas-ornament-2 { top: 33%; left: -0.7rem; width: 3.9rem; }
+  .christmas-ornament-3 { top: 56%; left: -2.1rem; width: 8rem; }
+  .christmas-ornament-6 { top: 23%; right: -2.1rem; width: 8rem; }
+  .christmas-ornament-7 { top: 61%; right: -0.35rem; }
+  .christmas-ornament-8 { top: 82%; right: -0.65rem; width: 3.9rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

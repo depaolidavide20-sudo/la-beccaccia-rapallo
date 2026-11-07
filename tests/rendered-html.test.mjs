@@ -101,7 +101,7 @@ test("static HTML contains the La Beccaccia website with online booking and even
   assert.doesNotMatch(html, /class="footer-phone"/);
   assert.doesNotMatch(html, /class="footer-socials"/);
   assert.match(html, /class="contact-open-year" data-i18n="contacts\.openYear">Aperti tutto l'anno/);
-  assert.match(html, /data-legal-panel="privacy"[\s\S]*21\/10\/2026[\s\S]*La nuova beccaccia S\.a\.s[\s\S]*Diritti dell'interessato/);
+  assert.match(html, /data-legal-panel="privacy"[\s\S]*07\/11\/2026[\s\S]*La nuova beccaccia S\.a\.s[\s\S]*Diritti dell'interessato/);
   assert.match(html, /data-legal-panel="cookies"[\s\S]*laBeccacciaExternalServicesConsent[\s\S]*Gestione delle preferenze/);
   assert.match(html, /data-legal-panel="notes"[\s\S]*Insegna commerciale:[\s\S]*Via Santa Maria del Campo, 176 - 16035 Rapallo \(GE\)/);
   assert.match(html, /data-hero-indicator="3" aria-label="Cucina gourmet"/);
@@ -136,7 +136,7 @@ test("styles and script keep the cloned visual system with red accents", async (
     readFile(new URL("scripts/build-static-worker.mjs", root), "utf8"),
   ]);
 
-  assert.match(css, /DM\+Sans/);
+  assert.match(css, /assets\/fonts\/dm-sans-400\.ttf/);
   assert.match(css, /Italiana/);
   assert.match(css, /--brand-red:\s*#b32020/);
   assert.match(css, /--brand-red-bright:\s*#e54848/);
@@ -229,7 +229,10 @@ test("github-static folder contains the static bundle", async () => {
   assert.deepEqual(entries.map((entry) => entry.name).sort(), ["assets", "index.html", "menu-en", "site.css", "site.js"]);
 
   const assets = await readdir(new URL("github-static/assets/", root), { withFileTypes: true });
-  assert.deepEqual(assets.map((entry) => entry.name).sort(), ["brand", "hero", "location-carousel", "menu", "menu-en", "photo-placeholder.svg", "restaurant-carousel", "seasonal"]);
+  assert.deepEqual(assets.map((entry) => entry.name).sort(), ["brand", "fonts", "hero", "location-carousel", "menu", "menu-en", "photo-placeholder.svg", "restaurant-carousel", "seasonal"]);
+
+  const fontAssets = await readdir(new URL("github-static/assets/fonts/", root));
+  assert.deepEqual(fontAssets.sort(), ["dm-sans-300.ttf", "dm-sans-400.ttf", "dm-sans-500.ttf", "dm-sans-600.ttf", "italiana-400.ttf"]);
 
   const brandAssets = await readdir(new URL("github-static/assets/brand/", root));
   assert.deepEqual(brandAssets.sort(), [
@@ -324,6 +327,8 @@ test("github-static folder contains the static bundle", async () => {
   assert.match(html, /assets\/restaurant-carousel\/restaurant-01\.jpg/);
   assert.match(html, /assets\/restaurant-carousel\/restaurant-medallion-mustard\.png/);
   assert.match(html, /assets\/menu\/menu-la-beccaccia-en\.pdf/);
+  assert.doesNotMatch(html, /fonts\.googleapis\.com|fonts\.gstatic\.com|Google Fonts:<\/strong> utilizzato/);
+  assert.match(html, /Font locali:<\/strong> i caratteri tipografici sono ospitati sullo stesso dominio/);
   assert.match(html, /id="eventi"[\s\S]*data-booking-form[\s\S]*data-event-form[\s\S]*mobile-sticky-nav/);
   assert.doesNotMatch(html, /favicon\.svg|data-i18n="luggage\./);
 
