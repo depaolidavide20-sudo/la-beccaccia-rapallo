@@ -7599,6 +7599,8 @@ body {
 
 /* Seasonal Christmas feature. */
 .christmas-section {
+  position: relative;
+  overflow: hidden;
   padding: clamp(5rem, 8vw, 8rem) var(--page-x);
   color: #10110f;
   background: #f2f0eb;
@@ -7606,6 +7608,8 @@ body {
   border-bottom: 1px solid rgba(16, 17, 15, 0.14);
 }
 .christmas-inner {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   width: min(100%, 52rem);
@@ -7653,8 +7657,11 @@ body {
 .christmas-copy { width: min(100%, 42rem); margin: 0 auto; text-align: center; }
 .christmas-copy > p:not(.section-kicker) {
   max-width: 31rem;
+  margin-right: auto;
+  margin-left: auto;
   font-size: clamp(1rem, 1.3vw, 1.15rem);
   line-height: 1.7;
+  text-align: center;
 }
 .christmas-facts {
   display: grid;
@@ -7680,6 +7687,54 @@ body {
 .christmas-cta { justify-content: center; margin: 0 auto; color: #10110f; border-color: #10110f; background: #fff; }
 .christmas-cta:hover,
 .christmas-cta:focus-visible { color: #fff; border-color: #10110f; background: #10110f; }
+
+.christmas-foliage {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.christmas-leaf {
+  position: absolute;
+  top: 12%;
+  width: 1.25rem;
+  height: 3.4rem;
+  border: 1px solid rgba(24, 91, 55, 0.42);
+  border-radius: 100% 0 100% 0;
+  background: rgba(24, 91, 55, 0.18);
+  opacity: 0.24;
+  transform: rotate(28deg);
+  animation: christmasLeafFloat 8s ease-in-out infinite alternate;
+}
+.christmas-leaf::after {
+  position: absolute;
+  top: 12%;
+  bottom: 12%;
+  left: 50%;
+  width: 1px;
+  background: rgba(24, 91, 55, 0.45);
+  content: "";
+  transform: rotate(-18deg);
+  transform-origin: bottom;
+}
+.christmas-leaf-1 { top: 9%; left: 4%; animation-delay: -2s; }
+.christmas-leaf-2 { top: 24%; left: 12%; width: 0.9rem; height: 2.6rem; animation-delay: -6s; animation-duration: 10s; }
+.christmas-leaf-3 { top: 42%; left: 20%; animation-delay: -4s; animation-duration: 7s; }
+.christmas-leaf-4 { top: 61%; left: 7%; width: 0.8rem; height: 2.2rem; animation-delay: -7s; }
+.christmas-leaf-5 { top: 78%; left: 16%; animation-delay: -3s; animation-duration: 11s; }
+.christmas-leaf-6 { top: 90%; left: 25%; width: 1rem; height: 2.8rem; animation-delay: -5s; }
+.christmas-leaf-7 { top: 12%; left: 94%; animation-delay: -8s; animation-duration: 9s; }
+.christmas-leaf-8 { top: 29%; left: 84%; width: 0.85rem; height: 2.4rem; animation-delay: -2s; }
+.christmas-leaf-9 { top: 47%; left: 77%; animation-delay: -6s; animation-duration: 10s; }
+.christmas-leaf-10 { top: 65%; left: 91%; width: 1rem; height: 2.9rem; animation-delay: -4s; }
+.christmas-leaf-11 { top: 81%; left: 82%; animation-delay: -7s; animation-duration: 9s; }
+.christmas-leaf-12 { top: 92%; left: 96%; width: 0.8rem; height: 2.2rem; animation-delay: -3s; }
+@keyframes christmasLeafFloat {
+  0% { opacity: 0.16; transform: translate3d(-0.6rem, 0.7rem, 0) rotate(18deg); }
+  50% { opacity: 0.38; transform: translate3d(0.8rem, -0.8rem, 0) rotate(52deg); }
+  100% { opacity: 0.22; transform: translate3d(-0.2rem, -1.7rem, 0) rotate(82deg); }
+}
 
 /* Keep every exclusive-evening accent on the site's single brand red. */
 .exclusive-section { --brand-red-bright: var(--brand-red); }
@@ -7707,6 +7762,16 @@ body {
   .christmas-copy > p:not(.section-kicker) { margin-right: auto; margin-left: auto; }
   .christmas-facts { text-align: center; }
   .christmas-cta { justify-content: center; margin: 0 auto; }
+  .christmas-leaf-2,
+  .christmas-leaf-4,
+  .christmas-leaf-6,
+  .christmas-leaf-8,
+  .christmas-leaf-10,
+  .christmas-leaf-12 { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .christmas-leaf { animation: none; }
 }
 
 @media (max-width: 420px) {
