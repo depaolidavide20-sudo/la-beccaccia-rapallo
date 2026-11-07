@@ -71,7 +71,7 @@ test("static HTML contains the La Beccaccia website with online booking and even
   assert.match(html, /class="christmas-section" id="natale-2026"[\s\S]*christmas-menu-2026-instagram-black\.png[\s\S]*25 dicembre 2026[\s\S]*90 € a persona/);
   assert.match(html, /class="exclusive-section" id="serata-esclusiva"[\s\S]*Un tavolo\.[\s\S]*Due persone\.[\s\S]*data-event-trigger/);
   assert.equal([...html.matchAll(/class="exclusive-marquee /g)].length, 2);
-  assert.equal([...html.matchAll(/class="exclusive-heart /g)].length, 10);
+  assert.equal([...html.matchAll(/class="exclusive-heart /g)].length, 16);
   assert.equal([...html.matchAll(/class="exclusive-marquee-group"/g)].length, 4);
   assert.match(html, /data-event-form[\s\S]*name="name"[\s\S]*name="phone"[\s\S]*name="eventDate"[\s\S]*name="guests"[\s\S]*name="message"/);
   assert.doesNotMatch(html, /name="eventType"|Telefono o email/);

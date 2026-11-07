@@ -7607,14 +7607,22 @@ body {
 }
 .christmas-inner {
   display: grid;
-  grid-template-columns: minmax(18rem, 0.78fr) minmax(22rem, 1fr);
-  width: min(100%, 76rem);
+  grid-template-columns: minmax(0, 1fr);
+  width: min(100%, 52rem);
   margin: 0 auto;
   align-items: center;
-  gap: clamp(3rem, 7vw, 7rem);
+  gap: clamp(2.5rem, 5vw, 4.5rem);
+}
+.christmas-media { min-width: 0; }
+.christmas-media .section-kicker {
+  margin: 0 0 1rem;
+  color: var(--brand-red);
+  justify-content: center;
 }
 .christmas-poster {
   display: block;
+  width: min(100%, 36rem);
+  margin: 0 auto;
   padding: 0.45rem;
   border: 1px solid rgba(16, 17, 15, 0.28);
   background: #090909;
@@ -7632,10 +7640,9 @@ body {
   width: 100%;
   height: auto;
 }
-.christmas-copy { max-width: 35rem; }
-.christmas-copy .section-kicker { color: var(--brand-red); }
+.christmas-copy { width: min(100%, 42rem); margin: 0 auto; text-align: center; }
 .christmas-copy h2 {
-  margin: 1.25rem 0 1.5rem;
+  margin: 0 0 1.5rem;
   font-family: var(--font-display);
   font-size: clamp(3rem, 5.5vw, 6rem);
   font-weight: 400;
@@ -7653,8 +7660,9 @@ body {
   margin: 2rem 0 1.5rem;
   border-top: 1px solid rgba(16, 17, 15, 0.28);
   border-bottom: 1px solid rgba(16, 17, 15, 0.28);
+  text-align: center;
 }
-.christmas-facts span { padding: 1.25rem 1.25rem 1.25rem 0; }
+.christmas-facts span { padding: 1.25rem; }
 .christmas-facts span + span { padding-left: 1.25rem; border-left: 1px solid rgba(16, 17, 15, 0.28); }
 .christmas-facts b,
 .christmas-facts strong { display: block; }
@@ -7667,9 +7675,9 @@ body {
 }
 .christmas-facts strong { font-family: var(--font-display); font-size: 1.35rem; font-weight: 400; }
 .christmas-note { margin-bottom: 1.7rem; color: rgba(16, 17, 15, 0.68); font-size: 0.85rem !important; }
-.christmas-cta { color: #fff; border-color: var(--brand-red); background: var(--brand-red); }
+.christmas-cta { justify-content: center; margin: 0 auto; color: #10110f; border-color: var(--brand-red); background: var(--brand-red); }
 .christmas-cta:hover,
-.christmas-cta:focus-visible { color: var(--brand-red); border-color: #fff; background: #fff; }
+.christmas-cta:focus-visible { color: #10110f; border-color: #10110f; background: #fff; }
 
 /* Keep every exclusive-evening accent on the site's single brand red. */
 .exclusive-section { --brand-red-bright: var(--brand-red); }
@@ -7680,16 +7688,22 @@ body {
 .exclusive-section .exclusive-marquee-group b::after { color: var(--brand-red); }
 .exclusive-section .exclusive-heart { background: var(--brand-red); }
 .exclusive-section .exclusive-marquee { border-color: var(--brand-red); }
+.exclusive-heart-11 { left: 3%; width: 0.62rem; height: 0.62rem; animation-delay: -7s; animation-duration: 10.5s; }
+.exclusive-heart-12 { left: 29%; width: 0.88rem; height: 0.88rem; animation-delay: -2.5s; animation-duration: 13.5s; }
+.exclusive-heart-13 { left: 42%; width: 0.58rem; height: 0.58rem; animation-delay: -10s; animation-duration: 11s; }
+.exclusive-heart-14 { left: 60%; width: 1.1rem; height: 1.1rem; animation-delay: -7.5s; animation-duration: 14s; }
+.exclusive-heart-15 { left: 72%; width: 0.66rem; height: 0.66rem; animation-delay: -12s; animation-duration: 10s; }
+.exclusive-heart-16 { left: 95%; width: 0.82rem; height: 0.82rem; animation-delay: -4.5s; animation-duration: 12.5s; }
 
 @media (max-width: 760px) {
   .christmas-section { padding: 4.5rem var(--page-x); }
   .christmas-inner { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
   .christmas-poster { width: min(100%, 29rem); margin: 0 auto; }
+  .christmas-media .section-kicker { justify-content: center; }
   .christmas-copy { margin: 0 auto; text-align: center; }
-  .christmas-copy .section-kicker { justify-content: center; }
   .christmas-copy h2 { font-size: clamp(3rem, 16vw, 4.6rem); }
   .christmas-copy > p:not(.section-kicker) { margin-right: auto; margin-left: auto; }
-  .christmas-facts { text-align: left; }
+  .christmas-facts { text-align: center; }
   .christmas-cta { justify-content: center; margin: 0 auto; }
 }
 
