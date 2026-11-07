@@ -7688,52 +7688,36 @@ body {
 .christmas-cta:hover,
 .christmas-cta:focus-visible { color: #fff; border-color: #10110f; background: #10110f; }
 
-.christmas-foliage {
+.christmas-ornaments {
   position: absolute;
   z-index: 0;
   inset: 0;
   overflow: hidden;
   pointer-events: none;
 }
-.christmas-leaf {
+.christmas-ornament {
   position: absolute;
-  top: 12%;
-  width: 1.25rem;
-  height: 3.4rem;
-  border: 1px solid rgba(24, 91, 55, 0.42);
-  border-radius: 100% 0 100% 0;
-  background: rgba(24, 91, 55, 0.18);
-  opacity: 0.24;
-  transform: rotate(28deg);
-  animation: christmasLeafFloat 8s ease-in-out infinite alternate;
+  width: clamp(4.5rem, 7vw, 7.5rem);
+  height: auto;
+  opacity: 0.72;
+  filter: drop-shadow(0 0.7rem 1rem rgba(16, 17, 15, 0.16));
+  transform: rotate(var(--ornament-rotation, 0deg));
+  animation: christmasOrnamentFloat var(--ornament-speed, 8s) ease-in-out infinite alternate;
 }
-.christmas-leaf::after {
-  position: absolute;
-  top: 12%;
-  bottom: 12%;
-  left: 50%;
-  width: 1px;
-  background: rgba(24, 91, 55, 0.45);
-  content: "";
-  transform: rotate(-18deg);
-  transform-origin: bottom;
-}
-.christmas-leaf-1 { top: 9%; left: 4%; animation-delay: -2s; }
-.christmas-leaf-2 { top: 24%; left: 12%; width: 0.9rem; height: 2.6rem; animation-delay: -6s; animation-duration: 10s; }
-.christmas-leaf-3 { top: 42%; left: 20%; animation-delay: -4s; animation-duration: 7s; }
-.christmas-leaf-4 { top: 61%; left: 7%; width: 0.8rem; height: 2.2rem; animation-delay: -7s; }
-.christmas-leaf-5 { top: 78%; left: 16%; animation-delay: -3s; animation-duration: 11s; }
-.christmas-leaf-6 { top: 90%; left: 25%; width: 1rem; height: 2.8rem; animation-delay: -5s; }
-.christmas-leaf-7 { top: 12%; left: 94%; animation-delay: -8s; animation-duration: 9s; }
-.christmas-leaf-8 { top: 29%; left: 84%; width: 0.85rem; height: 2.4rem; animation-delay: -2s; }
-.christmas-leaf-9 { top: 47%; left: 77%; animation-delay: -6s; animation-duration: 10s; }
-.christmas-leaf-10 { top: 65%; left: 91%; width: 1rem; height: 2.9rem; animation-delay: -4s; }
-.christmas-leaf-11 { top: 81%; left: 82%; animation-delay: -7s; animation-duration: 9s; }
-.christmas-leaf-12 { top: 92%; left: 96%; width: 0.8rem; height: 2.2rem; animation-delay: -3s; }
-@keyframes christmasLeafFloat {
-  0% { opacity: 0.16; transform: translate3d(-0.6rem, 0.7rem, 0) rotate(18deg); }
-  50% { opacity: 0.38; transform: translate3d(0.8rem, -0.8rem, 0) rotate(52deg); }
-  100% { opacity: 0.22; transform: translate3d(-0.2rem, -1.7rem, 0) rotate(82deg); }
+.christmas-ornament-1 { top: 8%; left: 3%; --ornament-rotation: -12deg; --ornament-speed: 8.5s; animation-delay: -3s; }
+.christmas-ornament-2 { top: 25%; left: 12%; width: clamp(3.7rem, 5.5vw, 5.6rem); --ornament-rotation: 9deg; --ornament-speed: 10s; animation-delay: -7s; }
+.christmas-ornament-3 { top: 41%; left: 2%; width: clamp(7rem, 12vw, 12rem); --ornament-rotation: 8deg; --ornament-speed: 9s; animation-delay: -5s; }
+.christmas-ornament-4 { top: 64%; left: 13%; width: clamp(4rem, 6vw, 6.2rem); --ornament-rotation: 14deg; --ornament-speed: 11s; animation-delay: -8s; }
+.christmas-ornament-5 { top: 84%; left: 4%; width: clamp(4rem, 6vw, 6.4rem); --ornament-rotation: -8deg; --ornament-speed: 9.5s; animation-delay: -4s; }
+.christmas-ornament-6 { top: 10%; right: 2%; width: clamp(7rem, 12vw, 12rem); --ornament-rotation: -9deg; --ornament-speed: 10.5s; animation-delay: -6s; }
+.christmas-ornament-7 { top: 31%; right: 12%; width: clamp(4rem, 6vw, 6.4rem); --ornament-rotation: 12deg; --ornament-speed: 8s; animation-delay: -2s; }
+.christmas-ornament-8 { top: 51%; right: 3%; width: clamp(3.8rem, 5.5vw, 5.8rem); --ornament-rotation: -11deg; --ornament-speed: 11s; animation-delay: -9s; }
+.christmas-ornament-9 { top: 70%; right: 9%; width: clamp(7rem, 12vw, 12rem); --ornament-rotation: 7deg; --ornament-speed: 9s; animation-delay: -5s; }
+.christmas-ornament-10 { top: 88%; right: 2%; width: clamp(4rem, 6vw, 6.4rem); --ornament-rotation: -13deg; --ornament-speed: 10s; animation-delay: -7s; }
+@keyframes christmasOrnamentFloat {
+  0% { transform: translate3d(-0.35rem, 0.55rem, 0) rotate(var(--ornament-rotation, 0deg)); }
+  50% { transform: translate3d(0.45rem, -0.65rem, 0) rotate(var(--ornament-rotation, 0deg)); }
+  100% { transform: translate3d(-0.15rem, -1.2rem, 0) rotate(var(--ornament-rotation, 0deg)); }
 }
 
 /* Keep every exclusive-evening accent on the site's single brand red. */
@@ -7762,16 +7746,21 @@ body {
   .christmas-copy > p:not(.section-kicker) { margin-right: auto; margin-left: auto; }
   .christmas-facts { text-align: center; }
   .christmas-cta { justify-content: center; margin: 0 auto; }
-  .christmas-leaf-2,
-  .christmas-leaf-4,
-  .christmas-leaf-6,
-  .christmas-leaf-8,
-  .christmas-leaf-10,
-  .christmas-leaf-12 { display: none; }
+  .christmas-ornament { width: 3.7rem; opacity: 0.42; }
+  .christmas-ornament-2,
+  .christmas-ornament-4,
+  .christmas-ornament-5,
+  .christmas-ornament-7,
+  .christmas-ornament-8,
+  .christmas-ornament-10 { display: none; }
+  .christmas-ornament-1 { top: 13%; left: -0.8rem; }
+  .christmas-ornament-3 { top: 43%; left: -2.7rem; width: 7rem; }
+  .christmas-ornament-6 { top: 24%; right: -2.8rem; width: 7rem; }
+  .christmas-ornament-9 { top: 72%; right: -2.7rem; width: 7rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .christmas-leaf { animation: none; }
+  .christmas-ornament { animation: none; }
 }
 
 @media (max-width: 420px) {
