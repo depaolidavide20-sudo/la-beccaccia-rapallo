@@ -68,7 +68,7 @@ test("static HTML contains the La Beccaccia website with online booking and even
   assert.doesNotMatch(html, /PRENOTA IL TUO TAVOLO|Prenota un tavolo|Prenota ora/);
   assert.equal([...html.matchAll(/href="https:\/\/wa\.me\/393286577160/g)].length, 2);
   assert.match(html, /class="events-section section-dark" id="eventi"[\s\S]*Matrimoni, battesimi, comunioni, cresime e feste private[\s\S]*data-event-trigger[\s\S]*whatsapp-cta-icon/);
-  assert.match(html, /class="christmas-section" id="natale-2026"[\s\S]*christmas-menu-2026\.jpg[\s\S]*25 dicembre 2026[\s\S]*90 € a persona/);
+  assert.match(html, /class="christmas-section" id="natale-2026"[\s\S]*christmas-menu-2026-instagram-black\.png[\s\S]*25 dicembre 2026[\s\S]*90 € a persona/);
   assert.match(html, /class="exclusive-section" id="serata-esclusiva"[\s\S]*Un tavolo\.[\s\S]*Due persone\.[\s\S]*data-event-trigger/);
   assert.equal([...html.matchAll(/class="exclusive-marquee /g)].length, 2);
   assert.equal([...html.matchAll(/class="exclusive-heart /g)].length, 10);
@@ -305,7 +305,7 @@ test("github-static folder contains the static bundle", async () => {
   }
 
   const seasonalAssets = await readdir(new URL("github-static/assets/seasonal/", root));
-  assert.deepEqual(seasonalAssets, ["christmas-menu-2026.jpg"]);
+  assert.deepEqual(seasonalAssets.sort(), ["christmas-menu-2026-instagram-black.png", "christmas-menu-2026.jpg"]);
 
   const html = await readFile(new URL("github-static/index.html", root), "utf8");
   assert.match(html, /href="site.css"/);
@@ -314,7 +314,7 @@ test("github-static folder contains the static bundle", async () => {
   assert.match(html, /assets\/brand\/la-beccaccia-logo-desktop\.png/);
   assert.match(html, /assets\/location-carousel\/location-new-01\.jpg/);
   assert.match(html, /assets\/location-carousel\/location-new-06\.jpg/);
-  assert.match(html, /assets\/seasonal\/christmas-menu-2026\.jpg/);
+  assert.match(html, /assets\/seasonal\/christmas-menu-2026-instagram-black\.png/);
   assert.doesNotMatch(html, /assets\/location-carousel\/location-0[1-8]\.jpg/);
   assert.match(html, /assets\/restaurant-carousel\/restaurant-01\.jpg/);
   assert.match(html, /assets\/restaurant-carousel\/restaurant-medallion-mustard\.png/);

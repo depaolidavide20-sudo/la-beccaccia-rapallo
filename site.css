@@ -7600,8 +7600,10 @@ body {
 /* Seasonal Christmas feature. */
 .christmas-section {
   padding: clamp(5rem, 8vw, 8rem) var(--page-x);
-  color: #f7f3ec;
-  background: #132018;
+  color: #10110f;
+  background: #f2f0eb;
+  border-top: 1px solid rgba(16, 17, 15, 0.14);
+  border-bottom: 1px solid rgba(16, 17, 15, 0.14);
 }
 .christmas-inner {
   display: grid;
@@ -7613,10 +7615,17 @@ body {
 }
 .christmas-poster {
   display: block;
-  padding: 0.65rem;
-  border: 1px solid rgba(255, 255, 255, 0.42);
-  background: #f7f3ec;
-  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.32);
+  padding: 0.45rem;
+  border: 1px solid rgba(16, 17, 15, 0.28);
+  background: #090909;
+  box-shadow: 0 1.5rem 3.5rem rgba(16, 17, 15, 0.16);
+  transition: border-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+}
+.christmas-poster:hover,
+.christmas-poster:focus-visible {
+  border-color: var(--brand-red);
+  box-shadow: 0 1.75rem 4rem rgba(16, 17, 15, 0.22);
+  transform: translateY(-0.25rem);
 }
 .christmas-poster img {
   display: block;
@@ -7624,7 +7633,7 @@ body {
   height: auto;
 }
 .christmas-copy { max-width: 35rem; }
-.christmas-copy .section-kicker { color: #d7c38d; }
+.christmas-copy .section-kicker { color: var(--brand-red); }
 .christmas-copy h2 {
   margin: 1.25rem 0 1.5rem;
   font-family: var(--font-display);
@@ -7642,22 +7651,22 @@ body {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   margin: 2rem 0 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.35);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  border-top: 1px solid rgba(16, 17, 15, 0.28);
+  border-bottom: 1px solid rgba(16, 17, 15, 0.28);
 }
 .christmas-facts span { padding: 1.25rem 1.25rem 1.25rem 0; }
-.christmas-facts span + span { padding-left: 1.25rem; border-left: 1px solid rgba(255, 255, 255, 0.35); }
+.christmas-facts span + span { padding-left: 1.25rem; border-left: 1px solid rgba(16, 17, 15, 0.28); }
 .christmas-facts b,
 .christmas-facts strong { display: block; }
 .christmas-facts b {
   margin-bottom: 0.4rem;
-  color: #d7c38d;
+  color: var(--brand-red);
   font-size: 0.69rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 .christmas-facts strong { font-family: var(--font-display); font-size: 1.35rem; font-weight: 400; }
-.christmas-note { margin-bottom: 1.7rem; color: rgba(255, 255, 255, 0.72); font-size: 0.85rem !important; }
+.christmas-note { margin-bottom: 1.7rem; color: rgba(16, 17, 15, 0.68); font-size: 0.85rem !important; }
 .christmas-cta { color: #fff; border-color: var(--brand-red); background: var(--brand-red); }
 .christmas-cta:hover,
 .christmas-cta:focus-visible { color: var(--brand-red); border-color: #fff; background: #fff; }
@@ -7687,5 +7696,5 @@ body {
 @media (max-width: 420px) {
   .christmas-facts { grid-template-columns: minmax(0, 1fr); }
   .christmas-facts span { padding: 1rem 0; }
-  .christmas-facts span + span { padding-left: 0; border-top: 1px solid rgba(255, 255, 255, 0.35); border-left: 0; }
+  .christmas-facts span + span { padding-left: 0; border-top: 1px solid rgba(16, 17, 15, 0.28); border-left: 0; }
 }
