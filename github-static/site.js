@@ -24,11 +24,7 @@ if ("scrollRestoration" in window.history) {
 
 const resetInitialHeroScroll = () => {
   const hash = window.location.hash;
-  const isMobileViewport = window.matchMedia?.("(max-width: 760px)")?.matches ?? window.innerWidth <= 760;
-  if (hash && hash !== "#top") {
-    if (!isMobileViewport) return;
-    window.history.replaceState(null, document.title, `${window.location.pathname}${window.location.search}`);
-  }
+  if (hash && hash !== "#top") return;
   window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   document.documentElement.scrollTop = 0;
   document.body.scrollTop = 0;
@@ -983,6 +979,10 @@ document.querySelectorAll("[data-booking-trigger]").forEach((trigger) => {
     openBookingModal(trigger);
   });
 });
+
+if (new URLSearchParams(window.location.search).get("booking") === "1") {
+  window.setTimeout(() => openBookingModal(null), 120);
+}
 
 bookingModal?.querySelectorAll("[data-booking-close]").forEach((button) => {
   button.addEventListener("click", closeBookingModal);

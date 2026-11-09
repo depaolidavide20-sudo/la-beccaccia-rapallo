@@ -226,7 +226,16 @@ test("styles and script keep the cloned visual system with red accents", async (
 
 test("github-static folder contains the static bundle", async () => {
   const entries = await readdir(new URL("github-static/", root), { withFileTypes: true });
-  assert.deepEqual(entries.map((entry) => entry.name).sort(), ["assets", "index.html", "menu-en", "site.css", "site.js"]);
+  assert.deepEqual(entries.map((entry) => entry.name).sort(), [
+    "assets",
+    "index.html",
+    "menu-en",
+    "robots.txt",
+    "site.css",
+    "site.js",
+    "sitemap.xml",
+    "vercel.json",
+  ]);
 
   const assets = await readdir(new URL("github-static/assets/", root), { withFileTypes: true });
   assert.deepEqual(assets.map((entry) => entry.name).sort(), ["brand", "fonts", "hero", "location-carousel", "menu", "menu-en", "photo-placeholder.svg", "restaurant-carousel", "seasonal"]);

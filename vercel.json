@@ -1,4 +1,13 @@
 {
+  "redirects": [
+    { "source": "/prenota.php", "destination": "/?booking=1", "permanent": true },
+    { "source": "/location.php", "destination": "/#location", "permanent": true },
+    { "source": "/contatti.php", "destination": "/#contatti", "permanent": true },
+    { "source": "/eventi.php", "destination": "/#eventi", "permanent": true },
+    { "source": "/serata_romantica.php", "destination": "/#serata-esclusiva", "permanent": true },
+    { "source": "/gallery.php", "destination": "/#ristorante", "permanent": true },
+    { "source": "/menu.php", "destination": "/#ristorante", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/",
