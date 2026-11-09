@@ -1,6 +1,6 @@
 {
   "redirects": [
-    { "source": "/prenota.php", "destination": "/?booking=1", "permanent": true },
+    { "source": "/prenota.php", "destination": "https://ristorantelabeccaccia.plateform.app/", "permanent": true },
     { "source": "/location.php", "destination": "/#location", "permanent": true },
     { "source": "/contatti.php", "destination": "/#contatti", "permanent": true },
     { "source": "/eventi.php", "destination": "/#eventi", "permanent": true },
