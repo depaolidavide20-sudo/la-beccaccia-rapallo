@@ -114,15 +114,18 @@ test("static HTML contains the La Beccaccia website with online booking and even
   assert.doesNotMatch(html, /assets\/(food|story|la-taverna|brand-la-taverna)[^"']*/i);
   assert.doesNotMatch(html, /class="hero-image image-placeholder"/);
   const foodTrack = html.match(/<div class="food-track"[\s\S]*?<\/div>\n\n      <div class="carousel-footer">/)?.[0] ?? "";
-  assert.match(foodTrack, /restaurant-01\.jpg[\s\S]*restaurant-02\.jpg[\s\S]*restaurant-03\.jpg[\s\S]*restaurant-medallion-mustard\.png[\s\S]*restaurant-04\.jpg[\s\S]*restaurant-05\.jpg[\s\S]*restaurant-06\.jpg[\s\S]*restaurant-new-01\.jpg[\s\S]*restaurant-new-02\.jpg[\s\S]*restaurant-new-08\.jpg[\s\S]*restaurant-new-03\.jpg[\s\S]*restaurant-new-04\.jpg[\s\S]*restaurant-new-06\.jpg[\s\S]*restaurant-new-07\.jpg[\s\S]*restaurant-07\.jpg[\s\S]*restaurant-08\.jpg/);
+  assert.match(foodTrack, /restaurant-01\.jpg[\s\S]*restaurant-02\.jpg[\s\S]*restaurant-03\.jpg[\s\S]*restaurant-steak-01\.png[\s\S]*restaurant-medallion-mustard\.png[\s\S]*restaurant-04\.jpg[\s\S]*restaurant-05\.jpg[\s\S]*restaurant-06\.jpg[\s\S]*restaurant-new-01\.jpg[\s\S]*restaurant-steak-02\.png[\s\S]*restaurant-new-02\.jpg[\s\S]*restaurant-new-08\.jpg[\s\S]*restaurant-new-03\.jpg[\s\S]*restaurant-new-04\.jpg[\s\S]*restaurant-steak-03\.png[\s\S]*restaurant-new-06\.jpg[\s\S]*restaurant-new-07\.jpg[\s\S]*restaurant-07\.jpg[\s\S]*restaurant-08\.jpg/);
   assert.doesNotMatch(foodTrack, /restaurant-new-05\.jpg/);
   assert.doesNotMatch(foodTrack, /photo-placeholder\.svg|<figcaption|data-i18n="food\./);
-  assert.match(html, /data-food-current>01<\/span> \/ 16/);
+  assert.match(html, /data-food-current>01<\/span> \/ 19/);
   const locationTrack = html.match(/<div class="location-track"[\s\S]*?<\/div>\n\n      <div class="carousel-footer carousel-footer-dark">/)?.[0] ?? "";
   assert.match(locationTrack, /location-new-01\.jpg[\s\S]*location-new-02\.jpg[\s\S]*location-new-03\.jpg[\s\S]*location-new-04\.jpg[\s\S]*location-new-05\.jpg[\s\S]*location-new-06\.jpg/);
   assert.match(locationTrack, /location-desktop-new-01\.png[\s\S]*location-desktop-new-02\.png[\s\S]*location-desktop-new-03\.png[\s\S]*location-desktop-new-04\.png[\s\S]*location-desktop-new-05\.png[\s\S]*location-desktop-new-06\.png/);
+  assert.match(locationTrack, /location-veranda-mobile-01\.png[\s\S]*location-veranda-mobile-02\.png[\s\S]*location-veranda-mobile-03\.png[\s\S]*location-veranda-mobile-04\.png[\s\S]*location-veranda-mobile-05\.png[\s\S]*location-veranda-mobile-06\.png/);
+  assert.match(locationTrack, /location-veranda-desktop-01\.png[\s\S]*location-veranda-desktop-02\.png[\s\S]*location-veranda-desktop-03\.png[\s\S]*location-veranda-desktop-04\.png[\s\S]*location-veranda-desktop-05\.png[\s\S]*location-veranda-desktop-06\.png/);
+  assert.equal([...locationTrack.matchAll(/VERANDA INFERIORE/g)].length, 6);
   assert.doesNotMatch(locationTrack, /photo-placeholder\.svg|class="image-placeholder"/);
-  assert.match(html, /data-location-current>01<\/span> \/ 06/);
+  assert.match(html, /data-location-current>01<\/span> \/ 12/);
   assert.match(html, /tripadvisor\.it\/Restaurant_Review-g187826-d1865956-Reviews-La_Beccaccia_Brace_E_Cucina-Rapallo_Italian_Riviera_Liguria\.html/);
   assert.match(html, /tripadvisor\.it\/UserReviewEdit-g187826-d1865956-La_Beccaccia_Brace_E_Cucina-Rapallo_Italian_Riviera_Liguria\.html/);
   assert.equal([...html.matchAll(/class="tripadvisor-icon"/g)].length, 2);
@@ -288,6 +291,9 @@ test("github-static folder contains the static bundle", async () => {
     "restaurant-new-06.jpg",
     "restaurant-new-07.jpg",
     "restaurant-new-08.jpg",
+    "restaurant-steak-01.png",
+    "restaurant-steak-02.png",
+    "restaurant-steak-03.png",
   ]);
 
   const locationAssets = await readdir(new URL("github-static/assets/location-carousel/", root));
@@ -312,6 +318,18 @@ test("github-static folder contains the static bundle", async () => {
     "location-new-04.jpg",
     "location-new-05.jpg",
     "location-new-06.jpg",
+    "location-veranda-desktop-01.png",
+    "location-veranda-desktop-02.png",
+    "location-veranda-desktop-03.png",
+    "location-veranda-desktop-04.png",
+    "location-veranda-desktop-05.png",
+    "location-veranda-desktop-06.png",
+    "location-veranda-mobile-01.png",
+    "location-veranda-mobile-02.png",
+    "location-veranda-mobile-03.png",
+    "location-veranda-mobile-04.png",
+    "location-veranda-mobile-05.png",
+    "location-veranda-mobile-06.png",
   ]);
 
   for (const asset of locationAssets.filter((asset) => asset.endsWith(".jpg"))) {
