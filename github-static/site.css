@@ -7641,6 +7641,12 @@ body {
   border-top: 1px solid rgba(16, 17, 15, 0.14);
   border-bottom: 1px solid rgba(16, 17, 15, 0.14);
 }
+.seasonal-carousel {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 52rem);
+  margin: 0 auto;
+}
 .christmas-inner {
   position: relative;
   z-index: 1;
@@ -7651,6 +7657,54 @@ body {
   align-items: center;
   gap: clamp(2.5rem, 5vw, 4.5rem);
 }
+.seasonal-slide[hidden] { display: none !important; }
+.seasonal-slide.is-active { animation: seasonalSlideIn 360ms ease both; }
+@keyframes seasonalSlideIn {
+  from { opacity: 0; transform: translateY(0.75rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.seasonal-carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+.seasonal-carousel-controls button {
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  place-items: center;
+  color: #10110f;
+  border: 1px solid rgba(16, 17, 15, 0.42);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+.seasonal-carousel-controls button:hover,
+.seasonal-carousel-controls button:focus-visible {
+  color: #fff;
+  border-color: var(--brand-red);
+  background: var(--brand-red);
+}
+.seasonal-carousel-controls svg {
+  width: 1.1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+}
+.seasonal-carousel-count {
+  min-width: 3.5rem;
+  color: rgba(16, 17, 15, 0.58);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-align: center;
+}
+.seasonal-carousel-count b { color: var(--brand-red); font-weight: 600; }
 .christmas-media { min-width: 0; }
 .christmas-media .section-kicker {
   margin: 0 0 1.25rem;

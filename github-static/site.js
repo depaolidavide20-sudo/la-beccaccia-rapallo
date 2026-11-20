@@ -103,6 +103,12 @@ const translations = {
     "christmas.price": "90 € a persona",
     "christmas.note": "Bevande escluse, coperto incluso. Prenotazione obbligatoria.",
     "christmas.cta": "PRENOTA IL PRANZO DI NATALE",
+    "newyear.kicker": "Capodanno 2026",
+    "newyear.title": "Il gran galà di <em>Capodanno.</em>",
+    "newyear.date": "31 dicembre 2026 · dalle 20:00",
+    "newyear.price": "230 € a persona",
+    "newyear.note": "Champagne Frerejean Frères Grand Reserve ogni due persone, pane, acqua e coperto inclusi. Prenotazione obbligatoria.",
+    "newyear.cta": "PRENOTA CAPODANNO",
     "exclusive.kicker": "04 Serata Esclusiva",
     "exclusive.eyebrow": "La veranda, soltanto per voi",
     "exclusive.title": "Un tavolo.<br><em>Due persone.</em>",
@@ -242,6 +248,12 @@ const translations = {
     "christmas.price": "€90 per person",
     "christmas.note": "Drinks excluded, cover charge included. Booking required.",
     "christmas.cta": "BOOK CHRISTMAS LUNCH",
+    "newyear.kicker": "New Year's Eve 2026",
+    "newyear.title": "New Year's Eve <em>gala.</em>",
+    "newyear.date": "31 December 2026 · from 8:00 pm",
+    "newyear.price": "€230 per person",
+    "newyear.note": "One bottle of Frerejean Frères Grand Reserve Champagne for every two guests; bread, water and cover charge included. Booking required.",
+    "newyear.cta": "BOOK NEW YEAR'S EVE",
     "exclusive.kicker": "04 Exclusive Evening",
     "exclusive.eyebrow": "The veranda, just for you",
     "exclusive.title": "One table.<br><em>Two guests.</em>",
@@ -1344,6 +1356,28 @@ heroIndicators.forEach((indicator) => {
 
 setHeroSlide(0);
 startHeroCarousel();
+
+const seasonalSlides = [...document.querySelectorAll("[data-seasonal-slide]")];
+const seasonalCurrent = document.querySelector("[data-seasonal-current]");
+const seasonalPrevious = document.querySelector("[data-seasonal-prev]");
+const seasonalNext = document.querySelector("[data-seasonal-next]");
+let activeSeasonalSlide = 0;
+
+const setSeasonalSlide = (index) => {
+  if (!seasonalSlides.length) return;
+  activeSeasonalSlide = (index + seasonalSlides.length) % seasonalSlides.length;
+  seasonalSlides.forEach((slide, slideIndex) => {
+    const active = slideIndex === activeSeasonalSlide;
+    slide.hidden = !active;
+    slide.classList.toggle("is-active", active);
+    slide.setAttribute("aria-hidden", String(!active));
+  });
+  if (seasonalCurrent) seasonalCurrent.textContent = String(activeSeasonalSlide + 1).padStart(2, "0");
+};
+
+seasonalPrevious?.addEventListener("click", () => setSeasonalSlide(activeSeasonalSlide - 1));
+seasonalNext?.addEventListener("click", () => setSeasonalSlide(activeSeasonalSlide + 1));
+setSeasonalSlide(0);
 
 const updateHeroMotion = () => {
   heroMotionFrame = null;

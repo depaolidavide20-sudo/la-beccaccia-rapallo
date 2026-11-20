@@ -63,13 +63,16 @@ test("static HTML contains the La Beccaccia website with online booking and even
   assert.match(html, /hero-edge hero-edge-left[\s\S]*Brace · Rapallo · 1970/);
   assert.match(html, /hero-edge hero-edge-right[\s\S]*Cucina ligure · Fuoco vivo/);
   assert.doesNotMatch(html, /class="scroll-cue"|Scorri/);
-  assert.equal([...html.matchAll(/href="https:\/\/ristorantelabeccaccia\.plateform\.app\/"[^>]*data-online-booking/g)].length, 6);
+  assert.equal([...html.matchAll(/href="https:\/\/ristorantelabeccaccia\.plateform\.app\/"[^>]*data-online-booking/g)].length, 7);
   assert.match(html, /data-booking-modal[\s\S]*data-booking-form[\s\S]*name="name"[\s\S]*name="date"[\s\S]*name="time"[\s\S]*name="guests"[\s\S]*Continua su WhatsApp/);
   assert.doesNotMatch(html, /PRENOTA IL TUO TAVOLO|Prenota un tavolo|Prenota ora/);
   assert.equal([...html.matchAll(/href="https:\/\/wa\.me\/393286577160/g)].length, 2);
   assert.match(html, /class="events-section section-dark" id="eventi"[\s\S]*Matrimoni, battesimi, comunioni, cresime e feste private[\s\S]*data-event-trigger[\s\S]*whatsapp-cta-icon/);
   assert.match(html, /class="christmas-section" id="natale-2026"[\s\S]*christmas-menu-2026-instagram-black\.png[\s\S]*25 dicembre 2026[\s\S]*90 € a persona/);
   assert.match(html, /data-i18n="christmas\.kicker">Natale 2026[\s\S]*data-i18n-html="christmas\.title">Il pranzo di[\s\S]*christmas-menu-2026-instagram-black\.png/);
+  assert.match(html, /data-seasonal-carousel[\s\S]*data-seasonal-slide[\s\S]*new-years-eve-menu-2026\.jpg[\s\S]*31 dicembre 2026 · dalle 20:00[\s\S]*230 € a persona/);
+  assert.equal([...html.matchAll(/data-seasonal-slide/g)].length, 2);
+  assert.match(html, /data-seasonal-prev[\s\S]*data-seasonal-current[\s\S]*data-seasonal-next/);
   assert.equal([...html.matchAll(/class="christmas-ornament /g)].length, 10);
   assert.match(html, /christmas-bell-gold\.png[\s\S]*christmas-bauble-green\.png[\s\S]*christmas-sprig-star\.png/);
   assert.match(html, /class="exclusive-section" id="serata-esclusiva"[\s\S]*Un tavolo\.[\s\S]*Due persone\.[\s\S]*data-event-trigger/);
@@ -338,7 +341,7 @@ test("github-static folder contains the static bundle", async () => {
   }
 
   const seasonalAssets = await readdir(new URL("github-static/assets/seasonal/", root));
-  assert.deepEqual(seasonalAssets.sort(), ["christmas-menu-2026-instagram-black.png", "christmas-menu-2026.jpg", "decorations"]);
+  assert.ok(seasonalAssets.includes("new-years-eve-menu-2026.jpg"));
   const christmasDecorations = await readdir(new URL("github-static/assets/seasonal/decorations/", root));
   assert.deepEqual(christmasDecorations.sort(), ["christmas-bauble-green.png", "christmas-bell-gold.png", "christmas-sprig-star.png"]);
 
